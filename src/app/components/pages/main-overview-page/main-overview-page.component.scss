@@ -19,6 +19,11 @@
     }
   }
 
+  .custom-lists {
+    width: calc(100% - 16px * 2);
+    margin: 16px;
+  }
+
   a {
     position: absolute;
     bottom: 16px;

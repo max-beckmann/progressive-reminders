@@ -2,6 +2,7 @@
   font-weight: 700;
 
   app-container {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -11,17 +12,6 @@
   div {
     display: flex;
     justify-content: space-between;
-  }
-
-  .icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-interaction-contrast);
-    color: var(--color-white);
   }
 
   .count {

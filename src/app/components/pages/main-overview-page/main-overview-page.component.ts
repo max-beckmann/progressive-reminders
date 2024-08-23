@@ -3,6 +3,7 @@ import { ContainerComponent } from '../../container/container.component';
 import { RouterLink } from '@angular/router';
 import { ListTileComponent } from '../../list-tile/list-tile.component';
 import { SearchBarComponent } from '../../search-bar/search-bar.component';
+import { ListComponent } from '../../list/list.component';
 
 @Component({
   selector: 'app-main-overview-page',
@@ -11,7 +12,8 @@ import { SearchBarComponent } from '../../search-bar/search-bar.component';
     ContainerComponent,
     RouterLink,
     ListTileComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ListComponent
   ],
   templateUrl: './main-overview-page.component.html',
   styleUrl: './main-overview-page.component.scss'
