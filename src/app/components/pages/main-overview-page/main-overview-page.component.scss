@@ -1,32 +1,42 @@
-div {
-  margin: 16px;
+:host {
+  width: 100%;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-
-  app-container {
-    color: var(--color-font);
-    font-weight: bold;
+  app-search-bar {
+    width: calc(100% - 16px * 2);
+    margin: 16px;
   }
-}
 
-a {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
+  div {
+    margin: 16px;
 
-  color: var(--color-blue);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 
-  span {
-    width: 20px;
-    height: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 8px;
-    border-radius: 50%;
-    background-color: var(--color-blue);
-    color: var(--color-background);
+    app-container {
+      color: var(--color-font);
+      font-weight: bold;
+    }
   }
+
+  a {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+
+    color: var(--color-blue);
+
+    span {
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      border-radius: 50%;
+      background-color: var(--color-blue);
+      color: var(--color-background);
+    }
+  }
+
 }

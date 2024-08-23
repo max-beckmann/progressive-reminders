@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  color: var(--color-interaction-contrast);
+
+  input {
+    background-color: transparent;
+    flex-grow: 1;
+  }
+
+  app-container {
+    background-color: var(--color-interaction);
+  }
+}
