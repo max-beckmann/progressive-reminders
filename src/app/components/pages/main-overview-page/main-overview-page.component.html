@@ -1,11 +1,7 @@
 <div>
-  <app-container>
-    <span class="icon"></span>
-    <span class="title">Heute</span>
-    <span class="count">13</span>
-  </app-container>
-  <app-container>Geplant</app-container>
-  <app-container>Markiert</app-container>
-  <app-container>Erledigt</app-container>
+  <app-list-tile name="Heute" [count]="12"></app-list-tile>
+  <app-list-tile name="Geplant" [count]="74"></app-list-tile>
+  <app-list-tile name="Markiert" [count]="2"></app-list-tile>
+  <app-list-tile name="Erledigt" [count]="0"></app-list-tile>
 </div>
 <a routerLink="/new"><span>+</span>Neue Erinnerung</a>
