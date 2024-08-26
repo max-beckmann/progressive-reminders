@@ -1,9 +1,11 @@
-<app-container>
-  <div>
-    <app-list-icon></app-list-icon>
-    @if (count()) {
-      <span class="count">{{ count() }}</span>
-    }
-  </div>
-  <span class="name">{{ name() }}</span>
-</app-container>
+<a [routerLink]="link()">
+  <app-container>
+    <div>
+      <app-list-icon [type]="icon()"></app-list-icon>
+      @if (count()) {
+        <span class="count">{{ count() }}</span>
+      }
+    </div>
+    <span class="name">{{ name() }}</span>
+  </app-container>
+</a>

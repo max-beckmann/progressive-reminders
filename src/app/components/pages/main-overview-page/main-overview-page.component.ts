@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { ListTileComponent } from '../../list-tile/list-tile.component';
 import { SearchBarComponent } from '../../search-bar/search-bar.component';
 import { ListComponent } from '../../list/list.component';
+import { IconType } from '../../list-icon/list-icon.component';
 
 @Component({
   selector: 'app-main-overview-page',
@@ -20,4 +21,5 @@ import { ListComponent } from '../../list/list.component';
 })
 export class MainOverviewPageComponent {
 
+  protected readonly IconType = IconType;
 }
