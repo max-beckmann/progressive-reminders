@@ -7,11 +7,18 @@
     align-items: center;
     gap: 10px;
 
-    .right {
-      flex-grow: 1;
+    app-list-icon {
+      width: 28px;
     }
 
-    &:not(:last-child) .right {
+    app-inline-list-tile {
+      flex-grow: 1;
+      margin-top: 14px;
+      padding-right: 14px;
+      padding-bottom: 14px;
+    }
+
+    &:not(:last-child) app-inline-list-tile {
       border-bottom: 1px solid var(--color-interaction);
     }
   }
