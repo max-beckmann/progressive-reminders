@@ -1,14 +1,9 @@
 :host {
-  width: 100%;
-
-  app-search-bar {
-    width: calc(100% - 16px * 2);
-    margin: 16px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
   div {
-    margin: 16px;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
@@ -17,10 +12,5 @@
       color: var(--color-font);
       font-weight: bold;
     }
-  }
-
-  .custom-lists {
-    width: calc(100% - 16px * 2);
-    margin: 16px;
   }
 }
