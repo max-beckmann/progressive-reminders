@@ -1,0 +1,32 @@
+:host {
+  width: 100%;
+  padding: 16px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: var(--color-blue);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .new-reminder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+
+    app-icon {
+      width: 24px;
+    }
+  }
+
+  .new-list {
+    font-family: 'SF-Pro', sans-serif;
+  }
+}

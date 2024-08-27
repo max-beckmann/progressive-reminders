@@ -3,23 +3,25 @@ import { Component, computed, input } from '@angular/core';
 export enum IconType {
   CALENDAR,
   FLAG,
-  CHECKMARK
+  CHECKMARK,
+  PLUS
 }
 
 const iconTypeToSrcMap = new Map<IconType, string>([
   [IconType.CALENDAR, 'calendar.circle.fill.svg'],
   [IconType.FLAG, 'flag.circle.fill.svg'],
-  [IconType.CHECKMARK, 'checkmark.circle.fill.svg']
+  [IconType.CHECKMARK, 'checkmark.circle.fill.svg'],
+  [IconType.PLUS, 'plus.circle.fill.svg']
 ]);
 
 @Component({
-  selector: 'app-list-icon',
+  selector: 'app-icon',
   standalone: true,
   imports: [],
-  templateUrl: './list-icon.component.html',
-  styleUrl: './list-icon.component.scss'
+  templateUrl: './icon.component.html',
+  styleUrl: './icon.component.scss'
 })
-export class ListIconComponent {
+export class IconComponent {
   type = input.required<IconType>();
   protected src = computed<string>(() => {
     const m = iconTypeToSrcMap.get(this.type());

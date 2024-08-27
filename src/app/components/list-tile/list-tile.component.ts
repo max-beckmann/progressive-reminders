@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { ContainerComponent } from '../container/container.component';
-import { IconType, ListIconComponent } from '../list-icon/list-icon.component';
+import { IconComponent, IconType } from '../icon/icon.component';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [
     ContainerComponent,
-    ListIconComponent,
+    IconComponent,
     RouterLink
   ],
   templateUrl: './list-tile.component.html',

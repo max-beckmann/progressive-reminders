@@ -4,7 +4,10 @@ import { RouterLink } from '@angular/router';
 import { ListTileComponent } from '../../list-tile/list-tile.component';
 import { SearchBarComponent } from '../../search-bar/search-bar.component';
 import { ListComponent } from '../../list/list.component';
-import { IconType } from '../../list-icon/list-icon.component';
+import { IconType } from '../../icon/icon.component';
+import {
+  BottomNavigationComponent
+} from '../../bottom-navigation/bottom-navigation.component';
 
 @Component({
   selector: 'app-main-overview-page',
@@ -14,7 +17,8 @@ import { IconType } from '../../list-icon/list-icon.component';
     RouterLink,
     ListTileComponent,
     SearchBarComponent,
-    ListComponent
+    ListComponent,
+    BottomNavigationComponent
   ],
   templateUrl: './main-overview-page.component.html',
   styleUrl: './main-overview-page.component.scss'
