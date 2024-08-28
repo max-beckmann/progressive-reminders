@@ -3,7 +3,11 @@ import { ContainerComponent } from '../../container/container.component';
 import { RouterLink } from '@angular/router';
 import { ListTileComponent } from '../../list-tile/list-tile.component';
 import { SearchBarComponent } from '../../search-bar/search-bar.component';
-import { ListComponent } from '../../list/list.component';
+import {
+  ListComponent,
+  ListItem,
+  ListItemType
+} from '../../list/list.component';
 import { IconType } from '../../icon/icon.component';
 import {
   BottomNavigationComponent
@@ -24,6 +28,21 @@ import {
   styleUrl: './main-overview-page.component.scss'
 })
 export class MainOverviewPageComponent {
-
+  protected readonly customListLinks: ListItem[] = [
+    {
+      type: ListItemType.LINK,
+      value: 'Custom List 1',
+      icon: IconType.FLAG,
+      count: 20,
+      link: '/custom-1'
+    },
+    {
+      type: ListItemType.LINK,
+      value: 'Custom List 2',
+      icon: IconType.FLAG,
+      count: 3,
+      link: '/custom-2'
+    }
+  ]
   protected readonly IconType = IconType;
 }

@@ -4,14 +4,16 @@ export enum IconType {
   CALENDAR,
   FLAG,
   CHECKMARK,
-  PLUS
+  PLUS,
+  CHEVRON_RIGHT
 }
 
 const iconTypeToSrcMap = new Map<IconType, string>([
   [IconType.CALENDAR, 'calendar.circle.fill.svg'],
   [IconType.FLAG, 'flag.circle.fill.svg'],
   [IconType.CHECKMARK, 'checkmark.circle.fill.svg'],
-  [IconType.PLUS, 'plus.circle.fill.svg']
+  [IconType.PLUS, 'plus.circle.fill.svg'],
+  [IconType.CHEVRON_RIGHT, 'chevron.right.svg']
 ]);
 
 @Component({

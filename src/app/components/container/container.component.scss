@@ -5,4 +5,8 @@
   border-radius: 12px;
 
   background-color: var(--color-white);
+
+  * {
+    overflow: hidden;
+  }
 }

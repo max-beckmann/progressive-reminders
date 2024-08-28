@@ -2,22 +2,47 @@
   display: block;
 
   li {
-    display: flex;
-    align-items: center;
+    a {
+      display: flex;
+      align-items: center;
 
-    .icon {
-      margin-inline: 10px;
-    }
+      .icon {
+        margin-inline: 10px;
 
-    app-icon {
-      width: 28px;
-    }
+        app-icon {
+          width: 28px;
+        }
+      }
 
-    .item {
-      flex-grow: 1;
-      margin-top: 14px;
-      padding-right: 14px;
-      padding-bottom: 14px;
+      .item {
+        flex-grow: 1;
+        margin-top: 14px;
+        padding-right: 14px;
+        padding-bottom: 14px;
+
+        .linkItem {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          div {
+            display: flex;
+            gap: 8px;
+
+            .count {
+              color: var(--color-font);
+            }
+          }
+        }
+
+        app-icon {
+          width: 8px;
+        }
+      }
+
+      &.clickable:hover {
+        background-color: var(--color-interaction);
+      }
     }
 
     &:not(:last-child) .item {

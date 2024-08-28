@@ -4,6 +4,7 @@ import {
   InlineListTileComponent
 } from '../inline-list-tile/inline-list-tile.component';
 import { IconComponent, IconType } from '../icon/icon.component';
+import { RouterLink } from '@angular/router';
 
 export enum ListItemType {
   REMINDER,
@@ -16,6 +17,7 @@ export type ListItem = {
   value: string;
   icon?: IconType;
   count?: number;
+  link?: string;
 }
 
 @Component({
@@ -24,7 +26,8 @@ export type ListItem = {
   imports: [
     ListTileComponent,
     InlineListTileComponent,
-    IconComponent
+    IconComponent,
+    RouterLink
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
@@ -32,4 +35,5 @@ export type ListItem = {
 export class ListComponent {
   items = input<ListItem[]>([]);
   protected readonly ListItemType = ListItemType;
+  protected readonly IconType = IconType;
 }

@@ -1,25 +1,33 @@
 <ul>
   @for (item of items(); track $index) {
     <li>
-      <div class="icon">
-        @if (item.icon) {
-          <app-icon [type]="item.icon"></app-icon>
-        }
-      </div>
-      <div class="item">
-        @switch (item.type) {
-          @case (ListItemType.REMINDER) {
-            {{ item.value }}
+      <a [routerLink]="item.link" [class.clickable]="item.link !== undefined">
+        <div class="icon">
+          @if (item.icon) {
+            <app-icon [type]="item.icon"></app-icon>
           }
-          @case (ListItemType.INPUT) {
-            <input type="text" [placeholder]="item.value">
+        </div>
+        <div class="item">
+          @switch (item.type) {
+            @case (ListItemType.REMINDER) {
+              {{ item.value }}
+            }
+            @case (ListItemType.INPUT) {
+              <input type="text" [placeholder]="item.value">
+            }
+            @case (ListItemType.LINK) {
+              <div class="linkItem">
+                <span class="name">{{ item.value }}</span>
+                <div>
+                  <span class="count">{{ item.count }}</span>
+                  <app-icon [type]="IconType.CHEVRON_RIGHT"
+                            class="arrow"></app-icon>
+                </div>
+              </div>
+            }
           }
-          @case (ListItemType.LINK) {
-            <app-inline-list-tile [name]="item.value"
-                                  [count]="item.count ?? 0"></app-inline-list-tile>
-          }
-        }
-      </div>
+        </div>
+      </a>
     </li>
   }
 </ul>
