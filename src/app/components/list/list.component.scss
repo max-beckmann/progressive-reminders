@@ -1,24 +1,26 @@
 :host {
   display: block;
-  padding-left: 10px;
 
   li {
     display: flex;
     align-items: center;
-    gap: 10px;
+
+    .icon {
+      margin-inline: 10px;
+    }
 
     app-icon {
       width: 28px;
     }
 
-    app-inline-list-tile {
+    .item {
       flex-grow: 1;
       margin-top: 14px;
       padding-right: 14px;
       padding-bottom: 14px;
     }
 
-    &:not(:last-child) app-inline-list-tile {
+    &:not(:last-child) .item {
       border-bottom: 1px solid var(--color-interaction);
     }
   }

@@ -1,9 +1,25 @@
 <ul>
-  @for (item of [1, 2, 3]; track $index) {
+  @for (item of items(); track $index) {
     <li>
-      <app-icon [type]="icon()"></app-icon>
-      <app-inline-list-tile name="Custom List 1"
-                            [count]="12"></app-inline-list-tile>
+      <div class="icon">
+        @if (item.icon) {
+          <app-icon [type]="item.icon"></app-icon>
+        }
+      </div>
+      <div class="item">
+        @switch (item.type) {
+          @case (ListItemType.REMINDER) {
+            {{ item.value }}
+          }
+          @case (ListItemType.INPUT) {
+            <input type="text" [placeholder]="item.value">
+          }
+          @case (ListItemType.LINK) {
+            <app-inline-list-tile [name]="item.value"
+                                  [count]="item.count ?? 0"></app-inline-list-tile>
+          }
+        }
+      </div>
     </li>
   }
 </ul>

@@ -5,6 +5,19 @@ import {
 } from '../inline-list-tile/inline-list-tile.component';
 import { IconComponent, IconType } from '../icon/icon.component';
 
+export enum ListItemType {
+  REMINDER,
+  INPUT,
+  LINK
+}
+
+export type ListItem = {
+  type: ListItemType;
+  value: string;
+  icon?: IconType;
+  count?: number;
+}
+
 @Component({
   selector: 'app-list',
   standalone: true,
@@ -17,5 +30,6 @@ import { IconComponent, IconType } from '../icon/icon.component';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-  icon = input<IconType>(IconType.CALENDAR);
+  items = input<ListItem[]>([]);
+  protected readonly ListItemType = ListItemType;
 }

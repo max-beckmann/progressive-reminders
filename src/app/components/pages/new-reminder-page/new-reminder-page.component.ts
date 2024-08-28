@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { ListComponent } from '../../list/list.component';
+import {
+  ListComponent,
+  ListItem,
+  ListItemType
+} from '../../list/list.component';
 import { ContainerComponent } from '../../container/container.component';
 import {
   InlineListTileComponent
@@ -17,4 +21,14 @@ import {
   styleUrl: './new-reminder-page.component.scss'
 })
 export class NewReminderPageComponent {
+  protected readonly baseInputs: ListItem[] = [
+    {
+      type: ListItemType.INPUT,
+      value: 'Titel',
+    },
+    {
+      type: ListItemType.INPUT,
+      value: 'Beschreibung',
+    }
+  ]
 }
