@@ -10,6 +10,7 @@ import {
 } from '../../inline-list-tile/inline-list-tile.component';
 import { IconType } from '../../icon/icon.component';
 import { HeaderComponent } from '../../header/header.component';
+import { RemindersService } from '../../../services/reminders.service';
 
 @Component({
   selector: 'app-new-reminder-page',
@@ -49,4 +50,14 @@ export class NewReminderPageComponent {
       link: '/new-reminder/associated-list'
     }
   ];
+
+  constructor(private readonly remindersService: RemindersService) {
+  }
+
+  addNew() {
+    this.remindersService.add({
+      title: 'Test',
+      notes: ''
+    })
+  }
 }
