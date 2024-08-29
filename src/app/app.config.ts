@@ -9,7 +9,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { NgxIndexedDBModule } from 'ngx-indexed-db';
-import { databaseConfig } from './database.config';
+import { databaseConfig } from '../../database.config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
