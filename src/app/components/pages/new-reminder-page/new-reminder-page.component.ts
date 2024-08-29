@@ -9,6 +9,7 @@ import {
   InlineListTileComponent
 } from '../../inline-list-tile/inline-list-tile.component';
 import { IconType } from '../../icon/icon.component';
+import { HeaderComponent } from '../../header/header.component';
 
 @Component({
   selector: 'app-new-reminder-page',
@@ -16,7 +17,8 @@ import { IconType } from '../../icon/icon.component';
   imports: [
     ListComponent,
     ContainerComponent,
-    InlineListTileComponent
+    InlineListTileComponent,
+    HeaderComponent
   ],
   templateUrl: './new-reminder-page.component.html',
   styleUrl: './new-reminder-page.component.scss'
@@ -29,7 +31,7 @@ export class NewReminderPageComponent {
     },
     {
       type: ListItemType.INPUT,
-      value: 'Beschreibung',
+      value: 'Notizen',
     }
   ];
   protected readonly detailsLink: ListItem[] = [
