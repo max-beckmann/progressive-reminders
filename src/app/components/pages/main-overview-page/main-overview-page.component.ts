@@ -1,17 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ContainerComponent } from '../../container/container.component';
 import { RouterLink } from '@angular/router';
 import { ListTileComponent } from '../../list-tile/list-tile.component';
 import { SearchBarComponent } from '../../search-bar/search-bar.component';
-import {
-  ListComponent,
-  ListItem,
-  ListItemType
-} from '../../list/list.component';
-import { IconType } from '../../icon/icon.component';
+import { AggregateComponent } from '../../aggregate/aggregate.component';
 import {
   BottomNavigationComponent
 } from '../../bottom-navigation/bottom-navigation.component';
+import { IconType } from '../../icon/icon.component';
+import { Aggregate, AggregateType } from '../../../../../model';
+import { database } from '../../../../../database';
 
 @Component({
   selector: 'app-main-overview-page',
@@ -21,28 +19,25 @@ import {
     RouterLink,
     ListTileComponent,
     SearchBarComponent,
-    ListComponent,
+    AggregateComponent,
     BottomNavigationComponent
   ],
   templateUrl: './main-overview-page.component.html',
   styleUrl: './main-overview-page.component.scss'
 })
 export class MainOverviewPageComponent {
-  protected readonly customListLinks: ListItem[] = [
-    {
-      type: ListItemType.LINK,
-      value: 'Custom List 1',
-      icon: IconType.FLAG,
-      count: 20,
-      link: '/custom-1'
-    },
-    {
-      type: ListItemType.LINK,
-      value: 'Custom List 2',
-      icon: IconType.FLAG,
-      count: 3,
-      link: '/custom-2'
-    }
-  ]
+  customLists = signal<Aggregate | null>(null);
+
+  constructor() {
+    void this.init();
+  }
+
+  async init(): Promise<void> {
+    this.customLists.set({
+      type: AggregateType.LISTS,
+      items: await database.lists.toArray()
+    });
+  }
+
   protected readonly IconType = IconType;
 }

@@ -3,10 +3,7 @@
   height: 100%;
   display: block;
   border-radius: 12px;
+  overflow: hidden;
 
   background-color: var(--color-white);
-
-  * {
-    overflow: hidden;
-  }
 }

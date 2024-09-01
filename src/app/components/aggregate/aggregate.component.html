@@ -1,0 +1,18 @@
+<ul>
+  @for (item of aggregate()?.items; track $index) {
+    <li>
+      @switch (aggregate()?.type) {
+        @case (AggregateType.REMINDERS) {
+          <app-inline-reminder
+            [reminder]="toReminder(item)"></app-inline-reminder>
+        }
+        @case (AggregateType.INPUTS) {
+          <app-inline-input></app-inline-input>
+        }
+        @case (AggregateType.LISTS) {
+          <app-inline-list [list]="toList(item)"></app-inline-list>
+        }
+      }
+    </li>
+  }
+</ul>

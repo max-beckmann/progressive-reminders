@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .icon {
+    width: 28px;
+    margin-left: 10px;
+  }
+
+  .wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 14px;
+    padding-right: 14px;
+    padding-bottom: 14px;
+  }
+
+  .right {
+    display: flex;
+    gap: 8px;
+
+    .subtitle {
+      color: var(--color-font);
+    }
+
+    .arrow {
+      width: 8px;
+    }
+  }
+}

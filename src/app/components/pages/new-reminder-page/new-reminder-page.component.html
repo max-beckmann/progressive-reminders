@@ -1,10 +1,4 @@
 <app-header (add)="addNew()"></app-header>
 <app-container>
-  <app-list [items]="baseInputs"></app-list>
-</app-container>
-<app-container>
-  <app-list [items]="detailsLink"></app-list>
-</app-container>
-<app-container>
-  <app-list [items]="associatedListLink"></app-list>
+  <app-aggregate [aggregate]="baseInputs"></app-aggregate>
 </app-container>
