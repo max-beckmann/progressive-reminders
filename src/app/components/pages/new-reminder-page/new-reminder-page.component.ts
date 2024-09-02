@@ -24,6 +24,7 @@ export class NewReminderPageComponent {
       },
       {
         placeholder: 'Notizen',
+        multiline: true
       }
     ]
   }

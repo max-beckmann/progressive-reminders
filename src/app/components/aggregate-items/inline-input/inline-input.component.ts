@@ -12,5 +12,5 @@ import { AggregateItemComponent } from '../aggregate-item.component';
   styleUrl: './inline-input.component.scss'
 })
 export class InlineInputComponent {
-  customInput = input.required<Input>();
+  inputData = input.required<Input>();
 }

@@ -38,4 +38,5 @@ export interface Reminder {
 
 export interface Input {
   placeholder: string;
+  multiline?: boolean
 }

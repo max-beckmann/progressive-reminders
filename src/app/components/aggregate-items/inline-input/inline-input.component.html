@@ -1,3 +1,7 @@
 <div class="wrapper">
-  <input type="text" [placeholder]="customInput().placeholder">
+  @if (inputData().multiline) {
+    <textarea [placeholder]="inputData().placeholder" rows="4"></textarea>
+  } @else {
+    <input type="text" [placeholder]="inputData().placeholder">
+  }
 </div>
