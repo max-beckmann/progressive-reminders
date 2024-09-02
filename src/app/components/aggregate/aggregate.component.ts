@@ -16,6 +16,7 @@ import {
 import {
   InlineInputComponent
 } from '../aggregate-items/inline-input/inline-input.component';
+import { ContainerComponent } from '../container/container.component';
 
 @Component({
   selector: 'app-aggregate',
@@ -23,7 +24,8 @@ import {
   imports: [
     InlineReminderComponent,
     InlineListComponent,
-    InlineInputComponent
+    InlineInputComponent,
+    ContainerComponent
   ],
   templateUrl: './aggregate.component.html',
   styleUrl: './aggregate.component.scss'

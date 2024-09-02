@@ -1,5 +1,5 @@
 :host {
-  li:not(:last-child) ::ng-deep app-aggregate-item .wrapper {
+  li:not(:last-child) ::ng-deep .wrapper {
     border-bottom: 1px solid var(--color-interaction);
   }
 }

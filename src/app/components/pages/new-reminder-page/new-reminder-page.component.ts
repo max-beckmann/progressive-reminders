@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AggregateComponent } from '../../aggregate/aggregate.component';
 import { ContainerComponent } from '../../container/container.component';
 import { HeaderComponent } from '../../header/header.component';
+import { Aggregate, AggregateType } from '../../../../../model';
 
 @Component({
   selector: 'app-new-reminder-page',
@@ -15,4 +16,15 @@ import { HeaderComponent } from '../../header/header.component';
   styleUrl: './new-reminder-page.component.scss'
 })
 export class NewReminderPageComponent {
+  baseInputs: Aggregate = {
+    type: AggregateType.INPUTS,
+    items: [
+      {
+        placeholder: 'Titel',
+      },
+      {
+        placeholder: 'Notizen',
+      }
+    ]
+  }
 }
