@@ -5,9 +5,13 @@ import {
 import {
   MainOverviewPageComponent
 } from './components/pages/main-overview-page/main-overview-page.component';
+import {
+  NewListPageComponent
+} from './components/pages/new-list-page/new-list-page.component';
 
 export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
-  { path: 'new-reminder', component: NewReminderPageComponent }
+  { path: 'new-reminder', component: NewReminderPageComponent },
+  { path: 'new-list', component: NewListPageComponent }
 ];
 

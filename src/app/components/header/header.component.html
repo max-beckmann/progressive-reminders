@@ -1,3 +1,3 @@
 <button (click)="navigateBack()">Abbrechen</button>
-<h2>Neue Erinnerung</h2>
-<button (click)="add.emit()">Hinzufügen</button>
+<h2>{{ title() }}</h2>
+<button (click)="onRightButton.emit()">{{ rightButtonText() }}</button>

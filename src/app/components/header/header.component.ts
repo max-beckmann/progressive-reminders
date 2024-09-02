@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  add = output();
+  title = input.required<string>();
+  rightButtonText = input.required<string>();
+  onRightButton = output();
 
   constructor(private readonly router: Router) {
   }
