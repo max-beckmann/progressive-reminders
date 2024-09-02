@@ -8,17 +8,18 @@ export interface Aggregate {
 export enum AggregateType {
   REMINDERS,
   INPUTS,
-  LISTS
+  LISTS,
+  LINKS
 }
 
 export interface Item {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   icon?: IconType;
-  hasArrow: boolean;
+  hasArrow?: boolean;
 }
 
-export type AggregateItem = List | Reminder | Input;
+export type AggregateItem = List | Reminder | Input | Link;
 
 export interface List {
   id?: number;
@@ -39,4 +40,9 @@ export interface Reminder {
 export interface Input {
   placeholder: string;
   multiline?: boolean
+}
+
+export interface Link {
+  title: string;
+  location: string;
 }

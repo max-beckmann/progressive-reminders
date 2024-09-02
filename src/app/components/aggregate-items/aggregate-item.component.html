@@ -4,7 +4,9 @@
 <div class="wrapper">
   <span class="title">{{ item().title }}</span>
   <div class="right">
-    <span class="subtitle">{{ item().subtitle }}</span>
+    @if (item().subtitle) {
+      <span class="subtitle">{{ item().subtitle }}</span>
+    }
     @if (item().hasArrow) {
       <app-icon [type]="IconType.CHEVRON_RIGHT"
                 class="arrow"></app-icon>

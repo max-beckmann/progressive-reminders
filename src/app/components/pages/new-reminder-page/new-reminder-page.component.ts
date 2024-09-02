@@ -28,4 +28,13 @@ export class NewReminderPageComponent {
       }
     ]
   }
+  detailsLink: Aggregate = {
+    type: AggregateType.LINKS,
+    items: [
+      {
+        title: 'Details',
+        location: '/new-reminder/details'
+      }
+    ]
+  }
 }

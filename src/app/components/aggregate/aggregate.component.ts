@@ -4,6 +4,7 @@ import {
   AggregateItem,
   AggregateType,
   Input,
+  Link,
   List,
   Reminder
 } from '../../../../model';
@@ -17,6 +18,9 @@ import {
   InlineInputComponent
 } from '../aggregate-items/inline-input/inline-input.component';
 import { ContainerComponent } from '../container/container.component';
+import {
+  InlineLinkComponent
+} from '../aggregate-items/inline-link/inline-link.component';
 
 @Component({
   selector: 'app-aggregate',
@@ -25,7 +29,8 @@ import { ContainerComponent } from '../container/container.component';
     InlineReminderComponent,
     InlineListComponent,
     InlineInputComponent,
-    ContainerComponent
+    ContainerComponent,
+    InlineLinkComponent
   ],
   templateUrl: './aggregate.component.html',
   styleUrl: './aggregate.component.scss'
@@ -44,5 +49,9 @@ export class AggregateComponent {
 
   protected toList(item: AggregateItem) {
     return item as unknown as List;
+  }
+
+  protected toLink(item: AggregateItem) {
+    return item as unknown as Link;
   }
 }

@@ -13,6 +13,9 @@
           @case (AggregateType.LISTS) {
             <app-inline-list [list]="toList(item)"></app-inline-list>
           }
+          @case (AggregateType.LINKS) {
+            <app-inline-link [linkData]="toLink(item)"></app-inline-link>
+          }
         }
       </li>
     }
