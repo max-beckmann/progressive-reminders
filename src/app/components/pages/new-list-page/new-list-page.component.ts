@@ -15,21 +15,23 @@ import { IconComponent, IconType } from '../../icon/icon.component';
   styleUrl: './new-list-page.component.scss'
 })
 export class NewListPageComponent {
-  color = signal<string>('red');
+  color = signal<string>('');
   colorOptions = ['#FE3C30', '#FE9500', '#FECC02', '#19C759', '#51AAF2', '#007AFF', '#5756D5', '#EA426A', '#BF77DB', '#9D8563', '#5B6670', '#D9A69E'];
 
   constructor() {
+    this.pickColor(0);
+
     effect(() => {
       document.documentElement.style.setProperty('--new-list-color', this.color());
     });
   }
 
   pickColor(index: number): void {
+    this.color.set(this.colorOptions[index])
+
     document.querySelectorAll('.color-option').forEach((option, i) => {
       i == index ? option.classList.add('selected') : option.classList.remove('selected');
     });
-
-    this.color.set(this.colorOptions[index])
   }
 
   protected readonly IconType = IconType;

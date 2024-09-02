@@ -10,8 +10,18 @@
     align-items: center;
     gap: 20px;
 
-    .icon-preview app-icon {
-      width: 100px;
+    .icon-preview {
+      aspect-ratio: 1/1;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: var(--new-list-color);
+
+      app-icon {
+        width: 60px;
+      }
     }
 
     input {

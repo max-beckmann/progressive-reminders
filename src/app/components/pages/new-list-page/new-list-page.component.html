@@ -1,13 +1,14 @@
 <app-header title="Neue Liste" rightButtonText="Fertig"></app-header>
 <app-container class="base-settings">
   <div class="icon-preview">
-    <app-icon [type]="IconType.CALENDAR"></app-icon>
+    <app-icon [type]="IconType.LIST"></app-icon>
   </div>
   <input type="text" placeholder="Name der Liste">
 </app-container>
 <app-container class="color-picker">
   @for (option of colorOptions; track $index) {
-    <span class="color-option" (click)="pickColor($index)">
+    <span class="color-option" [class.selected]="$index == 0"
+          (click)="pickColor($index)">
       <span class="inner" [style.background-color]="option"></span>
     </span>
   }
