@@ -10,18 +10,9 @@
     align-items: center;
     gap: 20px;
 
-    .icon-preview {
-      aspect-ratio: 1/1;
-      padding: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      background-color: var(--new-list-color);
-
-      app-icon {
-        width: 60px;
-      }
+    app-icon {
+      width: 120px;
+      box-shadow: 0 0 20px -5px var(--new-list-color);
     }
 
     input {

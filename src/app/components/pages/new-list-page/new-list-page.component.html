@@ -1,9 +1,7 @@
 <app-header title="Neue Liste" rightButtonText="Fertig"
             (onRightButton)="add()"></app-header>
 <app-container class="base-settings">
-  <div class="icon-preview">
-    <app-icon [data]="{ type: IconType.LIST }"></app-icon>
-  </div>
+  <app-icon [data]="iconPreview()"></app-icon>
   <input type="text" [(ngModel)]="title" placeholder="Name der Liste">
 </app-container>
 <app-container class="color-picker">

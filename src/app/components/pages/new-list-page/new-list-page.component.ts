@@ -1,9 +1,9 @@
-import { Component, effect, model, signal } from '@angular/core';
+import { Component, computed, effect, model, signal } from '@angular/core';
 import { HeaderComponent } from '../../header/header.component';
 import { ContainerComponent } from '../../container/container.component';
 import { IconComponent, IconType } from '../../icon/icon.component';
 import { FormsModule } from '@angular/forms';
-import { List } from '../../../../../model';
+import { Icon, List } from '../../../../../model';
 import { database } from '../../../../../database';
 import { Router } from '@angular/router';
 
@@ -22,6 +22,12 @@ import { Router } from '@angular/router';
 export class NewListPageComponent {
   title = model<string>('');
   color = signal<string>('');
+  iconPreview = computed<Icon>(() => {
+    return {
+      type: IconType.LIST,
+      backgroundColor: this.color(),
+    }
+  });
   colorOptions = ['#FE3C30', '#FE9500', '#FECC02', '#19C759', '#51AAF2', '#007AFF', '#5756D5', '#EA426A', '#BF77DB', '#9D8563', '#5B6670', '#D9A69E'];
 
   constructor(private readonly router: Router) {

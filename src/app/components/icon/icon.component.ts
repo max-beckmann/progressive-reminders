@@ -1,11 +1,4 @@
-import {
-  Component,
-  computed,
-  ElementRef,
-  input,
-  OnInit,
-  Renderer2
-} from '@angular/core';
+import { Component, computed, HostBinding, input } from '@angular/core';
 import { Icon } from '../../../../model';
 
 export enum IconType {
@@ -45,7 +38,7 @@ const iconTypeToSrcMap = new Map<IconType, string>([
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss'
 })
-export class IconComponent implements OnInit {
+export class IconComponent {
   data = input.required<Icon>();
 
   protected src = computed<string>(() => {
@@ -53,13 +46,8 @@ export class IconComponent implements OnInit {
     return `/assets/icons/${m}`;
   });
 
-  constructor(
-    private readonly element: ElementRef,
-    private readonly renderer: Renderer2
-  ) {
-  }
-
-  ngOnInit() {
-    this.renderer.setStyle(this.element.nativeElement, 'background-color', this.data().backgroundColor);
+  @HostBinding('style.backgroundColor')
+  get backgroundColor() {
+    return this.data().backgroundColor;
   }
 }
