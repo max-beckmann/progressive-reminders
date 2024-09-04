@@ -13,6 +13,7 @@ export enum IconType {
 }
 
 export const defaultIcons: Record<string, Icon> = {
+  'today': { type: IconType.CALENDAR, backgroundColor: '#027BFE' },
   'calendar': { type: IconType.CALENDAR, backgroundColor: '#FF3B30' },
   'flag': { type: IconType.FLAG, backgroundColor: '#FF9500' },
   'checkmark': { type: IconType.CHECKMARK, backgroundColor: '#666' },
