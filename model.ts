@@ -15,8 +15,13 @@ export enum AggregateType {
 export interface Item {
   title: string;
   subtitle?: string;
-  icon?: IconType;
+  icon?: Icon;
   hasArrow?: boolean;
+}
+
+export interface Icon {
+  type: IconType;
+  backgroundColor?: string;
 }
 
 export type AggregateItem = List | Reminder | Input | Link;

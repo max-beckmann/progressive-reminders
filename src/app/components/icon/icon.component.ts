@@ -1,4 +1,5 @@
 import { Component, computed, input } from '@angular/core';
+import { Icon } from '../../../../model';
 
 export enum IconType {
   CALENDAR,
@@ -30,9 +31,10 @@ const iconTypeToSrcMap = new Map<IconType, string>([
   styleUrl: './icon.component.scss'
 })
 export class IconComponent {
-  type = input.required<IconType>();
+  data = input.required<Icon>();
+
   protected src = computed<string>(() => {
-    const m = iconTypeToSrcMap.get(this.type());
+    const m = iconTypeToSrcMap.get(this.data().type);
     return `/assets/icons/${m}`;
   });
 }

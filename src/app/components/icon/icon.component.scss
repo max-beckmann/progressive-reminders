@@ -1,7 +1,11 @@
 :host {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
   display: flex;
+  justify-content: center;
+  background-color: transparent;
 
   img {
-    width: 100%;
+    width: 60%;
   }
 }

@@ -13,6 +13,5 @@ import { IconComponent, IconType } from '../icon/icon.component';
   styleUrl: './bottom-navigation.component.scss'
 })
 export class BottomNavigationComponent {
-
   protected readonly IconType = IconType;
 }

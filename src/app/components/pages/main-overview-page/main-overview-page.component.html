@@ -1,12 +1,14 @@
 <app-search-bar></app-search-bar>
 <div>
-  <app-list-tile name="Heute" [icon]="IconType.CALENDAR" link="/today"
+  <app-list-tile name="Heute" [icon]="{ type: IconType.CALENDAR }" link="/today"
                  [count]="12"></app-list-tile>
-  <app-list-tile name="Geplant" [icon]="IconType.CALENDAR" link="/planned"
+  <app-list-tile name="Geplant" [icon]="{ type: IconType.CALENDAR }"
+                 link="/planned"
                  [count]="74"></app-list-tile>
-  <app-list-tile name="Markiert" [icon]="IconType.FLAG" link="/marked"
+  <app-list-tile name="Markiert" [icon]="{ type: IconType.FLAG }" link="/marked"
                  [count]="2"></app-list-tile>
-  <app-list-tile name="Erledigt" [icon]="IconType.CHECKMARK" link="/checked"
+  <app-list-tile name="Erledigt" [icon]="{ type: IconType.CHECKMARK }"
+                 link="/checked"
                  [count]="0"></app-list-tile>
 </div>
 <app-aggregate [aggregate]="customLists()"></app-aggregate>

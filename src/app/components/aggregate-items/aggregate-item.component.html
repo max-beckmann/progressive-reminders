@@ -1,5 +1,5 @@
 @if (item().icon) {
-  <app-icon [type]="item().icon!" class="icon"></app-icon>
+  <app-icon [data]="item().icon!" class="icon"></app-icon>
 }
 <div class="wrapper">
   <span class="title">{{ item().title }}</span>
@@ -8,7 +8,7 @@
       <span class="subtitle">{{ item().subtitle }}</span>
     }
     @if (item().hasArrow) {
-      <app-icon [type]="IconType.CHEVRON_RIGHT"
+      <app-icon [data]="{ type: IconType.CHEVRON_RIGHT }"
                 class="arrow"></app-icon>
     }
   </div>

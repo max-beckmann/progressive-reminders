@@ -2,7 +2,7 @@
             (onRightButton)="add()"></app-header>
 <app-container class="base-settings">
   <div class="icon-preview">
-    <app-icon [type]="IconType.LIST"></app-icon>
+    <app-icon [data]="{ type: IconType.LIST }"></app-icon>
   </div>
   <input type="text" [(ngModel)]="title" placeholder="Name der Liste">
 </app-container>

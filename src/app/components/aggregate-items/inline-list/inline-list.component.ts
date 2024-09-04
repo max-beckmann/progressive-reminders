@@ -22,10 +22,15 @@ export class InlineListComponent {
   }
 
   get aggregateItem(): Item {
+    const { title, icon, color } = this.list();
+
     return {
-      title: this.list().title,
+      title,
       subtitle: '0',
-      icon: this.list().icon,
+      icon: {
+        type: icon,
+        backgroundColor: color
+      },
       hasArrow: true
     }
   }
