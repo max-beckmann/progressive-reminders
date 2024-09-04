@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IconComponent, IconType } from '../icon/icon.component';
+import { defaultIcons, IconComponent, IconType } from '../icon/icon.component';
 
 @Component({
   selector: 'app-bottom-navigation',
@@ -14,4 +14,5 @@ import { IconComponent, IconType } from '../icon/icon.component';
 })
 export class BottomNavigationComponent {
   protected readonly IconType = IconType;
+  protected readonly defaultIcons = defaultIcons;
 }

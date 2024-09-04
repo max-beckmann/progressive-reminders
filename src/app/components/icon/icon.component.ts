@@ -23,6 +23,7 @@ export const defaultIcons: Record<string, Icon> = {
   'calendar': { type: IconType.CALENDAR, backgroundColor: '#FF3B30' },
   'flag': { type: IconType.FLAG, backgroundColor: '#FF9500' },
   'checkmark': { type: IconType.CHECKMARK, backgroundColor: '#666' },
+  'plus': { type: IconType.PLUS, backgroundColor: '#007AFF' },
 }
 
 
@@ -30,7 +31,7 @@ const iconTypeToSrcMap = new Map<IconType, string>([
   [IconType.CALENDAR, 'calendar.svg'],
   [IconType.FLAG, 'flag.fill.svg'],
   [IconType.CHECKMARK, 'checkmark.svg'],
-  [IconType.PLUS, 'with-background/plus.circle.fill.svg'],
+  [IconType.PLUS, 'plus.svg'],
   [IconType.CHEVRON_RIGHT, 'chevron.right.svg'],
   [IconType.LIST, 'list.bullet.svg'],
   [IconType.MAPPIN, 'mapping.svg'],
