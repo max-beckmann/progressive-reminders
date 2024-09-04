@@ -1,0 +1,32 @@
+:host {
+  app-container {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 12px;
+
+    .option {
+      padding: 3px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+
+      .inner {
+        display: block;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+
+        app-icon {
+          fill: white;
+        }
+      }
+
+      &.selected {
+        border: 3px solid var(--color-interaction-contrast);
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 <app-container>
-  @for (option of options(); track $index) {
+  @for (option of colorOptions; track $index) {
     <span class="option" [class.selected]="$index == 0"
           (click)="pick($index)">
-      <span class="inner"></span>
+      <span class="inner" [style.background-color]="option"></span>
     </span>
   }
 </app-container>

@@ -4,7 +4,5 @@
   <app-icon [data]="iconPreview()"></app-icon>
   <input type="text" [(ngModel)]="title" placeholder="Name der Liste">
 </app-container>
-<app-selection [options]="colorOptions"
-               [modifyOptions]="setOptionBackground()"
-               (selected)="color.set($event)"></app-selection>
-
+<app-color-selection (selected)="color.set($event)"></app-color-selection>
+<app-icon-selection (selected)="icon.set($event)"></app-icon-selection>
