@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Icon, List } from '../../../../../model';
 import { database } from '../../../../../database';
 import { Router } from '@angular/router';
+import { SelectionComponent } from '../../selection/selection.component';
 
 @Component({
   selector: 'app-new-list-page',
@@ -14,35 +15,28 @@ import { Router } from '@angular/router';
     HeaderComponent,
     ContainerComponent,
     IconComponent,
-    FormsModule
+    FormsModule,
+    SelectionComponent
   ],
   templateUrl: './new-list-page.component.html',
   styleUrl: './new-list-page.component.scss'
 })
 export class NewListPageComponent {
   title = model<string>('');
-  color = signal<string>('');
+  colorOptions = ['#FE3C30', '#FE9500', '#FECC02', '#19C759', '#51AAF2', '#007AFF', '#5756D5', '#EA426A', '#BF77DB', '#9D8563', '#5B6670', '#D9A69E'];
+  color = signal<string>(this.colorOptions[0]);
+  iconOptions = Object.keys(IconType);
+  icon = signal<IconType>(IconType.LIST);
   iconPreview = computed<Icon>(() => {
     return {
-      type: IconType.LIST,
+      type: this.icon(),
       backgroundColor: this.color(),
     }
   });
-  colorOptions = ['#FE3C30', '#FE9500', '#FECC02', '#19C759', '#51AAF2', '#007AFF', '#5756D5', '#EA426A', '#BF77DB', '#9D8563', '#5B6670', '#D9A69E'];
 
   constructor(private readonly router: Router) {
-    this.pickColor(0);
-
     effect(() => {
       document.documentElement.style.setProperty('--new-list-color', this.color());
-    });
-  }
-
-  pickColor(index: number): void {
-    this.color.set(this.colorOptions[index])
-
-    document.querySelectorAll('.color-option').forEach((option, i) => {
-      i == index ? option.classList.add('selected') : option.classList.remove('selected');
     });
   }
 
@@ -58,5 +52,11 @@ export class NewListPageComponent {
     await this.router.navigateByUrl('/');
   }
 
-  protected readonly IconType = IconType;
+  protected setOptionBackground(): () => void {
+    return () => {
+      document.querySelectorAll('.inner').forEach((option, index) => {
+        (option as HTMLElement).style.backgroundColor = this.colorOptions[index];
+      });
+    }
+  }
 }

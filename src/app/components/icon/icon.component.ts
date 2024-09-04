@@ -2,14 +2,14 @@ import { Component, computed, HostBinding, input } from '@angular/core';
 import { Icon } from '../../../../model';
 
 export enum IconType {
-  CALENDAR,
-  FLAG,
-  CHECKMARK,
-  PLUS,
-  CHEVRON_RIGHT,
-  LIST,
-  MAPPIN,
-  BOOKMARK
+  CALENDAR = 'calendar',
+  FLAG = 'flag',
+  CHECKMARK = 'checkmark',
+  PLUS = 'plus',
+  CHEVRON_RIGHT = 'chevron_right',
+  LIST = 'list',
+  MAPPIN = 'mapping',
+  BOOKMARK = 'bookmark'
 }
 
 export const defaultIcons: Record<string, Icon> = {

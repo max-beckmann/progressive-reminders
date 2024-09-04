@@ -4,11 +4,7 @@
   <app-icon [data]="iconPreview()"></app-icon>
   <input type="text" [(ngModel)]="title" placeholder="Name der Liste">
 </app-container>
-<app-container class="color-picker">
-  @for (option of colorOptions; track $index) {
-    <span class="color-option" [class.selected]="$index == 0"
-          (click)="pickColor($index)">
-      <span class="inner" [style.background-color]="option"></span>
-    </span>
-  }
-</app-container>
+<app-selection [options]="colorOptions"
+               [modifyOptions]="setOptionBackground()"
+               (selected)="color.set($event)"></app-selection>
+
