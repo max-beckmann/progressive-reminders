@@ -3,9 +3,9 @@
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  background-color: transparent;
+  background-color: var(--icon-background-color, transparent);
 
   img {
-    width: 60%;
+    width: 50%;
   }
 }
