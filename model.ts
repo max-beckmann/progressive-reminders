@@ -36,10 +36,30 @@ export interface List {
 export interface Reminder {
   id?: number;
   associatedList: List['id'];
+  done: boolean;
+  highlighted: boolean;
+  priority: Priority;
   title: string;
   notes?: string;
-  done: boolean;
+  timing?: {
+    date: Date;
+    repeat?: Repetition;
+  }
   subReminders: Reminder['id'][];
+}
+
+export enum Priority {
+  NONE = 'Ohne',
+  LOW = 'Niedrig',
+  MID = 'Mittel',
+  HIGH = 'Hoch'
+}
+
+export enum Repetition {
+  HOURLY = 'stündlich',
+  DAILY = 'täglich',
+  WEEKLY = 'wöchentlich',
+  MONTHLY = 'monatlich'
 }
 
 export interface Input {
