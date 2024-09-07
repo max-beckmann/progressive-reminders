@@ -48,17 +48,19 @@ import { database } from '../../../../../database';
   styleUrl: './new-reminder-page.component.scss'
 })
 export class NewReminderPageComponent {
+  reminder = computed<Reminder>(() => {
+    return {
+      associatedList: this.selectedList()?.id,
+      done: false,
+      highlighted: false,
+      priority: Priority.NONE,
+      title: this.title(),
+      notes: this.notes() || undefined,
+      subReminders: [],
+    }
+  });
   title = model<string>('');
   notes = model<string>('');
-  detailsLink: Aggregate = {
-    type: AggregateType.LINKS,
-    items: [
-      {
-        title: 'Details',
-        location: '/new-reminder/details'
-      }
-    ]
-  };
   selectedList = signal<List | null>(null);
   listSelector = computed<Item>(() => {
     const selectedList = this.selectedList();
@@ -73,37 +75,65 @@ export class NewReminderPageComponent {
       hasArrow: true
     }
   });
-  selectListLink = computed<string>(() => {
-    return `/new-reminder/select-list/${this.selectedList()?.id}`
-  })
+  detailsLink: Aggregate = {
+    type: AggregateType.LINKS,
+    items: [
+      {
+        title: 'Details',
+        location: '/new-reminder/details'
+      }
+    ]
+  };
 
   constructor(
     private readonly router: Router
   ) {
-    void this.init();
-  }
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      const { state } = navigation.extras;
 
-  private async init(): Promise<void> {
-    const lists = await database.lists.toArray();
-
-    if (lists.length > 0) {
-      this.selectedList.set(lists[0]);
+      void this.init(state as Reminder);
     }
   }
 
   async add(): Promise<void> {
-    const newReminder: Reminder = {
-      associatedList: this.selectedList()?.id,
-      done: false,
-      highlighted: false,
-      priority: Priority.NONE,
-      title: this.title(),
-      notes: this.notes() || undefined,
-      subReminders: [],
-    }
-
-    await database.reminders.add(newReminder);
+    await database.reminders.add(this.reminder());
 
     await this.router.navigateByUrl('/');
+  }
+
+  async openListSelection(): Promise<void> {
+    await this.router.navigate(['/new-reminder/select-list'], {
+      state: this.reminder()
+    });
+  }
+
+  private init(reminder: Reminder): void {
+    if (reminder) {
+      this.title.set(reminder.title);
+      if (reminder.notes) this.notes.set(reminder.notes);
+      void this.initSelectedList(reminder.associatedList!);
+
+      return;
+    }
+
+    void this.initSelectedList();
+  }
+
+  private async initSelectedList(id?: number): Promise<void> {
+    if (!id) {
+      const lists = await database.lists.toArray();
+      this.selectedList.set(lists[0]);
+      return;
+    }
+
+    const selected = await database.lists
+      .where('id')
+      .equals(id)
+      .first()
+
+    if (selected) {
+      this.selectedList.set(selected);
+    }
   }
 }

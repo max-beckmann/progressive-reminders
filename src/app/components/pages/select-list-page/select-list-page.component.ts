@@ -1,12 +1,13 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { HeaderComponent } from '../../header/header.component';
 import {
   AggregateItemComponent
 } from '../../aggregate-items/aggregate-item.component';
-import { Item, List } from '../../../../../model';
+import { Item, List, Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
 import { AggregateComponent } from '../../aggregate/aggregate.component';
 import { IconComponent, IconType } from '../../icon/icon.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-list-page',
@@ -21,17 +22,30 @@ import { IconComponent, IconType } from '../../icon/icon.component';
   styleUrl: './select-list-page.component.scss'
 })
 export class SelectListPageComponent {
-  selectedListId = input.required<string>();
+  private readonly reminderState: Reminder | null = null;
   listOptions = signal<List[]>([]);
   selected = computed<List>(() => {
     return this.listOptions().filter(option => this.isSelected(option))[0];
   });
 
-  constructor() {
+  constructor(
+    private readonly router: Router
+  ) {
     void this.init();
+
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.reminderState = navigation.extras.state as Reminder;
+    }
   }
 
   select(index: number) {
+    void this.router.navigate(['/new-reminder'], {
+      state: {
+        ...this.reminderState,
+        associatedList: this.listOptions()[index].id
+      }
+    });
   }
 
   private async init(): Promise<void> {
@@ -39,7 +53,7 @@ export class SelectListPageComponent {
   }
 
   protected isSelected(option: List) {
-    return option.id === Number(this.selectedListId());
+    return option.id === this.reminderState?.associatedList;
   }
 
   protected toAggregateItem(list: List): Item {

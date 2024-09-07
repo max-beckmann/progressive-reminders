@@ -16,7 +16,7 @@ export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
   { path: 'new-reminder', component: NewReminderPageComponent },
   {
-    path: 'new-reminder/select-list/:selectedListId',
+    path: 'new-reminder/select-list',
     component: SelectListPageComponent
   },
   { path: 'new-list', component: NewListPageComponent },
