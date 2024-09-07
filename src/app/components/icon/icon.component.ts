@@ -2,12 +2,12 @@ import { Component, computed, HostBinding, input } from '@angular/core';
 import { Icon } from '../../../../model';
 
 export enum IconType {
+  LIST = 'list',
   CALENDAR = 'calendar',
   FLAG = 'flag',
   CHECKMARK = 'checkmark',
   PLUS = 'plus',
   CHEVRON_RIGHT = 'chevron_right',
-  LIST = 'list',
   MAPPIN = 'mapping',
   BOOKMARK = 'bookmark'
 }
@@ -22,13 +22,13 @@ export const defaultIcons: Record<string, Icon> = {
 
 
 const iconTypeToSrcMap = new Map<IconType, string>([
+  [IconType.LIST, 'list.bullet.svg'],
   [IconType.CALENDAR, 'calendar.svg'],
   [IconType.FLAG, 'flag.fill.svg'],
   [IconType.CHECKMARK, 'checkmark.svg'],
   [IconType.PLUS, 'plus.svg'],
   [IconType.CHEVRON_RIGHT, 'chevron.right.svg'],
-  [IconType.LIST, 'list.bullet.svg'],
-  [IconType.MAPPIN, 'mapping.svg'],
+  [IconType.MAPPIN, 'mappin.svg'],
   [IconType.BOOKMARK, 'bookmark.fill.svg'],
 ]);
 
