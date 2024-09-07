@@ -1,3 +1,6 @@
-<button (click)="navigateBack()">Abbrechen</button>
+<button class="left"
+        (click)="navigateBack()">{{ leftButtonText() ?? 'Abbrechen' }}
+</button>
 <h2>{{ title() }}</h2>
-<button (click)="onRightButton.emit()">{{ rightButtonText() }}</button>
+<button class="right" (click)="onRightButton.emit()">{{ rightButtonText() }}
+</button>

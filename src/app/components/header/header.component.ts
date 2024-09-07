@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   title = input.required<string>();
-  rightButtonText = input.required<string>();
+  leftButtonText = input<string>();
+  rightButtonText = input<string>();
   onRightButton = output();
 
   constructor(private readonly router: Router) {
   }
 
   protected navigateBack() {
-    void this.router.navigate(['/']);
+    void this.router.navigate(['..']);
   }
 }

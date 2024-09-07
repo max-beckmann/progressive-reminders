@@ -1,0 +1,17 @@
+<app-header title="Liste" leftButtonText="< Neue Erinnerung"></app-header>
+<h2>Erinnerung wird in "{{ selected()?.title }}" erstellt</h2>
+<div>
+  <ul>
+    @for (list of listOptions(); track $index) {
+      <li>
+        <app-aggregate-item [item]="toAggregateItem(list)"
+                            (click)="select($index)"></app-aggregate-item>
+
+        @if (isSelected(list)) {
+          <app-icon
+            [data]="{ type: IconType.CHECKMARK, backgroundColor: 'blue' }"></app-icon>
+        }
+      </li>
+    }
+  </ul>
+</div>

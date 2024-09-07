@@ -12,5 +12,7 @@
 </app-container>
 <app-aggregate [aggregate]="detailsLink"></app-aggregate>
 <app-container>
-  <app-aggregate-item [item]="listSelector()"></app-aggregate-item>
+  <a [routerLink]="selectListLink()">
+    <app-aggregate-item [item]="listSelector()"></app-aggregate-item>
+  </a>
 </app-container>

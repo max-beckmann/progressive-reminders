@@ -8,10 +8,17 @@ import {
 import {
   NewListPageComponent
 } from './components/pages/new-list-page/new-list-page.component';
+import {
+  SelectListPageComponent
+} from './components/pages/select-list-page/select-list-page.component';
 
 export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
   { path: 'new-reminder', component: NewReminderPageComponent },
-  { path: 'new-list', component: NewListPageComponent }
+  {
+    path: 'new-reminder/select-list/:selectedListId',
+    component: SelectListPageComponent
+  },
+  { path: 'new-list', component: NewListPageComponent },
 ];
 

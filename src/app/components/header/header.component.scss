@@ -1,6 +1,18 @@
 :host {
   width: 100%;
   margin-bottom: 16px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  h2 {
+    justify-self: center;
+  }
+
+  .left {
+    justify-self: left;
+  }
+
+  .right {
+    justify-self: right;
+  }
 }

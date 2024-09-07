@@ -10,7 +10,7 @@ import {
   Priority,
   Reminder
 } from '../../../../../model';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   InlineInputComponent
 } from '../../aggregate-items/inline-input/inline-input.component';
@@ -41,7 +41,8 @@ import { database } from '../../../../../database';
     InlineListComponent,
     InlineReminderComponent,
     FormsModule,
-    AggregateItemComponent
+    AggregateItemComponent,
+    RouterLink
   ],
   templateUrl: './new-reminder-page.component.html',
   styleUrl: './new-reminder-page.component.scss'
@@ -72,6 +73,9 @@ export class NewReminderPageComponent {
       hasArrow: true
     }
   });
+  selectListLink = computed<string>(() => {
+    return `/new-reminder/select-list/${this.selectedList()?.id}`
+  })
 
   constructor(
     private readonly router: Router

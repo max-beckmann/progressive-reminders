@@ -1,0 +1,31 @@
+::ng-deep body {
+  background-color: var(--color-white);
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    text-align: center;
+    font-family: 'SF Pro Rounded', sans-serif;
+    font-size: 1.1rem;
+  }
+
+  li {
+    position: relative;
+
+    app-icon {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    &:not(:last-child) ::ng-deep .wrapper {
+      border-bottom: 1px solid var(--color-interaction);
+    }
+  }
+
+}
