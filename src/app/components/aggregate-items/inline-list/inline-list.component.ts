@@ -1,8 +1,7 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, effect, input, signal } from '@angular/core';
 import { Item, List } from '../../../../../model';
 import { AggregateItemComponent } from '../aggregate-item.component';
 import { RouterLink } from '@angular/router';
-import { AsyncPipe } from '@angular/common';
 import { database } from '../../../../../database';
 
 @Component({
@@ -11,7 +10,6 @@ import { database } from '../../../../../database';
   imports: [
     AggregateItemComponent,
     RouterLink,
-    AsyncPipe
   ],
   templateUrl: './inline-list.component.html',
   styleUrl: './inline-list.component.scss'
@@ -39,7 +37,11 @@ export class InlineListComponent {
   });
 
   constructor() {
-    void this.initCount();
+    effect(() => {
+      if (this.list() !== undefined) {
+        void this.initCount();
+      }
+    });
   }
 
   private async initCount() {

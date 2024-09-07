@@ -7,7 +7,7 @@ import { AggregateComponent } from '../../aggregate/aggregate.component';
 import {
   BottomNavigationComponent
 } from '../../bottom-navigation/bottom-navigation.component';
-import { defaultIcons, IconType } from '../../icon/icon.component';
+import { defaultIcons } from '../../icon/icon.component';
 import { Aggregate, AggregateType } from '../../../../../model';
 import { database } from '../../../../../database';
 
@@ -39,6 +39,5 @@ export class MainOverviewPageComponent {
     });
   }
 
-  protected readonly IconType = IconType;
   protected readonly defaultIcons = defaultIcons;
 }

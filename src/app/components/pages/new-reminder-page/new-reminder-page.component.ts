@@ -98,10 +98,8 @@ export class NewReminderPageComponent {
       subReminders: [],
     }
 
-    console.log(newReminder);
+    await database.reminders.add(newReminder);
 
-    /*await database.reminders.add(newReminder);
-
-    await this.router.navigateByUrl('/');*/
+    await this.router.navigateByUrl('/');
   }
 }
