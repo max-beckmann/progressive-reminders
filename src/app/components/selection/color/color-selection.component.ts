@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, ElementRef, output } from '@angular/core';
 import { ContainerComponent } from '../../container/container.component';
 
 @Component({
@@ -14,10 +14,15 @@ export class ColorSelectionComponent {
   protected readonly colorOptions = ['#FE3C30', '#FE9500', '#FECC02', '#19C759', '#51AAF2', '#007AFF', '#5756D5', '#EA426A', '#BF77DB', '#9D8563', '#5B6670', '#D9A69E'];
   selected = output<string>();
 
+  constructor(
+    private readonly elementRef: ElementRef<HTMLElement>
+  ) {
+  }
+
   pick(index: number) {
     this.selected.emit(this.colorOptions[index]);
 
-    document.querySelectorAll('.option').forEach((option, i) => {
+    this.elementRef.nativeElement.querySelectorAll('.option').forEach((option, i) => {
       i == index ? option.classList.add('selected') : option.classList.remove('selected');
     });
   }

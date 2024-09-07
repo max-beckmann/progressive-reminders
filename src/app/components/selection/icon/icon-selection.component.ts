@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, ElementRef, output } from '@angular/core';
 import { ContainerComponent } from '../../container/container.component';
 import { IconComponent, IconType } from '../../icon/icon.component';
 
@@ -16,10 +16,15 @@ export class IconSelectionComponent {
   protected readonly iconOptions = Object.keys(IconType);
   selected = output<IconType>();
 
+  constructor(
+    private readonly elementRef: ElementRef<HTMLElement>
+  ) {
+  }
+
   pick(index: number) {
     this.selected.emit(this.toIconType(this.iconOptions[index]));
 
-    document.querySelectorAll('.option').forEach((option, i) => {
+    this.elementRef.nativeElement.querySelectorAll('.option').forEach((option, i) => {
       i == index ? option.classList.add('selected') : option.classList.remove('selected');
     });
   }
