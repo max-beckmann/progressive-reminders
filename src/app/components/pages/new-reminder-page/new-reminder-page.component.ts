@@ -2,7 +2,26 @@ import { Component } from '@angular/core';
 import { AggregateComponent } from '../../aggregate/aggregate.component';
 import { ContainerComponent } from '../../container/container.component';
 import { HeaderComponent } from '../../header/header.component';
-import { Aggregate, AggregateType } from '../../../../../model';
+import {
+  Aggregate,
+  AggregateType,
+  Priority,
+  Reminder
+} from '../../../../../model';
+import { database } from '../../../../../database';
+import { Router } from '@angular/router';
+import {
+  InlineInputComponent
+} from '../../aggregate-items/inline-input/inline-input.component';
+import {
+  InlineLinkComponent
+} from '../../aggregate-items/inline-link/inline-link.component';
+import {
+  InlineListComponent
+} from '../../aggregate-items/inline-list/inline-list.component';
+import {
+  InlineReminderComponent
+} from '../../aggregate-items/inline-reminder/inline-reminder.component';
 
 @Component({
   selector: 'app-new-reminder-page',
@@ -10,24 +29,16 @@ import { Aggregate, AggregateType } from '../../../../../model';
   imports: [
     AggregateComponent,
     ContainerComponent,
-    HeaderComponent
+    HeaderComponent,
+    InlineInputComponent,
+    InlineLinkComponent,
+    InlineListComponent,
+    InlineReminderComponent
   ],
   templateUrl: './new-reminder-page.component.html',
   styleUrl: './new-reminder-page.component.scss'
 })
 export class NewReminderPageComponent {
-  baseInputs: Aggregate = {
-    type: AggregateType.INPUTS,
-    items: [
-      {
-        placeholder: 'Titel',
-      },
-      {
-        placeholder: 'Notizen',
-        multiline: true
-      }
-    ]
-  }
   detailsLink: Aggregate = {
     type: AggregateType.LINKS,
     items: [
@@ -36,5 +47,25 @@ export class NewReminderPageComponent {
         location: '/new-reminder/details'
       }
     ]
+  }
+
+  constructor(
+    private readonly router: Router
+  ) {
+  }
+
+  async add(): Promise<void> {
+    const newReminder: Reminder = {
+      associatedList: undefined,
+      done: false,
+      highlighted: false,
+      priority: Priority.NONE,
+      title: '',
+      subReminders: [],
+    }
+
+    await database.reminders.add(newReminder);
+
+    await this.router.navigateByUrl('/');
   }
 }

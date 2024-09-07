@@ -1,3 +1,12 @@
 <app-header title="Neue Erinnerung" rightButtonText="Hinzufügen"></app-header>
-<app-aggregate [aggregate]="baseInputs"></app-aggregate>
+<app-container>
+  <ul>
+    <li>
+      <input type="text" placeholder="Titel">
+    </li>
+    <li>
+      <textarea placeholder="Notizen" rows="4"></textarea>
+    </li>
+  </ul>
+</app-container>
 <app-aggregate [aggregate]="detailsLink"></app-aggregate>

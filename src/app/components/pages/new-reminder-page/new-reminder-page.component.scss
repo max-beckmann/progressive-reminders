@@ -2,4 +2,18 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  li {
+    margin-left: 20px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-interaction);
+    }
+
+    input, textarea {
+      width: 100%;
+      margin-block: 14px;
+      margin-right: 14px;
+    }
+  }
 }
