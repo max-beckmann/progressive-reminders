@@ -47,7 +47,7 @@ export class NewListPageComponent {
   async add(): Promise<void> {
     const newList: List = {
       title: this.title(),
-      icon: IconType.LIST,
+      icon: this.icon(),
       color: this.color(),
     }
 
