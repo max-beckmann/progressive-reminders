@@ -32,4 +32,9 @@
       --icon-size: 24px;
     }
   }
+
+  &:has(.arrow):hover {
+    background-color: var(--color-interaction);
+    cursor: pointer;
+  }
 }
