@@ -1,12 +1,16 @@
-<app-header title="Neue Erinnerung" rightButtonText="Hinzufügen"></app-header>
+<app-header title="Neue Erinnerung" rightButtonText="Hinzufügen"
+            (onRightButton)="add()"></app-header>
 <app-container>
   <ul>
     <li>
-      <input type="text" placeholder="Titel">
+      <input type="text" [(ngModel)]="title" placeholder="Titel">
     </li>
     <li>
-      <textarea placeholder="Notizen" rows="4"></textarea>
+      <textarea [(ngModel)]="notes" placeholder="Notizen" rows="4"></textarea>
     </li>
   </ul>
 </app-container>
 <app-aggregate [aggregate]="detailsLink"></app-aggregate>
+<app-container>
+  <app-aggregate-item [item]="listSelector()"></app-aggregate-item>
+</app-container>

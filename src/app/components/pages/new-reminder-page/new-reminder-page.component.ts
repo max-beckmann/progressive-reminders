@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, computed, model, signal } from '@angular/core';
 import { AggregateComponent } from '../../aggregate/aggregate.component';
 import { ContainerComponent } from '../../container/container.component';
 import { HeaderComponent } from '../../header/header.component';
 import {
   Aggregate,
   AggregateType,
+  Item,
+  List,
   Priority,
   Reminder
 } from '../../../../../model';
-import { database } from '../../../../../database';
 import { Router } from '@angular/router';
 import {
   InlineInputComponent
@@ -22,6 +23,11 @@ import {
 import {
   InlineReminderComponent
 } from '../../aggregate-items/inline-reminder/inline-reminder.component';
+import { FormsModule } from '@angular/forms';
+import {
+  AggregateItemComponent
+} from '../../aggregate-items/aggregate-item.component';
+import { database } from '../../../../../database';
 
 @Component({
   selector: 'app-new-reminder-page',
@@ -33,12 +39,16 @@ import {
     InlineInputComponent,
     InlineLinkComponent,
     InlineListComponent,
-    InlineReminderComponent
+    InlineReminderComponent,
+    FormsModule,
+    AggregateItemComponent
   ],
   templateUrl: './new-reminder-page.component.html',
   styleUrl: './new-reminder-page.component.scss'
 })
 export class NewReminderPageComponent {
+  title = model<string>('');
+  notes = model<string>('');
   detailsLink: Aggregate = {
     type: AggregateType.LINKS,
     items: [
@@ -47,25 +57,51 @@ export class NewReminderPageComponent {
         location: '/new-reminder/details'
       }
     ]
-  }
+  };
+  selectedList = signal<List | null>(null);
+  listSelector = computed<Item>(() => {
+    const selectedList = this.selectedList();
+
+    return {
+      title: 'Liste',
+      subtitle: selectedList?.title ?? 'Keine ausgewählt',
+      icon: selectedList ? {
+        type: selectedList.icon,
+        backgroundColor: selectedList.color
+      } : undefined,
+      hasArrow: true
+    }
+  });
 
   constructor(
     private readonly router: Router
   ) {
+    void this.init();
+  }
+
+  private async init(): Promise<void> {
+    const lists = await database.lists.toArray();
+
+    if (lists.length > 0) {
+      this.selectedList.set(lists[0]);
+    }
   }
 
   async add(): Promise<void> {
     const newReminder: Reminder = {
-      associatedList: undefined,
+      associatedList: this.selectedList()?.id,
       done: false,
       highlighted: false,
       priority: Priority.NONE,
-      title: '',
+      title: this.title(),
+      notes: this.notes() || undefined,
       subReminders: [],
     }
 
-    await database.reminders.add(newReminder);
+    console.log(newReminder);
 
-    await this.router.navigateByUrl('/');
+    /*await database.reminders.add(newReminder);
+
+    await this.router.navigateByUrl('/');*/
   }
 }
