@@ -1,4 +1,4 @@
-import { Component, HostBinding, input, signal } from '@angular/core';
+import { Component, HostBinding, input, output, signal } from '@angular/core';
 import { Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
 
@@ -12,7 +12,8 @@ import { database } from '../../../../../database';
 export class InlineReminderComponent {
   reminder = input.required<Reminder>();
   listColor = input<string>('');
-  checked = signal<boolean>(false);
+  toggled = signal<boolean>(false);
+  onDone = output<number>();
 
   @HostBinding('style.--checked-color')
   get checkedColor(): string {
@@ -20,11 +21,13 @@ export class InlineReminderComponent {
   }
 
   toggle(): void {
-    this.checked.update(before => !before);
+    this.toggled.update(v => !v);
 
-    setTimeout(() => {
-      if (this.checked()) this.setDone();
-    }, 3000);
+    if (this.toggled()) {
+      setTimeout(() => {
+        if (this.toggled()) this.setDone();
+      }, 3000);
+    }
   }
 
   private setDone(): void {
@@ -32,5 +35,7 @@ export class InlineReminderComponent {
     database.reminders.update(id!, {
       done: true
     });
+
+    this.onDone.emit(this.reminder().id!);
   }
 }

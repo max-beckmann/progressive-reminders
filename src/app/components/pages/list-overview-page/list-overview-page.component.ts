@@ -42,6 +42,10 @@ export class ListOverviewPageComponent {
     });
   }
 
+  protected removeFromList(id: number) {
+    this.reminders.update(reminders => reminders.filter(reminder => reminder.id !== id));
+  }
+
   private async init(id: number): Promise<void> {
     const list = await database.lists
       .where('id')
