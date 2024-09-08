@@ -1,0 +1,7 @@
+<app-header title="Erledigt" leftButtonText="< Listen"></app-header>
+<h1 [style.color]="color">Erledigt</h1>
+@for (reminder of reminders(); track reminder.id) {
+  <app-inline-reminder [reminder]="reminder"
+                       [listColor]="color"
+                       (onUndone)="removeFromList($event)"></app-inline-reminder>
+}

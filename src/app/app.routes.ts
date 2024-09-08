@@ -14,15 +14,16 @@ import {
 import {
   ListOverviewPageComponent
 } from './components/pages/list-overview-page/list-overview-page.component';
+import {
+  DoneOverviewPageComponent
+} from './components/pages/done-overview-page/done-overview-page.component';
 
 export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
+  { path: 'list/done', component: DoneOverviewPageComponent },
   { path: 'list/:id', component: ListOverviewPageComponent },
   { path: 'new-reminder', component: NewReminderPageComponent },
-  {
-    path: 'new-reminder/select-list',
-    component: SelectListPageComponent
-  },
+  { path: 'new-reminder/select-list', component: SelectListPageComponent },
   { path: 'new-list', component: NewListPageComponent },
 ];
 
