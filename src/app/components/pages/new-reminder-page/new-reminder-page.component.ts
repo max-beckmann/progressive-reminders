@@ -93,7 +93,10 @@ export class NewReminderPageComponent {
       const { state } = navigation.extras;
 
       void this.init(state as Reminder);
+      return;
     }
+
+    void this.init();
   }
 
   async add(): Promise<void> {
@@ -108,7 +111,7 @@ export class NewReminderPageComponent {
     });
   }
 
-  private init(reminder: Reminder): void {
+  private init(reminder?: Reminder): void {
     if (reminder) {
       this.title.set(reminder.title);
       if (reminder.notes) this.notes.set(reminder.notes);
