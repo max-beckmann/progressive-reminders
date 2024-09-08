@@ -45,7 +45,10 @@ export class InlineListComponent {
   }
 
   private async initCount() {
-    const count = await database.reminders.where('associatedList').equals(this.list().id!).count()
+    const count = await database.reminders
+      .where('associatedList').equals(this.list().id!)
+      .and(reminder => !reminder.done)
+      .count()
     this.count.set(count);
   }
 }
