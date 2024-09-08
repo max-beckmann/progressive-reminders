@@ -1,0 +1,58 @@
+:host {
+  display: flex;
+  align-items: center;
+
+  .check {
+    width: 24px;
+    aspect-ratio: 1/1;
+    padding: 2px;
+    border-radius: 50%;
+    border: 2px solid var(--color-interaction);
+
+    .inner {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+    }
+
+    &.checked {
+      border-color: var(--checked-color);
+
+      .inner {
+        background-color: var(--checked-color);
+      }
+    }
+  }
+
+  .wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 14px;
+    margin-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 14px;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .subtitle {
+      color: var(--color-font);
+    }
+
+    .arrow {
+      --icon-size: 24px;
+    }
+  }
+
+  &:has(.arrow):hover {
+    background-color: var(--color-interaction);
+    cursor: pointer;
+  }
+}

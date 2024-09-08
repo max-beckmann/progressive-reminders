@@ -1,23 +1,29 @@
-import { Component, computed, input } from '@angular/core';
-import { Item, Reminder } from '../../../../../model';
+import { Component, ElementRef, input } from '@angular/core';
+import { Reminder } from '../../../../../model';
 import { AggregateItemComponent } from '../aggregate-item.component';
+import { IconComponent } from '../../icon/icon.component';
 
 @Component({
   selector: 'app-inline-reminder',
   standalone: true,
   imports: [
-    AggregateItemComponent
+    AggregateItemComponent,
+    IconComponent
   ],
   templateUrl: './inline-reminder.component.html',
   styleUrl: './inline-reminder.component.scss'
 })
 export class InlineReminderComponent {
   reminder = input.required<Reminder>();
+  listColor = input<string>('');
 
-  aggregateItem = computed<Item>(() => {
-    return {
-      title: this.reminder().title,
-      hasArrow: this.reminder().subReminders.length > 0
-    }
-  });
+  constructor(
+    private readonly elementRef: ElementRef<HTMLElement>
+  ) {
+  }
+
+  check() {
+    this.elementRef.nativeElement.style.setProperty('--checked-color', this.listColor());
+    this.elementRef.nativeElement.querySelector('.check')?.classList.add('checked');
+  }
 }

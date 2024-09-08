@@ -1,7 +1,12 @@
 <app-header [title]="list()?.title ?? ''"
             leftButtonText="< Listen"></app-header>
 <h1 [style.color]="list()?.color">{{ list()?.title }}</h1>
-<app-aggregate [aggregate]="reminders()"></app-aggregate>
+
+@for (reminder of reminders(); track reminder.id) {
+  <app-inline-reminder [reminder]="reminder"
+                       [listColor]="list()?.color"></app-inline-reminder>
+}
+
 <app-bottom-navigation [hasNewListButton]="false"
                        [style.color]="list()?.color"
                        [icon]="bottomNavigationIcon()"></app-bottom-navigation>

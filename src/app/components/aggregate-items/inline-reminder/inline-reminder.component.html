@@ -1,1 +1,15 @@
-<app-aggregate-item [item]="aggregateItem()"></app-aggregate-item>
+<button class="check" (click)="check()">
+  <span class="inner"></span>
+</button>
+<div class="wrapper">
+  <span class="title">{{ reminder().title }}</span>
+  <div class="right">
+    <!--     @if (item().subtitle) { -->
+    <!--       <span class="subtitle">{{ item().subtitle }}</span> -->
+    <!--     } -->
+    <!--     @if (item().hasArrow) { -->
+    <!--       <app-icon [data]="{ type: IconType.CHEVRON_RIGHT }" -->
+    <!--                 class="arrow"></app-icon> -->
+    <!--     } -->
+  </div>
+</div>
