@@ -11,9 +11,13 @@ import {
 import {
   SelectListPageComponent
 } from './components/pages/select-list-page/select-list-page.component';
+import {
+  ListOverviewPageComponent
+} from './components/pages/list-overview-page/list-overview-page.component';
 
 export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
+  { path: 'list/:id', component: ListOverviewPageComponent },
   { path: 'new-reminder', component: NewReminderPageComponent },
   {
     path: 'new-reminder/select-list',

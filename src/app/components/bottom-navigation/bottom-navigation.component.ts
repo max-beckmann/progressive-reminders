@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { defaultIcons, IconComponent } from '../icon/icon.component';
+import { Icon } from '../../../../model';
 
 @Component({
   selector: 'app-bottom-navigation',
@@ -13,5 +14,6 @@ import { defaultIcons, IconComponent } from '../icon/icon.component';
   styleUrl: './bottom-navigation.component.scss'
 })
 export class BottomNavigationComponent {
-  protected readonly defaultIcons = defaultIcons;
+  hasNewListButton = input<boolean>(true);
+  icon = input<Icon>(defaultIcons['plus']);
 }

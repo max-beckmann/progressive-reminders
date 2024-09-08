@@ -1,17 +1,16 @@
 :host {
-  width: calc(100% - 32px);
+  width: 100%;
+  padding: 16px;
   position: absolute;
-  bottom: 16px;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--color-blue);
 
-  a {
-    color: var(--color-blue);
-
-    &:hover {
-      opacity: 0.5;
-    }
+  a:hover {
+    opacity: 0.5;
   }
 
   .new-reminder {

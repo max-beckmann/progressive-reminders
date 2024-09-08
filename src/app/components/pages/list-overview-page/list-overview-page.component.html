@@ -1,0 +1,6 @@
+<app-header [title]="list()?.title ?? ''"
+            leftButtonText="< Listen"></app-header>
+<h1 [style.color]="list()?.color">{{ list()?.title }}</h1>
+<app-bottom-navigation [hasNewListButton]="false"
+                       [style.color]="list()?.color"
+                       [icon]="bottomNavigationIcon()"></app-bottom-navigation>

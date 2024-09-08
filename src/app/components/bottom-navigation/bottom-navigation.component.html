@@ -1,6 +1,8 @@
 <a routerLink="/new-reminder" class="new-reminder">
-  <app-icon [data]="defaultIcons['plus']"></app-icon>
+  <app-icon [data]="icon()"></app-icon>
   Neue Erinnerung
 </a>
-<a routerLink="/new-list">Neue Liste</a>
+@if (hasNewListButton()) {
+  <a routerLink="/new-list">Neue Liste</a>
+}
 
