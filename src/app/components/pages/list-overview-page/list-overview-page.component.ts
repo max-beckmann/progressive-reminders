@@ -1,18 +1,20 @@
 import { Component, computed, effect, input, signal } from '@angular/core';
-import { Icon, List, Reminder } from '../../../../../model';
+import { Aggregate, AggregateType, Icon, List } from '../../../../../model';
 import { HeaderComponent } from '../../header/header.component';
 import { database } from '../../../../../database';
 import {
   BottomNavigationComponent
 } from '../../bottom-navigation/bottom-navigation.component';
 import { IconType } from '../../icon/icon.component';
+import { AggregateComponent } from '../../aggregate/aggregate.component';
 
 @Component({
   selector: 'app-list-overview-page',
   standalone: true,
   imports: [
     HeaderComponent,
-    BottomNavigationComponent
+    BottomNavigationComponent,
+    AggregateComponent
   ],
   templateUrl: './list-overview-page.component.html',
   styleUrl: './list-overview-page.component.scss'
@@ -20,7 +22,7 @@ import { IconType } from '../../icon/icon.component';
 export class ListOverviewPageComponent {
   id = input.required<string>();
   list = signal<List | null>(null);
-  reminders = signal<Reminder[]>([]);
+  reminders = signal<Aggregate | null>(null);
   bottomNavigationIcon = computed<Icon>(() => {
     return {
       type: IconType.PLUS,
@@ -43,5 +45,17 @@ export class ListOverviewPageComponent {
       .first()
 
     if (list) this.list.set(list);
+
+    const reminders = await database.reminders
+      .where('associatedList')
+      .equals(id)
+      .toArray()
+
+    if (reminders.length > 0) {
+      this.reminders.set({
+        type: AggregateType.REMINDERS,
+        items: reminders
+      })
+    }
   }
 }
