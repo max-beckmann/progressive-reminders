@@ -56,7 +56,7 @@ export class ListOverviewPageComponent {
 
     const reminders = await database.reminders
       .where('associatedList').equals(id)
-      // .and(reminder => !reminder.done)
+      .and(reminder => !reminder.done)
       .toArray();
 
     if (reminders.length > 0) {
