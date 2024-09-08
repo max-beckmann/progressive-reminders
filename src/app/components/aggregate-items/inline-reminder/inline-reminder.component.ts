@@ -1,5 +1,6 @@
-import { Component, ElementRef, input } from '@angular/core';
+import { Component, HostBinding, input, signal } from '@angular/core';
 import { Reminder } from '../../../../../model';
+import { database } from '../../../../../database';
 
 @Component({
   selector: 'app-inline-reminder',
@@ -11,14 +12,25 @@ import { Reminder } from '../../../../../model';
 export class InlineReminderComponent {
   reminder = input.required<Reminder>();
   listColor = input<string>('');
+  checked = signal<boolean>(false);
 
-  constructor(
-    private readonly elementRef: ElementRef<HTMLElement>
-  ) {
+  @HostBinding('style.--checked-color')
+  get checkedColor(): string {
+    return this.listColor();
   }
 
-  check() {
-    this.elementRef.nativeElement.style.setProperty('--checked-color', this.listColor());
-    this.elementRef.nativeElement.querySelector('.check')?.classList.add('checked');
+  toggle(): void {
+    this.checked.update(before => !before);
+
+    setTimeout(() => {
+      if (this.checked()) this.setDone();
+    }, 3000);
+  }
+
+  private setDone(): void {
+    const { id } = this.reminder();
+    database.reminders.update(id!, {
+      done: true
+    });
   }
 }
