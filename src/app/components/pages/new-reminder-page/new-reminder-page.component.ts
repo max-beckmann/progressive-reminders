@@ -1,4 +1,4 @@
-import { Component, computed, model, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { AggregateComponent } from '../../aggregate/aggregate.component';
 import { ContainerComponent } from '../../container/container.component';
 import { HeaderComponent } from '../../header/header.component';
@@ -59,8 +59,8 @@ export class NewReminderPageComponent {
       subReminders: [],
     }
   });
-  title = model<string>('');
-  notes = model<string>('');
+  title = signal<string>('');
+  notes = signal<string>('');
   selectedList = signal<List | null>(null);
   listSelector = computed<Item>(() => {
     const selectedList = this.selectedList();

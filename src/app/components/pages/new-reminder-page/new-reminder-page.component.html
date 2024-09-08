@@ -3,10 +3,12 @@
 <app-container>
   <ul>
     <li>
-      <input type="text" [(ngModel)]="title" placeholder="Titel">
+      <input type="text" [ngModel]="title()" (ngModelChange)="title.set($event)"
+             placeholder="Titel">
     </li>
     <li>
-      <textarea [(ngModel)]="notes" placeholder="Notizen" rows="4"></textarea>
+      <textarea [ngModel]="notes()" (ngModelChange)="notes.set($event)"
+                placeholder="Notizen" rows="4"></textarea>
     </li>
   </ul>
 </app-container>
