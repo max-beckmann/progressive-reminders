@@ -4,7 +4,7 @@
 
 @for (reminder of reminders(); track reminder.id) {
   <app-inline-reminder [reminder]="reminder"
-                       [listColor]="list()?.color"></app-inline-reminder>
+                       [listColor]="list()?.color!"></app-inline-reminder>
 }
 
 <app-bottom-navigation [hasNewListButton]="false"

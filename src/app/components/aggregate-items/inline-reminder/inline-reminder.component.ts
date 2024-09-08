@@ -1,15 +1,10 @@
 import { Component, ElementRef, input } from '@angular/core';
 import { Reminder } from '../../../../../model';
-import { AggregateItemComponent } from '../aggregate-item.component';
-import { IconComponent } from '../../icon/icon.component';
 
 @Component({
   selector: 'app-inline-reminder',
   standalone: true,
-  imports: [
-    AggregateItemComponent,
-    IconComponent
-  ],
+  imports: [],
   templateUrl: './inline-reminder.component.html',
   styleUrl: './inline-reminder.component.scss'
 })
