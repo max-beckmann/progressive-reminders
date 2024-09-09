@@ -51,4 +51,9 @@ export class IconComponent {
   get backgroundColor() {
     return this.data().backgroundColor;
   }
+
+  @HostBinding('class.square')
+  get isSquare() {
+    return this.data().square;
+  }
 }

@@ -22,6 +22,7 @@ export interface Item {
 export interface Icon {
   type: IconType;
   backgroundColor?: string;
+  square?: boolean;
 }
 
 export type AggregateItem = List | Reminder | Input | Link;
