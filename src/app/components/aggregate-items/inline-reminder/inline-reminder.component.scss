@@ -1,10 +1,7 @@
 :host {
-  display: flex;
-
   .toggle {
     width: 24px;
     height: 24px;
-    margin-top: 12px;
     padding: 2px;
     border-radius: 50%;
     border: 2px solid var(--color-interaction);
@@ -23,47 +20,5 @@
         background-color: var(--checked-color);
       }
     }
-  }
-
-  .wrapper {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-top: 14px;
-    margin-left: 14px;
-    padding-right: 14px;
-    padding-bottom: 14px;
-  }
-
-  .left {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-
-    .notes {
-      font-size: 0.9rem;
-      color: var(--color-font);
-    }
-  }
-
-  .right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    .subtitle {
-      color: var(--color-font);
-    }
-
-    .arrow {
-      --icon-size: 24px;
-    }
-  }
-
-  &:has(.arrow):hover {
-    background-color: var(--color-interaction);
-    cursor: pointer;
   }
 }

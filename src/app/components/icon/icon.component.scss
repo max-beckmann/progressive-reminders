@@ -1,6 +1,6 @@
 :host {
   width: var(--icon-size, 24px);
-  aspect-ratio: 1/1;
+  height: var(--icon-size, 24px);
   border-radius: 50%;
   display: flex;
   justify-content: center;

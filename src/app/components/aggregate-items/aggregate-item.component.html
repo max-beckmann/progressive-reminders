@@ -1,15 +1,17 @@
-@if (item().icon) {
-  <app-icon [data]="item().icon!" class="icon"></app-icon>
-}
-<div class="wrapper">
-  <span class="title">{{ item().title }}</span>
-  <div class="right">
-    @if (item().subtitle) {
-      <span class="subtitle">{{ item().subtitle }}</span>
-    }
-    @if (item().hasArrow) {
-      <app-icon [data]="{ type: IconType.CHEVRON_RIGHT }"
-                class="arrow"></app-icon>
-    }
+<div class="inline-item">
+  @if (item().icon) {
+    <app-icon [data]="item().icon!" class="icon"></app-icon>
+  }
+  <div class="wrapper">
+    <span class="title">{{ item().title }}</span>
+    <div class="right">
+      @if (item().subtitle) {
+        <span class="subtitle">{{ item().subtitle }}</span>
+      }
+      @if (item().hasArrow) {
+        <app-icon [data]="{ type: IconType.CHEVRON_RIGHT }"
+                  class="arrow"></app-icon>
+      }
+    </div>
   </div>
 </div>

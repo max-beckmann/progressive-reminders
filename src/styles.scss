@@ -107,3 +107,52 @@ button {
     opacity: 0.5;
   }
 }
+
+.inline-item {
+  display: flex;
+  padding-top: 14px;
+
+  app-icon {
+    --icon-size: 28px;
+    margin-left: 10px;
+  }
+
+  .wrapper {
+    flex-grow: 1;
+    padding: 2px 14px 14px 0;
+    margin-left: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .notes {
+        font-size: 0.9rem;
+        color: var(--color-font);
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .subtitle {
+        color: var(--color-font);
+      }
+
+      .arrow {
+        --icon-size: 24px;
+      }
+    }
+  }
+
+  &:has(.arrow):hover {
+    background-color: var(--color-interaction);
+    cursor: pointer;
+  }
+}

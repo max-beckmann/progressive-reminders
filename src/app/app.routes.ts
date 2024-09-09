@@ -17,6 +17,9 @@ import {
 import {
   DoneOverviewPageComponent
 } from './components/pages/done-overview-page/done-overview-page.component';
+import {
+  ReminderDetailsPageComponent
+} from './components/pages/reminder-details-page/reminder-details-page.component';
 
 export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
@@ -24,6 +27,7 @@ export const routes: Routes = [
   { path: 'list/:id', component: ListOverviewPageComponent },
   { path: 'new-reminder', component: NewReminderPageComponent },
   { path: 'new-reminder/select-list', component: SelectListPageComponent },
+  { path: 'new-reminder/details', component: ReminderDetailsPageComponent },
   { path: 'new-list', component: NewListPageComponent },
 ];
 
