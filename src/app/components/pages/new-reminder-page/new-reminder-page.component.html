@@ -21,5 +21,6 @@
   <app-inline-link title="Liste"
                    [subtitle]="selectedList()?.title ?? 'Keine ausgewählt'"
                    [icon]="selectedList()?.icon"
-                   [location]="SelectListPageComponent.location"></app-inline-link>
+                   [location]="SelectListPageComponent.location"
+                   [state]="this.reminder()"></app-inline-link>
 </app-container>
