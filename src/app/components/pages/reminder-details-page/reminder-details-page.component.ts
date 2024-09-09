@@ -22,6 +22,10 @@ export class ReminderDetailsPageComponent {
     title: 'Datum',
     icon: { type: IconType.CALENDAR, backgroundColor: 'red' }
   };
+  protected readonly highlightToggle = {
+    title: 'Markieren',
+    icon: { type: IconType.FLAG, backgroundColor: 'orange' }
+  }
 
   protected readonly IconType = IconType;
 }
