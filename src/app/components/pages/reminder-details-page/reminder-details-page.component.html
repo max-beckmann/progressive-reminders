@@ -1,4 +1,5 @@
-<app-header title="Details" leftButtonText="< Neue Erinnerung"></app-header>
+<app-header title="Details" leftButtonText="< Neue Erinnerung"
+            rightButtonText="Hinzufügen" (onRightButton)="apply()"></app-header>
 <app-container>
   <app-inline-toggle title="Markieren"
                      [icon]="hightlightToggleIcon"

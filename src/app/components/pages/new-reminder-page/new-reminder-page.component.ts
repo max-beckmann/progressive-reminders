@@ -47,6 +47,7 @@ import {
   styleUrl: './new-reminder-page.component.scss'
 })
 export class NewReminderPageComponent {
+  static readonly location = '/new-reminder';
   reminder = computed<Reminder>(() => {
     return {
       associatedList: this.selectedList()?.id,
@@ -68,6 +69,8 @@ export class NewReminderPageComponent {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       const { state } = navigation.extras;
+
+      console.log(state);
 
       void this.init(state as Reminder);
       return;
