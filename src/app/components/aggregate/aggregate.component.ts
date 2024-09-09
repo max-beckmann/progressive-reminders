@@ -4,7 +4,6 @@ import {
   AggregateItem,
   AggregateType,
   Input,
-  Link,
   List,
   Reminder
 } from '../../../../model';
@@ -49,9 +48,5 @@ export class AggregateComponent {
 
   protected toList(item: AggregateItem) {
     return item as unknown as List;
-  }
-
-  protected toLink(item: AggregateItem) {
-    return item as unknown as Link;
   }
 }

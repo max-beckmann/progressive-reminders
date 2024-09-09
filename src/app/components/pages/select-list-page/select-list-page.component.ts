@@ -22,6 +22,7 @@ import { Router } from '@angular/router';
   styleUrl: './select-list-page.component.scss'
 })
 export class SelectListPageComponent {
+  static readonly location = '/new-reminder/select-list';
   private readonly reminderState: Reminder | null = null;
   listOptions = signal<List[]>([]);
   selected = computed<List>(() => {
@@ -59,10 +60,7 @@ export class SelectListPageComponent {
   protected toAggregateItem(list: List): Item {
     return {
       title: list.title,
-      icon: {
-        type: list.icon,
-        backgroundColor: list.color
-      }
+      icon: list.icon
     }
   }
 

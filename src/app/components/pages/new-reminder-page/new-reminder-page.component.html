@@ -12,8 +12,14 @@
     </li>
   </ul>
 </app-container>
-<app-aggregate [aggregate]="detailsLink"></app-aggregate>
 <app-container>
-  <app-aggregate-item [item]="listSelector()"
-                      (click)="openListSelection()"></app-aggregate-item>
+  <app-inline-link title="Details"
+                   [location]="ReminderDetailsPageComponent.location"
+                   [state]="this.reminder()"></app-inline-link>
+</app-container>
+<app-container>
+  <app-inline-link title="Liste"
+                   [subtitle]="selectedList()?.title ?? 'Keine ausgewählt'"
+                   [icon]="selectedList()?.icon"
+                   [location]="SelectListPageComponent.location"></app-inline-link>
 </app-container>

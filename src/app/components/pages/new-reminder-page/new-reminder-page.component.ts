@@ -2,14 +2,7 @@ import { Component, computed, signal } from '@angular/core';
 import { AggregateComponent } from '../../aggregate/aggregate.component';
 import { ContainerComponent } from '../../container/container.component';
 import { HeaderComponent } from '../../header/header.component';
-import {
-  Aggregate,
-  AggregateType,
-  Item,
-  List,
-  Priority,
-  Reminder
-} from '../../../../../model';
+import { List, Priority, Reminder } from '../../../../../model';
 import { Router, RouterLink } from '@angular/router';
 import {
   InlineInputComponent
@@ -28,6 +21,12 @@ import {
   AggregateItemComponent
 } from '../../aggregate-items/aggregate-item.component';
 import { database } from '../../../../../database';
+import {
+  SelectListPageComponent
+} from '../select-list-page/select-list-page.component';
+import {
+  ReminderDetailsPageComponent
+} from '../reminder-details-page/reminder-details-page.component';
 
 @Component({
   selector: 'app-new-reminder-page',
@@ -62,28 +61,6 @@ export class NewReminderPageComponent {
   title = signal<string>('');
   notes = signal<string>('');
   selectedList = signal<List | null>(null);
-  listSelector = computed<Item>(() => {
-    const selectedList = this.selectedList();
-
-    return {
-      title: 'Liste',
-      subtitle: selectedList?.title ?? 'Keine ausgewählt',
-      icon: selectedList ? {
-        type: selectedList.icon,
-        backgroundColor: selectedList.color
-      } : undefined,
-      hasArrow: true
-    }
-  });
-  detailsLink: Aggregate = {
-    type: AggregateType.LINKS,
-    items: [
-      {
-        title: 'Details',
-        location: '/new-reminder/details'
-      }
-    ]
-  };
 
   constructor(
     private readonly router: Router
@@ -103,12 +80,6 @@ export class NewReminderPageComponent {
     await database.reminders.add(this.reminder());
 
     await this.router.navigateByUrl('/');
-  }
-
-  async openListSelection(): Promise<void> {
-    await this.router.navigate(['/new-reminder/select-list'], {
-      state: this.reminder()
-    });
   }
 
   private init(reminder?: Reminder): void {
@@ -139,4 +110,7 @@ export class NewReminderPageComponent {
       this.selectedList.set(selected);
     }
   }
+
+  protected readonly SelectListPageComponent = SelectListPageComponent;
+  protected readonly ReminderDetailsPageComponent = ReminderDetailsPageComponent;
 }

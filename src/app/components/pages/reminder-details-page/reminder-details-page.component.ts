@@ -18,6 +18,7 @@ import { IconType } from '../../icon/icon.component';
   styleUrl: './reminder-details-page.component.scss'
 })
 export class ReminderDetailsPageComponent {
+  static readonly location = '/new-reminder/details';
   protected readonly dateToggle = {
     title: 'Datum',
     icon: { type: IconType.CALENDAR, backgroundColor: 'red' }

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { AggregateItemComponent } from '../aggregate-item.component';
 import { Item, Link } from '../../../../../model';
 import { RouterLink } from '@angular/router';
@@ -14,13 +14,18 @@ import { RouterLink } from '@angular/router';
   styleUrl: './inline-link.component.scss'
 })
 export class InlineLinkComponent {
-  linkData = input.required<Link>();
+  title = input.required<Link['title']>();
+  subtitle = input<Link['subtitle']>();
+  location = input.required<Link['location']>();
+  state = input<Link['state']>();
+  icon = input<Link['icon']>();
 
-  get aggregateItem(): Item {
+  aggregateItem = computed<Item>(() => {
     return {
-      title: this.linkData().title,
-      subtitle: '',
+      title: this.title(),
+      subtitle: this.subtitle(),
+      icon: this.icon(),
       hasArrow: true
     }
-  }
+  });
 }

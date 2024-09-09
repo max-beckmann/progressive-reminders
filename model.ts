@@ -25,22 +25,24 @@ export interface Icon {
   square?: boolean;
 }
 
-export type AggregateItem = List | Reminder | Input | Link;
-
-export interface List {
-  id?: number;
+export interface AggregateItem {
   title: string;
-  icon: IconType;
+  subtitle?: string;
+  icon?: Icon;
+  hasArrow?: boolean;
+}
+
+export interface List extends AggregateItem {
+  id?: number;
   color: string;
 }
 
-export interface Reminder {
+export interface Reminder extends AggregateItem {
   id?: number;
   associatedList: List['id'];
   done: boolean;
   highlighted: boolean;
   priority: Priority;
-  title: string;
   notes?: string;
   timing?: {
     date: Date;
@@ -63,12 +65,12 @@ export enum Repetition {
   MONTHLY = 'monatlich'
 }
 
-export interface Input {
+export interface Input extends AggregateItem {
   placeholder: string;
   multiline?: boolean
 }
 
-export interface Link {
-  title: string;
+export interface Link extends AggregateItem {
   location: string;
+  state?: { [p: string]: any };
 }

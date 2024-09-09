@@ -1,3 +1,3 @@
-<a [routerLink]="linkData().location">
-  <app-aggregate-item [item]="aggregateItem"></app-aggregate-item>
+<a [routerLink]="location()" [state]="state()">
+  <app-aggregate-item [item]="aggregateItem()"></app-aggregate-item>
 </a>

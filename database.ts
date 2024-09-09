@@ -19,12 +19,18 @@ export class AppDB extends Dexie {
     await database.lists.bulkAdd([
       {
         title: 'Custom List 1',
-        icon: IconType.FLAG,
+        icon: {
+          type: IconType.FLAG,
+          backgroundColor: 'blue'
+        },
         color: 'blue'
       },
       {
         title: 'Custom List 2',
-        icon: IconType.FLAG,
+        icon: {
+          type: IconType.FLAG,
+          backgroundColor: 'red'
+        },
         color: 'red'
       }
     ]);

@@ -28,10 +28,7 @@ export class InlineListComponent {
     return {
       title,
       subtitle: this.count().toString(),
-      icon: {
-        type: icon,
-        backgroundColor: color
-      },
+      icon,
       hasArrow: true
     }
   });
