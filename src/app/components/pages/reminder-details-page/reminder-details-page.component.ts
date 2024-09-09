@@ -32,15 +32,16 @@ export class ReminderDetailsPageComponent {
   };
 
   constructor(
-    private readonly router: Router
+    protected readonly router: Router
   ) {
-    const navigation = this.router.getCurrentNavigation();
-    this.reminder = navigation?.extras.state as Reminder;
+    this.reminder = this.router.getCurrentNavigation()?.extras.state as Reminder;
   }
 
-  apply() {
-    void this.router.navigate([NewReminderPageComponent.location], {
-      state: this.reminder!
-    });
+  applyChanges(router: Router) {
+    return () => {
+      void router.navigate([NewReminderPageComponent.location], {
+        state: this.reminder!
+      });
+    }
   }
 }

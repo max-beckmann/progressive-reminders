@@ -1,5 +1,6 @@
 <app-header title="Details" leftButtonText="< Neue Erinnerung"
-            rightButtonText="Hinzufügen" (onRightButton)="apply()"></app-header>
+            [onLeftButton]="applyChanges(router)"
+            rightButtonText="Hinzufügen"></app-header>
 <app-container>
   <app-inline-toggle title="Markieren"
                      [icon]="hightlightToggleIcon"
