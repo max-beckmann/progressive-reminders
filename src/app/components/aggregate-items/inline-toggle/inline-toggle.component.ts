@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { AggregateItemComponent } from '../aggregate-item.component';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../icon/icon.component';
@@ -22,4 +22,9 @@ interface Toggle {
 })
 export class InlineToggleComponent {
   data = input.required<Toggle>();
+  toggled = signal<boolean>(false);
+
+  toggle() {
+    this.toggled.update(v => !v);
+  }
 }
