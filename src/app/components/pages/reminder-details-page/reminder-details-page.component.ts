@@ -37,11 +37,9 @@ export class ReminderDetailsPageComponent {
     this.reminder = this.router.getCurrentNavigation()?.extras.state as Reminder;
   }
 
-  applyChanges(router: Router) {
-    return () => {
-      void router.navigate([NewReminderPageComponent.location], {
-        state: this.reminder!
-      });
-    }
+  applyChanges() {
+    void this.router.navigate([NewReminderPageComponent.location], {
+      state: this.reminder!
+    });
   }
 }

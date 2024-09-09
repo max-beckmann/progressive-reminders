@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   title = input.required<string>();
   leftButtonText = input<string>();
-  onLeftButton = input<() => void>();
+  onLeftButton = output();
   rightButtonText = input<string>();
   onRightButton = output();
 
