@@ -1,13 +1,8 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 import { AggregateItemComponent } from '../aggregate-item.component';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../icon/icon.component';
-import { Icon } from '../../../../../model';
-
-interface Toggle {
-  title: string;
-  icon: Icon;
-}
+import { AggregateItem } from '../../../../../model';
 
 @Component({
   selector: 'app-inline-toggle',
@@ -21,16 +16,21 @@ interface Toggle {
   styleUrl: './inline-toggle.component.scss'
 })
 export class InlineToggleComponent {
-  data = input.required<Toggle>();
-  icon = computed<Icon>(() => {
+  title = input.required<AggregateItem['title']>();
+  icon = input<AggregateItem['icon']>();
+  squareIcon = computed<AggregateItem['icon'] | null>(() => {
+    if (this.icon() === undefined) return null;
+
     return {
-      ...this.data().icon,
-      square: true,
+      ...this.icon()!,
+      square: true
     }
   });
   toggled = signal<boolean>(false);
+  onToggle = output<boolean>();
 
   toggle() {
     this.toggled.update(v => !v);
+    this.onToggle.emit(this.toggled());
   }
 }

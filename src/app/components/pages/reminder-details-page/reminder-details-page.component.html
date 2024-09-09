@@ -1,7 +1,6 @@
 <app-header title="Details" leftButtonText="< Neue Erinnerung"></app-header>
 <app-container>
-  <app-inline-toggle [data]="dateToggle"></app-inline-toggle>
-</app-container>
-<app-container>
-  <app-inline-toggle [data]="highlightToggle"></app-inline-toggle>
+  <app-inline-toggle title="Markieren"
+                     [icon]="hightlightToggleIcon"
+                     (onToggle)="setHighlighted($event)"></app-inline-toggle>
 </app-container>

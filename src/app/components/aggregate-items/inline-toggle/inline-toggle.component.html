@@ -1,7 +1,9 @@
 <div class="inline-item">
-  <app-icon [data]="icon()" class="icon"></app-icon>
+  @if (squareIcon()) {
+    <app-icon [data]="squareIcon()!" class="icon"></app-icon>
+  }
   <div class="wrapper">
-    <span class="title">{{ data().title }}</span>
+    <span class="title">{{ title() }}</span>
     <div class="right">
       <div class="toggle" [class.active]="toggled()" (click)="toggle()">
         <span class="inner"></span>
