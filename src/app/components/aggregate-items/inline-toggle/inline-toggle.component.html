@@ -5,7 +5,7 @@
   <div class="wrapper">
     <span class="title">{{ title() }}</span>
     <div class="right">
-      <div class="toggle" [class.active]="toggled()" (click)="toggle()">
+      <div class="toggle" [class.active]="status()" (click)="toggle()">
         <span class="inner"></span>
       </div>
     </div>

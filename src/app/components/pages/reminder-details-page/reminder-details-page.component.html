@@ -3,5 +3,5 @@
 <app-container>
   <app-inline-toggle title="Markieren"
                      [icon]="hightlightToggleIcon"
-                     (onToggle)="setHighlighted($event)"></app-inline-toggle>
+                     [(status)]="reminder.highlighted"></app-inline-toggle>
 </app-container>

@@ -1,4 +1,4 @@
-import { Component, computed, input, output, signal } from '@angular/core';
+import { Component, computed, input, model } from '@angular/core';
 import { AggregateItemComponent } from '../aggregate-item.component';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../icon/icon.component';
@@ -26,11 +26,9 @@ export class InlineToggleComponent {
       square: true
     }
   });
-  toggled = signal<boolean>(false);
-  onToggle = output<boolean>();
+  status = model<boolean>(false);
 
   toggle() {
-    this.toggled.update(v => !v);
-    this.onToggle.emit(this.toggled());
+    this.status.update(v => !v);
   }
 }

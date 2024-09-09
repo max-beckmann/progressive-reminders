@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { AggregateComponent } from '../../aggregate/aggregate.component';
 import { ContainerComponent } from '../../container/container.component';
 import { HeaderComponent } from '../../header/header.component';
@@ -48,20 +48,16 @@ import {
 })
 export class NewReminderPageComponent {
   static readonly location = '/new-reminder';
-  reminder = computed<Reminder>(() => {
-    return {
-      associatedList: this.selectedList()?.id,
-      done: false,
-      highlighted: false,
-      priority: Priority.NONE,
-      title: this.title(),
-      notes: this.notes() || undefined,
-      subReminders: [],
-    }
-  });
-  title = signal<string>('');
-  notes = signal<string>('');
   selectedList = signal<List | null>(null);
+  reminder: Reminder = {
+    associatedList: undefined,
+    done: false,
+    highlighted: false,
+    priority: Priority.NONE,
+    title: '',
+    notes: undefined,
+    subReminders: [],
+  }
 
   constructor(
     private readonly router: Router
@@ -70,37 +66,24 @@ export class NewReminderPageComponent {
     if (navigation?.extras.state) {
       const { state } = navigation.extras;
 
-      console.log(state);
-
-      void this.init(state as Reminder);
-      return;
+      this.reminder = state as Reminder;
+      console.log(this.reminder);
     }
 
-    void this.init();
+    void this.initSelectedList(this.reminder.associatedList);
   }
 
   async add(): Promise<void> {
-    await database.reminders.add(this.reminder());
+    await database.reminders.add(this.reminder);
 
     await this.router.navigateByUrl('/');
-  }
-
-  private init(reminder?: Reminder): void {
-    if (reminder) {
-      this.title.set(reminder.title);
-      if (reminder.notes) this.notes.set(reminder.notes);
-      void this.initSelectedList(reminder.associatedList!);
-
-      return;
-    }
-
-    void this.initSelectedList();
   }
 
   private async initSelectedList(id?: number): Promise<void> {
     if (!id) {
       const lists = await database.lists.toArray();
       this.selectedList.set(lists[0]);
+      this.reminder.associatedList = lists[0].id;
       return;
     }
 
@@ -111,6 +94,7 @@ export class NewReminderPageComponent {
 
     if (selected) {
       this.selectedList.set(selected);
+      this.reminder.associatedList = selected.id;
     }
   }
 

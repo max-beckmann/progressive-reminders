@@ -3,24 +3,23 @@
 <app-container>
   <ul>
     <li>
-      <input type="text" [ngModel]="title()" (ngModelChange)="title.set($event)"
-             placeholder="Titel">
+      <input type="text" [(ngModel)]="reminder.title" placeholder="Titel">
     </li>
     <li>
-      <textarea [ngModel]="notes()" (ngModelChange)="notes.set($event)"
-                placeholder="Notizen" rows="4"></textarea>
+      <textarea [(ngModel)]="reminder.notes" placeholder="Notizen"
+                rows="4"></textarea>
     </li>
   </ul>
 </app-container>
 <app-container>
   <app-inline-link title="Details"
                    [location]="ReminderDetailsPageComponent.location"
-                   [state]="this.reminder()"></app-inline-link>
+                   [state]="reminder"></app-inline-link>
 </app-container>
 <app-container>
   <app-inline-link title="Liste"
                    [subtitle]="selectedList()?.title ?? 'Keine ausgewählt'"
                    [icon]="selectedList()?.icon"
                    [location]="SelectListPageComponent.location"
-                   [state]="this.reminder()"></app-inline-link>
+                   [state]="reminder"></app-inline-link>
 </app-container>

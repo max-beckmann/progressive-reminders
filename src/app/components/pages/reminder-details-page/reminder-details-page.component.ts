@@ -24,7 +24,7 @@ import {
 })
 export class ReminderDetailsPageComponent {
   static readonly location = '/new-reminder/details';
-  private readonly reminder: Reminder | null = null;
+  protected readonly reminder: Reminder;
 
   protected hightlightToggleIcon = {
     type: IconType.FLAG,
@@ -35,20 +35,12 @@ export class ReminderDetailsPageComponent {
     private readonly router: Router
   ) {
     const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
-      this.reminder = navigation.extras.state as Reminder;
-    }
+    this.reminder = navigation?.extras.state as Reminder;
   }
 
   apply() {
     void this.router.navigate([NewReminderPageComponent.location], {
       state: this.reminder!
     });
-  }
-
-  setHighlighted(value: boolean): void {
-    if (this.reminder) {
-      this.reminder.highlighted = value;
-    }
   }
 }
