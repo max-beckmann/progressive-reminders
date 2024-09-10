@@ -2,16 +2,15 @@
 <div>
   <app-list-tile name="Heute" [icon]="defaultIcons['today']"
                  link="/today"
-                 [count]="12"></app-list-tile>
+                 [count]="0"></app-list-tile>
   <app-list-tile name="Geplant" [icon]="defaultIcons['calendar']"
                  link="/planned"
-                 [count]="74"></app-list-tile>
+                 [count]="0"></app-list-tile>
   <app-list-tile name="Markiert" [icon]="defaultIcons['flag']"
                  link="/list/highlighted"
-                 [count]="2"></app-list-tile>
+                 [count]="highlightedCount()"></app-list-tile>
   <app-list-tile name="Erledigt" [icon]="defaultIcons['checkmark']"
-                 link="/list/done"
-                 [count]="0"></app-list-tile>
+                 link="/list/done"></app-list-tile>
 </div>
 <app-aggregate [aggregate]="customLists()"></app-aggregate>
 <app-bottom-navigation></app-bottom-navigation>

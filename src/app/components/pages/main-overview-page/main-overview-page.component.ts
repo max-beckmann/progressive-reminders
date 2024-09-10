@@ -27,16 +27,27 @@ import { database } from '../../../../../database';
 })
 export class MainOverviewPageComponent {
   customLists = signal<Aggregate | null>(null);
+  highlightedCount = signal<number>(0);
 
   constructor() {
     void this.init();
   }
 
-  async init(): Promise<void> {
+  private async init(): Promise<void> {
     this.customLists.set({
       type: AggregateType.LISTS,
       items: await database.lists.toArray()
     });
+
+    void this.initListCounts();
+  }
+
+  private async initListCounts(): Promise<void> {
+    const count = await database.reminders
+      .filter(reminder => reminder.highlighted)
+      .count();
+
+    this.highlightedCount.set(count ?? 0);
   }
 
   protected readonly defaultIcons = defaultIcons;

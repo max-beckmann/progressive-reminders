@@ -2,7 +2,7 @@
   <app-container>
     <div>
       <app-icon [data]="icon()" [size]="30"></app-icon>
-      @if (count()) {
+      @if (count() !== undefined) {
         <span class="count">{{ count() }}</span>
       }
     </div>
