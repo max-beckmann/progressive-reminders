@@ -60,7 +60,7 @@ export class NewReminderPageComponent {
   }
 
   constructor(
-    private readonly router: Router
+    protected readonly router: Router
   ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {

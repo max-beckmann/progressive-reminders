@@ -1,5 +1,4 @@
-<button class="left"
-        (click)="onLeftButton.emit()">{{ leftButtonText() ?? 'Abbrechen' }}
+<button class="left" (click)="onLeftButton.emit()">{{ leftButtonText() }}
 </button>
 <h2>{{ title() }}</h2>
 <button class="right" (click)="onRightButton.emit()">{{ rightButtonText() }}

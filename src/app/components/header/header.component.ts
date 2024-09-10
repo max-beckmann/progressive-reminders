@@ -1,5 +1,4 @@
 import { Component, input, output } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,13 +13,4 @@ export class HeaderComponent {
   onLeftButton = output();
   rightButtonText = input<string>();
   onRightButton = output();
-
-  constructor(
-    private readonly router: Router
-  ) {
-  }
-
-  protected navigateBack() {
-    void this.router.navigateByUrl('/');
-  }
 }

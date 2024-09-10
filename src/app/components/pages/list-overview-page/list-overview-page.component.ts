@@ -10,6 +10,7 @@ import { AggregateComponent } from '../../aggregate/aggregate.component';
 import {
   InlineReminderComponent
 } from '../../aggregate-items/inline-reminder/inline-reminder.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-overview-page',
@@ -34,7 +35,9 @@ export class ListOverviewPageComponent {
     }
   });
 
-  constructor() {
+  constructor(
+    protected readonly router: Router
+  ) {
     effect(() => {
       if (this.id()) {
         void this.init(Number(this.id()));

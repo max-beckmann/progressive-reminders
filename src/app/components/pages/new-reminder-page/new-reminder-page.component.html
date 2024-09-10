@@ -1,4 +1,6 @@
-<app-header title="Neue Erinnerung" rightButtonText="Hinzufügen"
+<app-header title="Neue Erinnerung" leftButtonText="Abbrechen"
+            (onLeftButton)="router.navigateByUrl('/')"
+            rightButtonText="Hinzufügen"
             (onRightButton)="add()"></app-header>
 <app-container>
   <ul>

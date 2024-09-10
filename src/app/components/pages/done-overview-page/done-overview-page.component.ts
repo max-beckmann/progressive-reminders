@@ -5,6 +5,7 @@ import {
 } from '../../aggregate-items/inline-reminder/inline-reminder.component';
 import { Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-done-overview-page',
@@ -20,7 +21,9 @@ export class DoneOverviewPageComponent {
   reminders = signal<Reminder[]>([]);
   protected color = '#666';
 
-  constructor() {
+  constructor(
+    protected readonly router: Router
+  ) {
     void this.init();
   }
 

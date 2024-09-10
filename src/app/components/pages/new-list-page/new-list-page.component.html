@@ -1,4 +1,7 @@
-<app-header title="Neue Liste" rightButtonText="Fertig"
+<app-header title="Neue Liste"
+            leftButtonText="Abbrechen"
+            (onLeftButton)="router.navigateByUrl('/')"
+            rightButtonText="Fertig"
             (onRightButton)="add()"></app-header>
 <app-container class="base-settings">
   <app-icon [data]="iconPreview()"></app-icon>

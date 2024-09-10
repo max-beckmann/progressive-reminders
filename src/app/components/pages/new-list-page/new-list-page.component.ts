@@ -38,7 +38,9 @@ export class NewListPageComponent {
     }
   });
 
-  constructor(private readonly router: Router) {
+  constructor(
+    protected readonly router: Router
+  ) {
     effect(() => {
       document.documentElement.style.setProperty('--new-list-color', this.color());
     });
