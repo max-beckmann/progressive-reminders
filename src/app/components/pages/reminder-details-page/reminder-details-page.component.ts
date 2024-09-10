@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { HeaderComponent } from '../../header/header.component';
 import { ContainerComponent } from '../../container/container.component';
 import {
@@ -10,6 +10,8 @@ import { Reminder } from '../../../../../model';
 import {
   NewReminderPageComponent
 } from '../new-reminder-page/new-reminder-page.component';
+import { Colors } from '../../../enums/colors';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reminder-details-page',
@@ -17,7 +19,9 @@ import {
   imports: [
     HeaderComponent,
     ContainerComponent,
-    InlineToggleComponent
+    InlineToggleComponent,
+    ReactiveFormsModule,
+    FormsModule
   ],
   templateUrl: './reminder-details-page.component.html',
   styleUrl: './reminder-details-page.component.scss'
@@ -26,9 +30,16 @@ export class ReminderDetailsPageComponent {
   static readonly location = '/new-reminder/details';
   protected readonly reminder: Reminder;
 
-  protected hightlightToggleIcon = {
+  selectDateActive = false;
+  selectedDate = model<Date>(new Date());
+
+  protected readonly dateToggleIcon = {
+    type: IconType.CALENDAR,
+    backgroundColor: Colors.RED
+  }
+  protected readonly highlightToggleIcon = {
     type: IconType.FLAG,
-    backgroundColor: 'orange'
+    backgroundColor: Colors.ORANGE
   };
 
   constructor(
@@ -39,7 +50,12 @@ export class ReminderDetailsPageComponent {
 
   applyChanges() {
     void this.router.navigate([NewReminderPageComponent.location], {
-      state: this.reminder!
+      state: {
+        ...this.reminder,
+        timing: this.selectDateActive ? {
+          date: this.selectedDate()
+        } : undefined
+      }
     });
   }
 }

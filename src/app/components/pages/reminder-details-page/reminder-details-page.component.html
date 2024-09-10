@@ -2,7 +2,16 @@
             (onLeftButton)="applyChanges()"
             rightButtonText="Hinzufügen"></app-header>
 <app-container>
+  <app-inline-toggle title="Datum"
+                     [icon]="dateToggleIcon"
+                     [(status)]="selectDateActive"></app-inline-toggle>
+  @if (selectDateActive) {
+    <input type="date" [ngModel]="selectedDate()"
+           (ngModelChange)="selectedDate.set($event)">
+  }
+</app-container>
+<app-container>
   <app-inline-toggle title="Markieren"
-                     [icon]="hightlightToggleIcon"
+                     [icon]="highlightToggleIcon"
                      [(status)]="reminder.highlighted"></app-inline-toggle>
 </app-container>

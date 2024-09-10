@@ -1,5 +1,6 @@
 import { Component, HostBinding, input } from '@angular/core';
 import { Icon } from '../../../../model';
+import { Colors } from '../../enums/colors';
 
 export enum IconType {
   LIST = 'list',
@@ -13,10 +14,10 @@ export enum IconType {
 }
 
 export const defaultIcons: Record<string, Icon> = {
-  'today': { type: IconType.CALENDAR, backgroundColor: '#027BFE' },
-  'calendar': { type: IconType.CALENDAR, backgroundColor: '#FF3B30' },
-  'flag': { type: IconType.FLAG, backgroundColor: '#FF9500' },
-  'checkmark': { type: IconType.CHECKMARK, backgroundColor: '#666' },
+  'today': { type: IconType.CALENDAR, backgroundColor: Colors.BLUE },
+  'calendar': { type: IconType.CALENDAR, backgroundColor: Colors.RED },
+  'flag': { type: IconType.FLAG, backgroundColor: Colors.ORANGE },
+  'checkmark': { type: IconType.CHECKMARK, backgroundColor: Colors.GREY },
   'plus': { type: IconType.PLUS, backgroundColor: '#007AFF' },
 }
 
