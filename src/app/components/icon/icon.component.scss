@@ -1,18 +1,16 @@
 :host {
-  width: var(--icon-size, 24px);
-  height: var(--icon-size, 24px);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--icon-background-color, transparent);
+  color: var(--color-white);
 
   &.square {
     border-radius: 5px;
   }
 
-  img {
-    width: calc(var(--icon-size, 24px) / 2);
-    height: calc(var(--icon-size, 24px) / 2);
+  svg {
+    transform: scale(var(--factor));
+    color: inherit;
   }
 }

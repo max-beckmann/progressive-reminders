@@ -3,12 +3,13 @@
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 12px;
+    grid-gap: 6px;
 
     .option {
       padding: 3px;
       aspect-ratio: 1/1;
       border-radius: 50%;
+      border: 3px solid transparent;
 
       .inner {
         display: block;
@@ -16,13 +17,12 @@
         border-radius: 50%;
 
         app-icon {
-          --icon-size: 100%;
-          fill: white;
+          color: white;
         }
       }
 
       &.selected {
-        border: 3px solid var(--color-interaction-contrast);
+        border-color: var(--color-interaction-contrast);
       }
 
       &:hover {

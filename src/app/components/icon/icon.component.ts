@@ -1,4 +1,4 @@
-import { Component, computed, HostBinding, input } from '@angular/core';
+import { Component, HostBinding, input } from '@angular/core';
 import { Icon } from '../../../../model';
 
 export enum IconType {
@@ -20,18 +20,6 @@ export const defaultIcons: Record<string, Icon> = {
   'plus': { type: IconType.PLUS, backgroundColor: '#007AFF' },
 }
 
-
-const iconTypeToSrcMap = new Map<IconType, string>([
-  [IconType.LIST, 'list.bullet.svg'],
-  [IconType.CALENDAR, 'calendar.svg'],
-  [IconType.FLAG, 'flag.fill.svg'],
-  [IconType.CHECKMARK, 'checkmark.svg'],
-  [IconType.PLUS, 'plus.svg'],
-  [IconType.CHEVRON_RIGHT, 'chevron.right.svg'],
-  [IconType.MAPPIN, 'mappin.svg'],
-  [IconType.BOOKMARK, 'bookmark.fill.svg'],
-]);
-
 @Component({
   selector: 'app-icon',
   standalone: true,
@@ -41,11 +29,27 @@ const iconTypeToSrcMap = new Map<IconType, string>([
 })
 export class IconComponent {
   data = input.required<Icon>();
+  size = input<number>(24);
 
-  protected src = computed<string>(() => {
-    const m = iconTypeToSrcMap.get(this.data().type);
-    return `/assets/icons/${m}`;
-  });
+  @HostBinding('style.width.px')
+  get width() {
+    return this.size();
+  }
+
+  @HostBinding('style.height.px')
+  get height() {
+    return this.size();
+  }
+
+  @HostBinding('style.--factor')
+  get factor() {
+    return this.size() / 24 * 0.5;
+  }
+
+  @HostBinding('style.color')
+  get color() {
+    return this.data().color;
+  }
 
   @HostBinding('style.backgroundColor')
   get backgroundColor() {
@@ -56,4 +60,6 @@ export class IconComponent {
   get isSquare() {
     return this.data().square;
   }
+
+  protected readonly IconType = IconType;
 }

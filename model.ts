@@ -21,6 +21,7 @@ export interface Item {
 
 export interface Icon {
   type: IconType;
+  color?: string;
   backgroundColor?: string;
   square?: boolean;
 }

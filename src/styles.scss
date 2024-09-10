@@ -115,7 +115,6 @@ button {
   padding-top: 14px;
 
   app-icon {
-    --icon-size: 28px;
     margin-left: 10px;
   }
 
@@ -148,7 +147,7 @@ button {
       }
 
       .arrow {
-        --icon-size: 24px;
+        color: #7F7F85;
       }
     }
   }
