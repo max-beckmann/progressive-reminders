@@ -11,13 +11,9 @@
       }
     </div>
     <div class="right">
-      <!--     @if (item().subtitle) { -->
-      <!--       <span class="subtitle">{{ item().subtitle }}</span> -->
-      <!--     } -->
-      <!--     @if (item().hasArrow) { -->
-      <!--       <app-icon [data]="{ type: IconType.CHEVRON_RIGHT }" -->
-      <!--                 class="arrow"></app-icon> -->
-      <!--     } -->
+      @if (reminder().highlighted) {
+        <app-icon [data]="highlightIcon" [size]="36"></app-icon>
+      }
     </div>
   </div>
 </div>

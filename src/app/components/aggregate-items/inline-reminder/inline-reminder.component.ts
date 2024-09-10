@@ -6,13 +6,16 @@ import {
   output,
   signal
 } from '@angular/core';
-import { Reminder } from '../../../../../model';
+import { Icon, Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
+import { IconComponent, IconType } from '../../icon/icon.component';
 
 @Component({
   selector: 'app-inline-reminder',
   standalone: true,
-  imports: [],
+  imports: [
+    IconComponent
+  ],
   templateUrl: './inline-reminder.component.html',
   styleUrl: './inline-reminder.component.scss'
 })
@@ -23,6 +26,11 @@ export class InlineReminderComponent {
   onDone = output<number>();
   onUndone = output<number>();
   private isInitiallyDone = false;
+
+  protected readonly highlightIcon: Icon = {
+    type: IconType.FLAG,
+    color: 'orange'
+  }
 
   @HostBinding('style.--checked-color')
   get checkedColor(): string {
