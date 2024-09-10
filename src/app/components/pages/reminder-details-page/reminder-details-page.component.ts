@@ -46,6 +46,11 @@ export class ReminderDetailsPageComponent {
     protected readonly router: Router
   ) {
     this.reminder = this.router.getCurrentNavigation()?.extras.state as Reminder;
+
+    if (this.reminder.timing) {
+      this.selectDateActive = true;
+      this.selectedDate.set(this.reminder.timing.date);
+    }
   }
 
   applyChanges() {
