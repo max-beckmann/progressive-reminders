@@ -20,10 +20,14 @@ import {
 import {
   ReminderDetailsPageComponent
 } from './components/pages/reminder-details-page/reminder-details-page.component';
+import {
+  HighlightedOverviewPageComponent
+} from './components/pages/highlighted-overview-page/highlighted-overview-page.component';
 
 export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
   { path: 'list/done', component: DoneOverviewPageComponent },
+  { path: 'list/highlighted', component: HighlightedOverviewPageComponent },
   { path: 'list/:id', component: ListOverviewPageComponent },
   { path: 'new-reminder', component: NewReminderPageComponent },
   { path: 'new-reminder/select-list', component: SelectListPageComponent },

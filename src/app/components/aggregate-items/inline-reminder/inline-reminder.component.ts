@@ -29,7 +29,7 @@ export class InlineReminderComponent {
 
   protected readonly highlightIcon: Icon = {
     type: IconType.FLAG,
-    color: 'orange'
+    color: '#FF9500'
   }
 
   @HostBinding('style.--checked-color')
