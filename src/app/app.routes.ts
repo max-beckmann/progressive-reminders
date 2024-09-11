@@ -23,11 +23,15 @@ import {
 import {
   HighlightedOverviewPageComponent
 } from './components/pages/highlighted-overview-page/highlighted-overview-page.component';
+import {
+  TodayOverviewPageComponent
+} from './components/pages/today-overview-page/today-overview-page.component';
 
 export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
-  { path: 'list/done', component: DoneOverviewPageComponent },
+  { path: 'list/today', component: TodayOverviewPageComponent },
   { path: 'list/highlighted', component: HighlightedOverviewPageComponent },
+  { path: 'list/done', component: DoneOverviewPageComponent },
   { path: 'list/:id', component: ListOverviewPageComponent },
   { path: 'new-reminder', component: NewReminderPageComponent },
   { path: 'new-reminder/select-list', component: SelectListPageComponent },

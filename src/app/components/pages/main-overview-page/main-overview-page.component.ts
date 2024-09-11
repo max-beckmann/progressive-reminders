@@ -10,6 +10,7 @@ import {
 import { defaultIcons } from '../../icon/icon.component';
 import { Aggregate, AggregateType } from '../../../../../model';
 import { database } from '../../../../../database';
+import { isToday } from '../../../utils/date';
 
 @Component({
   selector: 'app-main-overview-page',
@@ -27,6 +28,7 @@ import { database } from '../../../../../database';
 })
 export class MainOverviewPageComponent {
   customLists = signal<Aggregate | null>(null);
+  todayCount = signal<number>(0);
   highlightedCount = signal<number>(0);
 
   constructor() {
@@ -43,11 +45,17 @@ export class MainOverviewPageComponent {
   }
 
   private async initListCounts(): Promise<void> {
-    const count = await database.reminders
+    const todayCount = await database.reminders
+      .filter(reminder => reminder.timing !== undefined && isToday(new Date(reminder.timing.date)))
+      .count();
+
+    this.todayCount.set(todayCount ?? 0);
+
+    const highlightedCount = await database.reminders
       .filter(reminder => reminder.highlighted)
       .count();
 
-    this.highlightedCount.set(count ?? 0);
+    this.highlightedCount.set(highlightedCount ?? 0);
   }
 
   protected readonly defaultIcons = defaultIcons;

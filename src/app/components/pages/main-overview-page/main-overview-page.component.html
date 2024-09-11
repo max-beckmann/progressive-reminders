@@ -1,8 +1,8 @@
 <app-search-bar></app-search-bar>
 <div>
   <app-list-tile name="Heute" [icon]="defaultIcons['today']"
-                 link="/today"
-                 [count]="0"></app-list-tile>
+                 link="/list/today"
+                 [count]="todayCount()"></app-list-tile>
   <app-list-tile name="Geplant" [icon]="defaultIcons['calendar']"
                  link="/planned"
                  [count]="0"></app-list-tile>
