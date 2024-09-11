@@ -9,6 +9,13 @@
     <input type="date" [ngModel]="selectedDate()"
            (ngModelChange)="selectedDate.set($event)">
   }
+  <app-inline-toggle title="Uhrzeit"
+                     [icon]="timeToggleIcon"
+                     [(status)]="selectTimeActive"></app-inline-toggle>
+  @if (selectTimeActive) {
+    <input type="time" [ngModel]="selectedTime()"
+           (ngModelChange)="selectedTime.set($event)">
+  }
 </app-container>
 <app-container>
   <app-inline-toggle title="Markieren"

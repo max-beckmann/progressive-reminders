@@ -1,4 +1,4 @@
-import { Component, model } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { HeaderComponent } from '../../header/header.component';
 import { ContainerComponent } from '../../container/container.component';
 import {
@@ -31,11 +31,17 @@ export class ReminderDetailsPageComponent {
   protected readonly reminder: Reminder;
 
   selectDateActive = false;
-  selectedDate = model<Date>(new Date());
+  selectedDate = signal<Date>(new Date());
+  selectTimeActive = false;
+  selectedTime = signal<string>('');
 
   protected readonly dateToggleIcon = {
     type: IconType.CALENDAR,
     backgroundColor: Colors.RED
+  };
+  protected readonly timeToggleIcon = {
+    type: IconType.CALENDAR,
+    backgroundColor: Colors.BLUE
   }
   protected readonly highlightToggleIcon = {
     type: IconType.FLAG,
