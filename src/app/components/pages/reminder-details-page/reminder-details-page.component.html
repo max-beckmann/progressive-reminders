@@ -1,22 +1,7 @@
 <app-header title="Details" leftButtonText="< Neue Erinnerung"
             (onLeftButton)="applyChanges()"
             rightButtonText="Hinzufügen"></app-header>
-<app-container>
-  <app-inline-toggle title="Datum"
-                     [icon]="dateToggleIcon"
-                     [(status)]="selectDateActive"></app-inline-toggle>
-  @if (selectDateActive) {
-    <input type="date" [ngModel]="selectedDate()"
-           (ngModelChange)="selectedDate.set($event)">
-  }
-  <app-inline-toggle title="Uhrzeit"
-                     [icon]="timeToggleIcon"
-                     [(status)]="selectTimeActive"></app-inline-toggle>
-  @if (selectTimeActive) {
-    <input type="time" [ngModel]="selectedTime()"
-           (ngModelChange)="selectedTime.set($event)">
-  }
-</app-container>
+<app-date-selector [(selectedDate)]="reminder.date"></app-date-selector>
 <app-container>
   <app-inline-toggle title="Markieren"
                      [icon]="highlightToggleIcon"

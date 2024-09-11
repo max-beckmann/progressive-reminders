@@ -35,7 +35,7 @@ export class TodayOverviewPageComponent {
 
   private async init(): Promise<void> {
     const reminders = await database.reminders
-      .filter(reminder => reminder.timing !== undefined && isToday(new Date(reminder.timing.date)))
+      .filter(reminder => reminder.date !== undefined && isToday(new Date(reminder.date)))
       .toArray();
 
     this.reminders.set(reminders);

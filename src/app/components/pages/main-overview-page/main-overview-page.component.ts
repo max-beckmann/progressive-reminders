@@ -46,7 +46,7 @@ export class MainOverviewPageComponent {
 
   private async initListCounts(): Promise<void> {
     const todayCount = await database.reminders
-      .filter(reminder => reminder.timing !== undefined && isToday(new Date(reminder.timing.date)))
+      .filter(reminder => reminder.date !== undefined && isToday(new Date(reminder.date)))
       .count();
 
     this.todayCount.set(todayCount ?? 0);

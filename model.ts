@@ -45,10 +45,8 @@ export interface Reminder extends AggregateItem {
   highlighted: boolean;
   priority: Priority;
   notes?: string;
-  timing?: {
-    date: Date;
-    repeat?: Repetition;
-  }
+  date?: Date;
+  repeat?: Repetition;
   subReminders: Reminder['id'][];
 }
 
