@@ -1,4 +1,11 @@
-import { Component, computed, input, model } from '@angular/core';
+import {
+  Component,
+  computed,
+  ElementRef,
+  input,
+  model,
+  viewChild
+} from '@angular/core';
 import { AggregateItemComponent } from '../aggregate-item.component';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../icon/icon.component';
@@ -28,7 +35,10 @@ export class InlineToggleComponent {
   });
   status = model<boolean>(false);
 
+  toggleElement = viewChild<ElementRef<HTMLElement>>('toggleElement');
+
   toggle() {
+    this.toggleElement()?.nativeElement.classList.add('clicked');
     this.status.update(v => !v);
   }
 }
