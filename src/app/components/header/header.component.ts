@@ -1,4 +1,5 @@
-import { Component, input, output } from '@angular/core';
+import { Component, Inject, input, output } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -15,5 +16,15 @@ export class HeaderComponent {
   rightButtonText = input<string>();
   onRightButton = output();
   showOptionsButton = input<boolean>(false);
-  onOptionsButton = output();
+  private isOverlayActive = false;
+
+  constructor(
+    @Inject(DOCUMENT) private readonly document: Document
+  ) {
+  }
+
+  protected toggleOptionsOverlay(): void {
+    this.isOverlayActive = !this.isOverlayActive;
+    this.document.querySelector('app-options-overlay')?.classList.toggle('active');
+  }
 }

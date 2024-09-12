@@ -1,0 +1,28 @@
+:host {
+  display: none;
+  width: 240px;
+  border-radius: 12px;
+  position: absolute;
+  right: 8px;
+  top: 48px;
+  box-shadow: 0 0 48px 16px rgba(0, 0, 0, 0.025);
+  overflow: hidden;
+
+  &.active {
+    display: block;
+  }
+
+  ul ::ng-deep li {
+    padding: 12px 0 12px 36px;
+    background-color: #F2F2F2;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-interaction);
+    }
+
+    &:hover {
+      background-color: var(--color-interaction);
+      cursor: pointer;
+    }
+  }
+}

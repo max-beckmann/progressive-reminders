@@ -20,7 +20,7 @@
   <button class="action" (click)="onRightButton.emit()">{{ rightButtonText() }}
   </button>
   @if (showOptionsButton()) {
-    <button class="options">
+    <button class="options" (click)="toggleOptionsOverlay()">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
            width="20.7578"
            height="20.3672">

@@ -11,6 +11,9 @@ import {
   InlineReminderComponent
 } from '../../aggregate-items/inline-reminder/inline-reminder.component';
 import { Router } from '@angular/router';
+import {
+  OptionsOverlayComponent
+} from '../../options-overlay/options-overlay.component';
 
 @Component({
   selector: 'app-list-overview-page',
@@ -19,7 +22,8 @@ import { Router } from '@angular/router';
     HeaderComponent,
     BottomNavigationComponent,
     AggregateComponent,
-    InlineReminderComponent
+    InlineReminderComponent,
+    OptionsOverlayComponent
   ],
   templateUrl: './list-overview-page.component.html',
   styleUrl: './list-overview-page.component.scss'
@@ -43,6 +47,18 @@ export class ListOverviewPageComponent {
         void this.init(Number(this.id()));
       }
     });
+  }
+
+  protected deleteList(): void {
+    void database.lists.delete(this.list()?.id!);
+    void this.deleteAssociatedReminders();
+    void this.router.navigateByUrl('/');
+  }
+
+  private async deleteAssociatedReminders(): Promise<void> {
+    const reminders = await database.reminders.where('associatedList').equals(this.list()?.id!).toArray();
+    const ids = reminders.map(reminder => reminder.id!);
+    void database.reminders.bulkDelete(ids);
   }
 
   protected removeFromList(id: number) {
