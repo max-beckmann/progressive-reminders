@@ -2,20 +2,51 @@
   <button class="toggle" [class.checked]="toggled()" (click)="toggle()">
     <span class="inner"></span>
   </button>
-  <div class="wrapper">
-    <div class="left">
-      <span class="title">{{ reminder().title }}</span>
-    </div>
-    <div class="right">
-      @if (reminder().highlighted) {
-        <app-icon class="flag" [data]="highlightIcon" [size]="36"></app-icon>
+  <label for="title">
+    <div class="wrapper">
+      <div class="left">
+      <span class="title">
+        <input type="text" id="title" [value]="reminder().title"
+               (focusin)="showInfoButton.set(true)"
+               (focusout)="showInfoButton.set(false)">
+      </span>
+      </div>
+      <div class="right">
+        @if (reminder().highlighted) {
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+               width="18.9375"
+               height="20.1016">
+            <g>
+              <rect height="20.1016" opacity="0" width="18.9375" x="0" y="0"/>
+              <path
+                d="M1.72656 20.1016C2.32422 20.1016 2.81641 19.6172 2.81641 19.0078L2.81641 13.5391C3.125 13.4531 3.875 13.1992 4.98438 13.1992C8.56641 13.1992 11.1289 15.0391 14.6797 15.0391C16.1914 15.0391 17.0391 14.8164 17.8203 14.457C18.5508 14.1133 18.9375 13.4844 18.9375 12.5742L18.9375 2.77344C18.9375 2.00391 18.3984 1.49609 17.6367 1.49609C16.9883 1.49609 16.1055 1.84766 14.6016 1.84766C11.1406 1.84766 8.48438 0.0078125 4.90625 0.0078125C3.44141 0.0078125 2.64453 0.210938 1.78906 0.601562C1.0625 0.9375 0.644531 1.4375 0.644531 2.32031L0.644531 19.0078C0.644531 19.6055 1.14062 20.1016 1.72656 20.1016Z"
+                fill="#FF9500"/>
+            </g>
+          </svg>
+
+        }
+        @if (showInfoButton()) {
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+               width="21.4727"
+               height="21.0703" [style.color]="listColor()">
+            <g>
+              <rect height="21.0703" opacity="0" width="21.4727" x="0" y="0"/>
+              <path
+                d="M10.5312 21.0664C16.3086 21.0664 21.0664 16.3086 21.0664 10.5352C21.0664 4.75781 16.3047 0 10.5234 0C4.75 0 0 4.75781 0 10.5352C0 16.3086 4.75781 21.0664 10.5312 21.0664ZM10.5312 18.7031C6.00781 18.7031 2.36719 15.0586 2.36719 10.5352C2.36719 6.00781 6 2.36719 10.5234 2.36719C15.0508 2.36719 18.6992 6.00781 18.6992 10.5352C18.6992 15.0586 15.0586 18.7031 10.5312 18.7031Z"
+                fill="currentColor"/>
+              <path
+                d="M8.75781 15.9414L12.7695 15.9414C13.2344 15.9414 13.6016 15.6055 13.6016 15.1289C13.6016 14.6836 13.2344 14.3281 12.7695 14.3281L11.75 14.3281L11.75 9.89062C11.75 9.26562 11.4375 8.85547 10.8477 8.85547L8.93359 8.85547C8.46484 8.85547 8.09766 9.21094 8.09766 9.65625C8.09766 10.1328 8.46484 10.4648 8.93359 10.4648L9.9375 10.4648L9.9375 14.3281L8.75781 14.3281C8.29297 14.3281 7.92969 14.6836 7.92969 15.1289C7.92969 15.6055 8.29297 15.9414 8.75781 15.9414ZM10.5078 7.39062C11.2734 7.39062 11.8789 6.76953 11.8789 6.02344C11.8789 5.25 11.2734 4.63672 10.5078 4.63672C9.75781 4.63672 9.13672 5.25 9.13672 6.02344C9.13672 6.76953 9.75781 7.39062 10.5078 7.39062Z"
+                fill="currentColor"/>
+            </g>
+          </svg>
+
+        }
+      </div>
+      @if (reminder().notes) {
+        <span class="notes">{{ reminder().notes }}</span>
       }
-    </div>
-    @if (reminder().notes) {
-      <span class="notes">{{ reminder().notes }}</span>
-    }
-    @if (reminder().date) {
-      <div class="timing">
+      @if (reminder().date) {
+        <div class="timing">
         <span>{{
             reminder().date?.toLocaleDateString([], {
               year: 'numeric',
@@ -25,7 +56,8 @@
               minute: '2-digit'
             })
           }}</span>
-      </div>
-    }
-  </div>
+        </div>
+      }
+    </div>
+  </label>
 </div>

@@ -6,9 +6,9 @@ import {
   output,
   signal
 } from '@angular/core';
-import { Icon, Reminder } from '../../../../../model';
+import { Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
-import { IconComponent, IconType } from '../../icon/icon.component';
+import { IconComponent } from '../../icon/icon.component';
 
 @Component({
   selector: 'app-inline-reminder',
@@ -27,10 +27,7 @@ export class InlineReminderComponent {
   onUndone = output<number>();
   private isInitiallyDone = false;
 
-  protected readonly highlightIcon: Icon = {
-    type: IconType.FLAG,
-    color: '#FF9500'
-  }
+  showInfoButton = signal<boolean>(false);
 
   @HostBinding('style.--checked-color')
   get checkedColor(): string {
@@ -76,4 +73,6 @@ export class InlineReminderComponent {
 
     this.onUndone.emit(this.reminder().id!);
   }
+
+  protected readonly localStorage = localStorage;
 }

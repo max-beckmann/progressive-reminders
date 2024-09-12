@@ -117,6 +117,18 @@ button {
   }
 }
 
+label {
+  flex-grow: 1;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  input:hover {
+    cursor: pointer;
+  }
+}
+
 svg {
   display: block;
 }
@@ -150,13 +162,7 @@ svg {
     .right {
       display: flex;
       align-items: center;
-      gap: 8px;
-      position: relative;
-
-      .flag {
-        position: absolute;
-        right: 0;
-      }
+      gap: 20px;
 
       .subtitle {
         color: var(--color-font);
