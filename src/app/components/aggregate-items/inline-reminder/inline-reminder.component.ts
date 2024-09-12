@@ -9,6 +9,7 @@ import {
 import { Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
 import { IconComponent } from '../../icon/icon.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inline-reminder',
@@ -34,7 +35,9 @@ export class InlineReminderComponent {
     return this.listColor();
   }
 
-  constructor() {
+  constructor(
+    private readonly router: Router
+  ) {
     effect(() => {
       const { done } = this.reminder();
       this.isInitiallyDone = done;
@@ -54,6 +57,10 @@ export class InlineReminderComponent {
     if (this.isInitiallyDone && !this.toggled()) {
       this.setUndone();
     }
+  }
+
+  modifyReminder(): void {
+    void this.router.navigateByUrl('/');
   }
 
   private setDone(): void {

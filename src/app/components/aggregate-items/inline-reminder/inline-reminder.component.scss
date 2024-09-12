@@ -3,6 +3,14 @@
     margin: 0;
   }
 
+  .info-button {
+    z-index: 1;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
   .toggle {
     width: 24px;
     height: 24px;
