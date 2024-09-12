@@ -1,6 +1,6 @@
 <app-header title="Liste" leftButtonText="< Neue Erinnerung"
             (onLeftButton)="goBack()"></app-header>
-<h2>Erinnerung wird in "{{ selected().title }}" erstellt</h2>
+<h2>Erinnerung wird in "{{ selected()?.title }}" erstellt</h2>
 <div>
   <ul>
     @for (list of listOptions(); track $index) {
