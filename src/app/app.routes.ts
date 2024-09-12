@@ -26,10 +26,14 @@ import {
 import {
   TodayOverviewPageComponent
 } from './components/pages/today-overview-page/today-overview-page.component';
+import {
+  PlannedOverviewPageComponent
+} from './components/pages/planned-overview-page/planned-overview-page.component';
 
 export const routes: Routes = [
   { path: '', component: MainOverviewPageComponent },
   { path: 'list/today', component: TodayOverviewPageComponent },
+  { path: 'list/planned', component: PlannedOverviewPageComponent },
   { path: 'list/highlighted', component: HighlightedOverviewPageComponent },
   { path: 'list/done', component: DoneOverviewPageComponent },
   { path: 'list/:id', component: ListOverviewPageComponent },

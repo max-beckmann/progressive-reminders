@@ -29,6 +29,7 @@ import { isToday } from '../../../utils/date';
 export class MainOverviewPageComponent {
   customLists = signal<Aggregate | null>(null);
   todayCount = signal<number>(0);
+  plannedCount = signal<number>(0);
   highlightedCount = signal<number>(0);
 
   constructor() {
@@ -46,13 +47,19 @@ export class MainOverviewPageComponent {
 
   private async initListCounts(): Promise<void> {
     const todayCount = await database.reminders
-      .filter(reminder => reminder.date !== undefined && isToday(new Date(reminder.date)))
+      .filter(reminder => !reminder.done && reminder.date !== undefined && isToday(new Date(reminder.date)))
       .count();
 
     this.todayCount.set(todayCount ?? 0);
 
+    const plannedCount = await database.reminders
+      .filter(reminder => !reminder.done && reminder.date !== undefined)
+      .count();
+
+    this.plannedCount.set(plannedCount ?? 0);
+
     const highlightedCount = await database.reminders
-      .filter(reminder => reminder.highlighted)
+      .filter(reminder => !reminder.done && reminder.highlighted)
       .count();
 
     this.highlightedCount.set(highlightedCount ?? 0);

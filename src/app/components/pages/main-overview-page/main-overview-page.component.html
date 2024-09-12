@@ -4,8 +4,8 @@
                  link="/list/today"
                  [count]="todayCount()"></app-list-tile>
   <app-list-tile name="Geplant" [icon]="defaultIcons['calendar']"
-                 link="/planned"
-                 [count]="0"></app-list-tile>
+                 link="/list/planned"
+                 [count]="plannedCount()"></app-list-tile>
   <app-list-tile name="Markiert" [icon]="defaultIcons['flag']"
                  link="/list/highlighted"
                  [count]="highlightedCount()"></app-list-tile>

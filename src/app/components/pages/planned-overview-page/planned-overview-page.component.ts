@@ -7,21 +7,20 @@ import { Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
 import { Router } from '@angular/router';
 import { Colors } from '../../../enums/colors';
-import { isToday } from '../../../utils/date';
 
 @Component({
-  selector: 'app-today-overview-page',
+  selector: 'app-planned-overview-page',
   standalone: true,
   imports: [
     HeaderComponent,
     InlineReminderComponent
   ],
-  templateUrl: './today-overview-page.component.html',
-  styleUrl: './today-overview-page.component.scss'
+  templateUrl: './planned-overview-page.component.html',
+  styleUrl: './planned-overview-page.component.scss'
 })
-export class TodayOverviewPageComponent {
+export class PlannedOverviewPageComponent {
   reminders = signal<Reminder[]>([]);
-  protected color = Colors.BLUE;
+  protected color = Colors.RED;
 
   constructor(
     protected readonly router: Router
@@ -35,7 +34,7 @@ export class TodayOverviewPageComponent {
 
   private async init(): Promise<void> {
     const reminders = await database.reminders
-      .filter(reminder => !reminder.done && reminder.date !== undefined && isToday(new Date(reminder.date)))
+      .filter(reminder => !reminder.done && reminder.date !== undefined)
       .toArray();
 
     this.reminders.set(reminders);

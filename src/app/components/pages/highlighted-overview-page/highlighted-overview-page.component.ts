@@ -33,7 +33,7 @@ export class HighlightedOverviewPageComponent {
 
   private async init(): Promise<void> {
     const reminders = await database.reminders
-      .filter(reminder => reminder.highlighted)
+      .filter(reminder => !reminder.done && reminder.highlighted)
       .toArray();
 
     this.reminders.set(reminders);
