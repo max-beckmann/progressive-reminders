@@ -1,4 +1,5 @@
-<app-header title="Heute" leftButtonText="< Listen"
+<app-header title="Heute" leftButtonText="Listen"
+            [showArrowLeft]="true"
             (onLeftButton)="router.navigateByUrl('/')"></app-header>
 <h1 [style.color]="color">Heute</h1>
 @for (reminder of reminders(); track reminder.id) {
