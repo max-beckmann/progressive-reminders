@@ -130,6 +130,8 @@ button {
       "left right"
       "notes notes"
       "timing timing";
+    justify-content: space-between;
+    align-items: center;
 
     .notes, .timing {
       margin-top: 3px;
