@@ -11,6 +11,7 @@ import { defaultIcons } from '../../icon/icon.component';
 import { Aggregate, AggregateType } from '../../../../../model';
 import { database } from '../../../../../database';
 import { isToday } from '../../../utils/date';
+import { HeaderComponent } from '../../header/header.component';
 
 @Component({
   selector: 'app-main-overview-page',
@@ -21,7 +22,8 @@ import { isToday } from '../../../utils/date';
     ListTileComponent,
     SearchBarComponent,
     AggregateComponent,
-    BottomNavigationComponent
+    BottomNavigationComponent,
+    HeaderComponent
   ],
   templateUrl: './main-overview-page.component.html',
   styleUrl: './main-overview-page.component.scss'

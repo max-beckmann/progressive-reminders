@@ -28,7 +28,7 @@ export class SelectListPageComponent {
   static readonly location = '/new-reminder/select-list';
   protected readonly reminder: Reminder;
   listOptions = signal<List[]>([]);
-  selected = computed<List>(() => {
+  selected = computed<List | null>(() => {
     return this.listOptions().filter(option => this.isSelected(option))[0];
   });
 

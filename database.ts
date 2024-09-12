@@ -1,6 +1,7 @@
 import Dexie, { Table } from 'dexie';
 import { List, Reminder } from './model';
 import { IconType } from './src/app/components/icon/icon.component';
+import { Colors } from './src/app/enums/colors';
 
 export class AppDB extends Dexie {
   lists!: Table<List, number>;
@@ -21,17 +22,17 @@ export class AppDB extends Dexie {
         title: 'Custom List 1',
         icon: {
           type: IconType.FLAG,
-          backgroundColor: 'blue'
+          backgroundColor: Colors.BLUE
         },
-        color: 'blue'
+        color: Colors.BLUE
       },
       {
         title: 'Custom List 2',
         icon: {
           type: IconType.FLAG,
-          backgroundColor: 'red'
+          backgroundColor: Colors.RED
         },
-        color: 'red'
+        color: Colors.RED
       }
     ]);
   }
