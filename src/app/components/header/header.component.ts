@@ -13,4 +13,6 @@ export class HeaderComponent {
   onLeftButton = output();
   rightButtonText = input<string>();
   onRightButton = output();
+  showOptionsButton = input<boolean>(false);
+  onOptionsButton = output();
 }
