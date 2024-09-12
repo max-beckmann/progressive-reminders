@@ -2,7 +2,8 @@
             leftButtonText="Abbrechen"
             (onLeftButton)="router.navigateByUrl('/')"
             rightButtonText="Fertig"
-            (onRightButton)="add()"></app-header>
+            (onRightButton)="add()"
+            [isRightButtonDisabled]="!title()"></app-header>
 <app-container class="base-settings">
   <app-icon [data]="iconPreview()" [size]="120"></app-icon>
   <input type="text" [(ngModel)]="title" placeholder="Name der Liste">

@@ -14,6 +14,7 @@ export class HeaderComponent {
   leftButtonText = input<string>();
   onLeftButton = output();
   rightButtonText = input<string>();
+  isRightButtonDisabled = input<boolean>(false);
   onRightButton = output();
   showOptionsButton = input<boolean>(false);
   private isOverlayActive = false;

@@ -17,7 +17,8 @@
 </div>
 <h2>{{ title() }}</h2>
 <div class="right">
-  <button class="action" (click)="onRightButton.emit()">{{ rightButtonText() }}
+  <button class="action" (click)="onRightButton.emit()"
+          [disabled]="isRightButtonDisabled()">{{ rightButtonText() }}
   </button>
   @if (showOptionsButton()) {
     <button class="options" (click)="toggleOptionsOverlay()">

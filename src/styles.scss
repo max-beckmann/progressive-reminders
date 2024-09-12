@@ -107,9 +107,13 @@ button {
   font-size: 1rem;
   color: var(--color-blue);
 
-  &:hover {
+  &:not(:disabled):hover {
     cursor: pointer;
     opacity: 0.5;
+  }
+
+  &:disabled {
+    color: var(--color-font);
   }
 }
 

@@ -1,7 +1,8 @@
 <app-header title="Neue Erinnerung" leftButtonText="Abbrechen"
             (onLeftButton)="router.navigateByUrl('/')"
             rightButtonText="Hinzufügen"
-            (onRightButton)="add()"></app-header>
+            (onRightButton)="add()"
+            [isRightButtonDisabled]="!reminder.title || !selectedList()"></app-header>
 <app-container>
   <ul>
     <li>
