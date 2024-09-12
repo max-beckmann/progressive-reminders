@@ -1,6 +1,8 @@
 <app-header [title]="list()?.title ?? ''"
-            leftButtonText="< Listen"
-            (onLeftButton)="router.navigateByUrl('/')"></app-header>
+            leftButtonText="Listen"
+            (onLeftButton)="router.navigateByUrl('/')"
+            [showArrowLeft]="true"
+            [showOptionsButton]="true"></app-header>
 <h1 [style.color]="list()?.color">{{ list()?.title }}</h1>
 
 @for (reminder of reminders(); track reminder.id) {

@@ -1,5 +1,18 @@
 <div class="left">
-  <button class="action" (click)="onLeftButton.emit()">{{ leftButtonText() }}
+  <button class="action" (click)="onLeftButton.emit()">
+    @if (showArrowLeft()) {
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+           width="13.8008"
+           height="18.1016">
+        <g>
+          <rect height="18.1016" opacity="0" width="13.8008" x="0" y="0"/>
+          <path
+            d="M0 9.04688C0 9.48047 0.15625 9.83984 0.515625 10.1914L8.23047 17.6953C8.5 17.9648 8.82812 18.0977 9.21094 18.0977C10 18.0977 10.6367 17.4648 10.6367 16.6836C10.6367 16.2891 10.4727 15.9375 10.1875 15.6484L3.34375 9.03906L10.1875 2.4375C10.4805 2.15234 10.6367 1.78906 10.6367 1.40625C10.6367 0.625 10 0 9.21094 0C8.82422 0 8.5 0.128906 8.23047 0.398438L0.515625 7.90234C0.160156 8.24609 0.00390625 8.60156 0 9.04688Z"
+            fill="#007aff"/>
+        </g>
+      </svg>
+    }
+    {{ leftButtonText() }}
   </button>
 </div>
 <h2>{{ title() }}</h2>

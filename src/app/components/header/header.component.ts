@@ -9,6 +9,7 @@ import { Component, input, output } from '@angular/core';
 })
 export class HeaderComponent {
   title = input.required<string>();
+  showArrowLeft = input<boolean>(false);
   leftButtonText = input<string>();
   onLeftButton = output();
   rightButtonText = input<string>();
