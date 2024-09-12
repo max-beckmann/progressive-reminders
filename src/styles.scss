@@ -117,7 +117,7 @@ button {
   display: flex;
   padding-top: 14px;
 
-  app-icon {
+  > app-icon {
     margin-left: 10px;
   }
 
@@ -125,26 +125,28 @@ button {
     flex-grow: 1;
     padding: 2px 14px 14px 0;
     margin-left: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-areas:
+      "left right"
+      "notes notes"
+      "timing timing";
 
-    .left {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-
-      //TODO: obere linie aligned, untere linie mit notizen getrennt
-      .notes {
-        font-size: 0.9rem;
-        color: var(--color-font);
-      }
+    .notes, .timing {
+      margin-top: 3px;
+      font-size: 0.9rem;
+      color: var(--color-font);
     }
 
     .right {
       display: flex;
       align-items: center;
       gap: 8px;
+      position: relative;
+
+      .flag {
+        position: absolute;
+        right: 0;
+      }
 
       .subtitle {
         color: var(--color-font);
@@ -153,6 +155,22 @@ button {
       .arrow {
         color: #7F7F85;
       }
+    }
+
+    .left {
+      grid-area: left;
+    }
+
+    .right {
+      grid-area: right;
+    }
+
+    .notes {
+      grid-area: notes;
+    }
+
+    .timing {
+      grid-area: timing;
     }
   }
 

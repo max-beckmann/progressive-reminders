@@ -5,15 +5,17 @@
   <div class="wrapper">
     <div class="left">
       <span class="title">{{ reminder().title }}</span>
-
-      @if (reminder().notes) {
-        <span class="notes">{{ reminder().notes }}</span>
-      }
     </div>
     <div class="right">
       @if (reminder().highlighted) {
-        <app-icon [data]="highlightIcon" [size]="36"></app-icon>
+        <app-icon class="flag" [data]="highlightIcon" [size]="36"></app-icon>
       }
     </div>
+    @if (reminder().notes) {
+      <span class="notes">{{ reminder().notes }}</span>
+    }
+    @if (reminder().date) {
+      <span class="timing">123</span>
+    }
   </div>
 </div>
