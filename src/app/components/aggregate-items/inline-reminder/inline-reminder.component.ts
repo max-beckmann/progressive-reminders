@@ -1,5 +1,5 @@
 import {
-  Component,
+  Component, computed,
   effect,
   HostBinding,
   input,
@@ -28,7 +28,11 @@ export class InlineReminderComponent {
   onUndone = output<number>();
   private isInitiallyDone = false;
 
-  showInfoButton = signal<boolean>(false);
+  isFocused = signal<boolean>(false);
+  isHovered = signal<boolean>(false);
+  showInfoButton = computed<boolean>(() => {
+    return this.isFocused() || this.isHovered();
+  });
 
   @HostBinding('style.--checked-color')
   get checkedColor(): string {

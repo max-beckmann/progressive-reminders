@@ -3,12 +3,12 @@
     <span class="inner"></span>
   </button>
   <label for="title">
-    <div class="wrapper">
+    <div class="wrapper" (mouseenter)="isHovered.set(true)" (mouseleave)="isHovered.set(false)">
       <div class="left">
       <span class="title">
         <input type="text" id="title" [value]="reminder().title"
-               (focusin)="showInfoButton.set(true)"
-               (focusout)="showInfoButton.set(false)">
+               (focusin)="isFocused.set(true)"
+               (focusout)="isFocused.set(false)">
       </span>
       </div>
       <div class="right">
