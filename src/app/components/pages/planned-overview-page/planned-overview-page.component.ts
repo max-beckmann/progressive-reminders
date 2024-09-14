@@ -35,7 +35,7 @@ export class PlannedOverviewPageComponent {
   private async init(): Promise<void> {
     const reminders = await database.reminders
       .filter(reminder => !reminder.done && reminder.date !== undefined)
-      .toArray();
+      .sortBy('date');
 
     this.reminders.set(reminders);
   }

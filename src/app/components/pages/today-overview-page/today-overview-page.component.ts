@@ -36,7 +36,7 @@ export class TodayOverviewPageComponent {
   private async init(): Promise<void> {
     const reminders = await database.reminders
       .filter(reminder => !reminder.done && reminder.date !== undefined && isTodayOrDue(new Date(reminder.date)))
-      .toArray();
+      .sortBy('date');
 
     this.reminders.set(reminders);
   }
