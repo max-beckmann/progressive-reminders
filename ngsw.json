@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1726310585133,
-  "index": "https://max-beckmann.github.io/progressive-reminders/index.html",
+  "timestamp": 1726310916353,
+  "index": "/progressive-reminders/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,12 +11,12 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://max-beckmann.github.io/progressive-reminders/favicon.ico",
-        "https://max-beckmann.github.io/progressive-reminders/index.html",
-        "https://max-beckmann.github.io/progressive-reminders/main-QX2IURIV.js",
-        "https://max-beckmann.github.io/progressive-reminders/manifest.webmanifest",
-        "https://max-beckmann.github.io/progressive-reminders/polyfills-DXJ4KTXW.js",
-        "https://max-beckmann.github.io/progressive-reminders/styles-HPWGPGKA.css"
+        "/progressive-reminders/favicon.ico",
+        "/progressive-reminders/index.html",
+        "/progressive-reminders/main-QX2IURIV.js",
+        "/progressive-reminders/manifest.webmanifest",
+        "/progressive-reminders/polyfills-DXJ4KTXW.js",
+        "/progressive-reminders/styles-HPWGPGKA.css"
       ],
       "patterns": []
     },
@@ -28,48 +28,48 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Bold.woff2",
-        "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Light.woff2",
-        "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Medium.woff2",
-        "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Regular.woff2",
-        "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Semibold.woff2",
-        "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro.woff",
-        "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro.woff2",
-        "https://max-beckmann.github.io/progressive-reminders/icons/icon-128x128.png",
-        "https://max-beckmann.github.io/progressive-reminders/icons/icon-144x144.png",
-        "https://max-beckmann.github.io/progressive-reminders/icons/icon-152x152.png",
-        "https://max-beckmann.github.io/progressive-reminders/icons/icon-192x192.png",
-        "https://max-beckmann.github.io/progressive-reminders/icons/icon-384x384.png",
-        "https://max-beckmann.github.io/progressive-reminders/icons/icon-512x512.png",
-        "https://max-beckmann.github.io/progressive-reminders/icons/icon-72x72.png",
-        "https://max-beckmann.github.io/progressive-reminders/icons/icon-96x96.png"
+        "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Bold.woff2",
+        "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Light.woff2",
+        "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Medium.woff2",
+        "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Regular.woff2",
+        "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Semibold.woff2",
+        "/progressive-reminders/assets/fonts/SF-Pro.woff",
+        "/progressive-reminders/assets/fonts/SF-Pro.woff2",
+        "/progressive-reminders/icons/icon-128x128.png",
+        "/progressive-reminders/icons/icon-144x144.png",
+        "/progressive-reminders/icons/icon-152x152.png",
+        "/progressive-reminders/icons/icon-192x192.png",
+        "/progressive-reminders/icons/icon-384x384.png",
+        "/progressive-reminders/icons/icon-512x512.png",
+        "/progressive-reminders/icons/icon-72x72.png",
+        "/progressive-reminders/icons/icon-96x96.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Bold.woff2": "89d1c608f2e6bb8ed3570670611d71442a33e435",
-    "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Light.woff2": "7e2e2acf1713c157b55560223bf6e646f1f0c7a5",
-    "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Medium.woff2": "0a4cd060598ef5d4cbbd192a0c19f32dfacb97b5",
-    "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Regular.woff2": "71d5936a00e6c400b0129da6ee6b3d7a056f7c73",
-    "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro-Rounded-Semibold.woff2": "77023e8dee71572e300f0c755e60c2cc7c78adee",
-    "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro.woff": "4d66ea6640e44c068ad2d2381bdc6b20cc874b19",
-    "https://max-beckmann.github.io/progressive-reminders/assets/fonts/SF-Pro.woff2": "3397e812f2f85ed6bf727c2879ef829deecd307f",
-    "https://max-beckmann.github.io/progressive-reminders/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "https://max-beckmann.github.io/progressive-reminders/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
-    "https://max-beckmann.github.io/progressive-reminders/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
-    "https://max-beckmann.github.io/progressive-reminders/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
-    "https://max-beckmann.github.io/progressive-reminders/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
-    "https://max-beckmann.github.io/progressive-reminders/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
-    "https://max-beckmann.github.io/progressive-reminders/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
-    "https://max-beckmann.github.io/progressive-reminders/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
-    "https://max-beckmann.github.io/progressive-reminders/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "https://max-beckmann.github.io/progressive-reminders/index.html": "5cbf4e7bff7732c16184afd77c85249781e9ac29",
-    "https://max-beckmann.github.io/progressive-reminders/main-QX2IURIV.js": "6ee848923c5eddab6d4d0be085d91da8a5471b45",
-    "https://max-beckmann.github.io/progressive-reminders/manifest.webmanifest": "166aac2455559b2b8e4d5900c992a20484326a5b",
-    "https://max-beckmann.github.io/progressive-reminders/polyfills-DXJ4KTXW.js": "d45c76c5960bab3ace7fd6d211b9579456241f8a",
-    "https://max-beckmann.github.io/progressive-reminders/styles-HPWGPGKA.css": "077204282bd7084f75db8b36cafb87b7b8bb7cda"
+    "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Bold.woff2": "89d1c608f2e6bb8ed3570670611d71442a33e435",
+    "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Light.woff2": "7e2e2acf1713c157b55560223bf6e646f1f0c7a5",
+    "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Medium.woff2": "0a4cd060598ef5d4cbbd192a0c19f32dfacb97b5",
+    "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Regular.woff2": "71d5936a00e6c400b0129da6ee6b3d7a056f7c73",
+    "/progressive-reminders/assets/fonts/SF-Pro-Rounded-Semibold.woff2": "77023e8dee71572e300f0c755e60c2cc7c78adee",
+    "/progressive-reminders/assets/fonts/SF-Pro.woff": "4d66ea6640e44c068ad2d2381bdc6b20cc874b19",
+    "/progressive-reminders/assets/fonts/SF-Pro.woff2": "3397e812f2f85ed6bf727c2879ef829deecd307f",
+    "/progressive-reminders/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/progressive-reminders/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "/progressive-reminders/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "/progressive-reminders/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "/progressive-reminders/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "/progressive-reminders/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "/progressive-reminders/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "/progressive-reminders/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "/progressive-reminders/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "/progressive-reminders/index.html": "14e71fb10ef4fd397fd0327640c93c5154ff022f",
+    "/progressive-reminders/main-QX2IURIV.js": "6ee848923c5eddab6d4d0be085d91da8a5471b45",
+    "/progressive-reminders/manifest.webmanifest": "166aac2455559b2b8e4d5900c992a20484326a5b",
+    "/progressive-reminders/polyfills-DXJ4KTXW.js": "d45c76c5960bab3ace7fd6d211b9579456241f8a",
+    "/progressive-reminders/styles-HPWGPGKA.css": "077204282bd7084f75db8b36cafb87b7b8bb7cda"
   },
   "navigationUrls": [
     {
