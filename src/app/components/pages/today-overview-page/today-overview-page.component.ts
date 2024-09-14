@@ -7,7 +7,7 @@ import { Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
 import { Router } from '@angular/router';
 import { Colors } from '../../../enums/colors';
-import { isToday } from '../../../utils/date';
+import { isTodayOrDue } from '../../../utils/date';
 
 @Component({
   selector: 'app-today-overview-page',
@@ -35,7 +35,7 @@ export class TodayOverviewPageComponent {
 
   private async init(): Promise<void> {
     const reminders = await database.reminders
-      .filter(reminder => !reminder.done && reminder.date !== undefined && isToday(new Date(reminder.date)))
+      .filter(reminder => !reminder.done && reminder.date !== undefined && isTodayOrDue(new Date(reminder.date)))
       .toArray();
 
     this.reminders.set(reminders);

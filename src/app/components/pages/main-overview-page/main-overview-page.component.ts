@@ -10,7 +10,7 @@ import {
 import { defaultIcons } from '../../icon/icon.component';
 import { Aggregate, AggregateType } from '../../../../../model';
 import { database } from '../../../../../database';
-import { isToday } from '../../../utils/date';
+import { isTodayOrDue } from '../../../utils/date';
 import { HeaderComponent } from '../../header/header.component';
 
 @Component({
@@ -49,7 +49,7 @@ export class MainOverviewPageComponent {
 
   private async initListCounts(): Promise<void> {
     const todayCount = await database.reminders
-      .filter(reminder => !reminder.done && reminder.date !== undefined && isToday(new Date(reminder.date)))
+      .filter(reminder => !reminder.done && reminder.date !== undefined && isTodayOrDue(new Date(reminder.date)))
       .count();
 
     this.todayCount.set(todayCount ?? 0);

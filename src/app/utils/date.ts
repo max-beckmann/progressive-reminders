@@ -1,7 +1,9 @@
-export function isToday(date: Date) {
+export function isTodayOrDue(date: Date) {
   const today = new Date();
+  const isToday = date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate();
+  const isDue = date.getTime() < new Date().getTime();
 
-  return date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth() && date.getDate() === today.getDate();
+  return isToday || isDue;
 }
 
 export function transformToDate(date: string, time?: string): Date {
