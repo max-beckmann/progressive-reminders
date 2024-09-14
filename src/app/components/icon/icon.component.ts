@@ -6,10 +6,17 @@ export enum IconType {
   LIST = 'list',
   BOOKMARK = 'bookmark',
   MAPPIN = 'mappin',
+  GRADUATION = 'graduation',
+  DOCUMENT = 'document',
+  BOOK = 'book',
+  CREDITCARD = 'creditcard',
+  DUMBBELL = 'dumbbell',
+  FORK_KNIFE = 'fork_knife',
+  PILL = 'pill',
+  HOUSE = 'house',
   CALENDAR = 'calendar',
   FLAG = 'flag',
   CHECKMARK = 'checkmark',
-  CHEVRON_RIGHT = 'chevron_right',
 }
 
 export const defaultIcons: Record<string, Icon> = {

@@ -9,8 +9,15 @@
         <span class="subtitle">{{ item().subtitle }}</span>
       }
       @if (item().hasArrow) {
-        <app-icon [data]="{ type: IconType.CHEVRON_RIGHT }"
-                  class="arrow"></app-icon>
+        <div class="arrow">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10.0497" height="13.5761">
+            <g>
+              <rect height="13.5761" opacity="0" width="10.0497" x="0" y="0"/>
+              <path d="M10.0497 6.78325C10.0462 6.45299 9.93136 6.18726 9.66211 5.9231L3.87635 0.30116C3.67547 0.0957116 3.43268 0 3.14118 0C2.5501 0 2.07033 0.470119 2.07033 1.05577C2.07033 1.34271 2.19268 1.61301 2.40845 1.83088L7.54142 6.77975L2.40845 11.7356C2.19619 11.9535 2.07033 12.2192 2.07033 12.5142C2.07033 13.0999 2.5501 13.57 3.14118 13.57C3.42917 13.57 3.67547 13.4743 3.87635 13.2688L9.66211 7.64339C9.93486 7.37924 10.0497 7.11 10.0497 6.78325Z" fill="currentColor" />
+            </g>
+          </svg>
+
+        </div>
       }
     </div>
   </div>
