@@ -39,6 +39,8 @@ export class DateSelectorComponent {
         this.showDateSelector.set(true);
         this.showTimeSelector.set(true);
         this.isInitialized = true;
+      } else {
+        this.isInitialized = true;
       }
     }, { allowSignalWrites: true });
 
@@ -51,6 +53,7 @@ export class DateSelectorComponent {
           this.date.set(date);
         }
       } else {
+        this.showTimeSelector.set(false);
         this.date.set('');
       }
     }, { allowSignalWrites: true });
@@ -59,6 +62,8 @@ export class DateSelectorComponent {
       const showTimeSelector = this.showTimeSelector();
 
       if(showTimeSelector) {
+        this.showDateSelector.set(true);
+
         if(this.time() === '') {
           const { time } = transformToStrings(new Date());
           this.time.set(time);
