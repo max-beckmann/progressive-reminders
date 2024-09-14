@@ -48,6 +48,10 @@ export class InlineReminderComponent {
     return this.listColor();
   }
 
+  isDue = computed<boolean>(() => {
+    return this.reminder().date !== undefined && this.reminder().date!.getTime() < new Date().getTime();
+  })
+
   constructor(
     private readonly router: Router
   ) {

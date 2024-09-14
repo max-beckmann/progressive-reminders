@@ -47,7 +47,7 @@
         <span class="notes">{{ reminder().notes }}</span>
       }
       @if (reminder().date) {
-        <div class="timing">
+        <div class="timing" [class.isDue]="isDue()">
         <span>{{
             reminder().date?.toLocaleDateString([], {
               year: 'numeric',
