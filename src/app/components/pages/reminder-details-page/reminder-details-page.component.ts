@@ -4,7 +4,7 @@ import { ContainerComponent } from '../../container/container.component';
 import {
   InlineToggleComponent
 } from '../../aggregate-items/inline-toggle/inline-toggle.component';
-import { IconType } from '../../icon/icon.component';
+import { IconComponent, IconType } from '../../icon/icon.component';
 import { Router } from '@angular/router';
 import { Reminder } from '../../../../../model';
 import {
@@ -26,7 +26,8 @@ import { database } from '../../../../../database';
     InlineToggleComponent,
     ReactiveFormsModule,
     FormsModule,
-    DateSelectorComponent
+    DateSelectorComponent,
+    IconComponent
   ],
   templateUrl: './reminder-details-page.component.html',
   styleUrl: './reminder-details-page.component.scss'
@@ -71,5 +72,11 @@ export class ReminderDetailsPageComponent {
     database.reminders.add(this.reminder);
 
     void this.router.navigateByUrl('/');
+  }
+
+  delete(): void {
+    database.reminders.delete(this.reminder.id!);
+
+    void this.router.navigateByUrl(this.previousLocation());
   }
 }

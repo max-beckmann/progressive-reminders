@@ -31,3 +31,12 @@
                      [icon]="highlightToggleIcon"
                      [(status)]="reminder.highlighted"></app-inline-toggle>
 </app-container>
+@if(!isNewReminder()) {
+  <app-container>
+    <div class="inline-item delete" (click)="delete()">
+      <div class="wrapper">
+        <button>Erinnerung löschen</button>
+      </div>
+    </div>
+  </app-container>
+}

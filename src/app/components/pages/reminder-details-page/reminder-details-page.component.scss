@@ -16,4 +16,18 @@
       margin-right: 14px;
     }
   }
+
+  .delete {
+    button {
+      color: #FF3B30;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      button {
+        opacity: 0.5;
+      }
+    }
+  }
 }
