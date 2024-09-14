@@ -1,6 +1,17 @@
-<app-header title="Details" leftButtonText="< Neue Erinnerung"
-            (onLeftButton)="applyChanges()"
-            rightButtonText="Hinzufügen"></app-header>
+@if(isNewReminder()) {
+  <app-header title="Details"
+              leftButtonText="Neue Erinnerung"
+              [showArrowLeft]="true"
+              (onLeftButton)="navigateBack()"
+              rightButtonText="Hinzufügen"
+              (onRightButton)="add()"></app-header>
+} @else {
+  <app-header title="Details"
+              leftButtonText="Abbrechen"
+              (onLeftButton)="navigateBack()"
+              rightButtonText="Fertig"
+              (onRightButton)="applyChanges()"></app-header>
+}
 <app-date-selector [(selectedDate)]="reminder.date"></app-date-selector>
 <app-container>
   <app-inline-toggle title="Markieren"

@@ -67,7 +67,6 @@ export class NewReminderPageComponent {
       const { state } = navigation.extras;
 
       this.reminder = state as Reminder;
-      console.log(this.reminder);
     }
 
     void this.initSelectedList(this.reminder.associatedList);

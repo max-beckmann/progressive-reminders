@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { HeaderComponent } from '../../header/header.component';
 import { ContainerComponent } from '../../container/container.component';
 import {
@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   DateSelectorComponent
 } from '../../date-selector/date-selector.component';
+import { database } from '../../../../../database';
 
 @Component({
   selector: 'app-reminder-details-page',
@@ -33,6 +34,10 @@ import {
 export class ReminderDetailsPageComponent {
   static readonly location = '/new-reminder/details';
   protected readonly reminder: Reminder;
+  previousLocation = signal<string>('');
+  isNewReminder = computed<boolean>(() => {
+    return this.previousLocation() === NewReminderPageComponent.location;
+  });
 
   protected readonly highlightToggleIcon = {
     type: IconType.FLAG,
@@ -42,12 +47,29 @@ export class ReminderDetailsPageComponent {
   constructor(
     protected readonly router: Router
   ) {
-    this.reminder = this.router.getCurrentNavigation()?.extras.state as Reminder;
+    const { extras, previousNavigation } = this.router.getCurrentNavigation()!;
+    this.previousLocation.set(previousNavigation?.finalUrl?.toString() ?? '/');
+    this.reminder = extras.state as Reminder;
   }
 
-  applyChanges() {
-    void this.router.navigate([NewReminderPageComponent.location], {
+  navigateBack() {
+    void this.router.navigate([this.previousLocation()], {
       state: this.reminder
     });
+  }
+
+  applyChanges(): void {
+    database.reminders.update(this.reminder.id!, {
+      date: this.reminder.date,
+      highlighted: this.reminder.highlighted
+    });
+
+    void this.router.navigateByUrl(this.previousLocation());
+  }
+
+  add(): void {
+    database.reminders.add(this.reminder);
+
+    void this.router.navigateByUrl('/');
   }
 }

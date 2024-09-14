@@ -11,6 +11,12 @@ import { database } from '../../../../../database';
 import { IconComponent } from '../../icon/icon.component';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import {
+  NewReminderPageComponent
+} from '../../pages/new-reminder-page/new-reminder-page.component';
+import {
+  ReminderDetailsPageComponent
+} from '../../pages/reminder-details-page/reminder-details-page.component';
 
 @Component({
   selector: 'app-inline-reminder',
@@ -77,7 +83,9 @@ export class InlineReminderComponent {
   }
 
   modifyReminder(): void {
-    void this.router.navigateByUrl('/');
+    void this.router.navigate([ReminderDetailsPageComponent.location], {
+      state: this.reminder()
+    });
   }
 
   private setDone(): void {
@@ -97,6 +105,4 @@ export class InlineReminderComponent {
 
     this.onUndone.emit(this.reminder().id!);
   }
-
-  protected readonly localStorage = localStorage;
 }
