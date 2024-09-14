@@ -4,7 +4,8 @@
               [showArrowLeft]="true"
               (onLeftButton)="navigateBack()"
               rightButtonText="Hinzufügen"
-              (onRightButton)="add()"></app-header>
+              (onRightButton)="add()"
+              [isRightButtonDisabled]="!reminder.title || !reminder.associatedList"></app-header>
 } @else {
   <app-header title="Details"
               leftButtonText="Abbrechen"
