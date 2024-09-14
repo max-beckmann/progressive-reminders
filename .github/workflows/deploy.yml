@@ -39,7 +39,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm exec build -- --base-href "https://max-beckmann.github.io/progressive-reminders/"
+        run: pnpm exec build:production
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
