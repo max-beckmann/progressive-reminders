@@ -32,12 +32,6 @@ export class ListOverviewPageComponent {
   id = input.required<string>();
   list = signal<List | null>(null);
   reminders = signal<Reminder[]>([]);
-  bottomNavigationIcon = computed<Icon>(() => {
-    return {
-      type: IconType.PLUS,
-      backgroundColor: this.list()?.color
-    }
-  });
 
   constructor(
     protected readonly router: Router

@@ -4,13 +4,12 @@ import { Colors } from '../../enums/colors';
 
 export enum IconType {
   LIST = 'list',
+  BOOKMARK = 'bookmark',
+  MAPPIN = 'mappin',
   CALENDAR = 'calendar',
   FLAG = 'flag',
   CHECKMARK = 'checkmark',
-  PLUS = 'plus',
   CHEVRON_RIGHT = 'chevron_right',
-  MAPPIN = 'mapping',
-  BOOKMARK = 'bookmark'
 }
 
 export const defaultIcons: Record<string, Icon> = {
@@ -18,7 +17,6 @@ export const defaultIcons: Record<string, Icon> = {
   'calendar': { type: IconType.CALENDAR, backgroundColor: Colors.RED },
   'flag': { type: IconType.FLAG, backgroundColor: Colors.ORANGE },
   'checkmark': { type: IconType.CHECKMARK, backgroundColor: Colors.GREY },
-  'plus': { type: IconType.PLUS, backgroundColor: '#007AFF' },
 }
 
 @Component({

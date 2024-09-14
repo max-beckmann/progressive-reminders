@@ -4,7 +4,7 @@
           (click)="pick($index)">
       <span #inner class="inner">
         <app-icon
-          [data]="{ type: toIconType(option), backgroundColor: '#666' }"
+          [data]="{ type: toIconType(option), backgroundColor: 'var(--color-background)', color: '#666' }"
           [size]="inner.clientWidth"></app-icon>
       </span>
     </span>
