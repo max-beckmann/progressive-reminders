@@ -39,7 +39,7 @@ export const routes: Routes = [
   { path: 'list/:id', component: ListOverviewPageComponent },
   { path: 'new-reminder', component: NewReminderPageComponent },
   { path: 'new-reminder/select-list', component: SelectListPageComponent },
-  { path: 'new-reminder/details', component: ReminderDetailsPageComponent },
+  { path: 'details', component: ReminderDetailsPageComponent },
   { path: 'new-list', component: NewListPageComponent },
 ];
 

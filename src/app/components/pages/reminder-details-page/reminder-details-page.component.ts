@@ -32,7 +32,7 @@ import { database } from '../../../../../database';
   styleUrl: './reminder-details-page.component.scss'
 })
 export class ReminderDetailsPageComponent {
-  static readonly location = '/new-reminder/details';
+  static readonly location = '/details';
   protected readonly reminder: Reminder;
   previousLocation = signal<string>('');
   isNewReminder = computed<boolean>(() => {
