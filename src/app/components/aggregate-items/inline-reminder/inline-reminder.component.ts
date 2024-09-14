@@ -2,7 +2,7 @@ import {
   Component, computed,
   effect,
   HostBinding,
-  input,
+  input, model,
   output,
   signal
 } from '@angular/core';
@@ -10,18 +10,21 @@ import { Reminder } from '../../../../../model';
 import { database } from '../../../../../database';
 import { IconComponent } from '../../icon/icon.component';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inline-reminder',
   standalone: true,
   imports: [
-    IconComponent
+    IconComponent,
+    FormsModule
   ],
   templateUrl: './inline-reminder.component.html',
   styleUrl: './inline-reminder.component.scss'
 })
 export class InlineReminderComponent {
   reminder = input.required<Reminder>();
+  title = model<string>();
   listColor = input<string>('');
   toggled = signal<boolean>(false);
   onDone = output<number>();
@@ -47,6 +50,12 @@ export class InlineReminderComponent {
       this.isInitiallyDone = done;
       this.toggled.set(done);
     }, { allowSignalWrites: true });
+
+    effect(() => {
+      if(this.title()) {
+        void this.updateTitle(this.title() ?? this.reminder().title);
+      }
+    });
   }
 
   toggle(): void {
@@ -61,6 +70,10 @@ export class InlineReminderComponent {
     if (this.isInitiallyDone && !this.toggled()) {
       this.setUndone();
     }
+  }
+
+  async updateTitle(value: string): Promise<void> {
+    await database.reminders.update(this.reminder().id!, { title: value });
   }
 
   modifyReminder(): void {
