@@ -39,7 +39,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm exec build:production
+        run: pnpm run build:production
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
