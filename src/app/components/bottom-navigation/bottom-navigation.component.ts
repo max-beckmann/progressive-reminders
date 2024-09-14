@@ -1,4 +1,11 @@
-import { Component, input } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  HostBinding,
+  input,
+  viewChild
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { defaultIcons, IconComponent } from '../icon/icon.component';
 import { Icon } from '../../../../model';
@@ -15,5 +22,18 @@ import { Icon } from '../../../../model';
 })
 export class BottomNavigationComponent {
   hasNewListButton = input<boolean>(true);
-  icon = input<Icon>(defaultIcons['plus']);
+  color = input<string | undefined>(undefined);
+  addIcon = viewChild<ElementRef<HTMLElement>>('add_icon');
+
+  @HostBinding('style.color') get fontColor(): string {
+    return this.color() ?? '';
+  }
+
+  constructor() {
+    effect(() => {
+      if(this.color()) {
+        this.addIcon()!.nativeElement.style.backgroundColor = this.color()!;
+      }
+    })
+  }
 }

@@ -12,8 +12,7 @@
 }
 
 <app-bottom-navigation [hasNewListButton]="false"
-                       [style.color]="list()?.color"
-                       [icon]="bottomNavigationIcon()"></app-bottom-navigation>
+                       [color]="list()?.color"></app-bottom-navigation>
 <app-options-overlay>
   <li class="delete-list-button" (click)="deleteList()">Liste löschen</li>
 </app-options-overlay>
