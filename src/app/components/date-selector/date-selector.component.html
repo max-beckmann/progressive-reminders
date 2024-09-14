@@ -1,13 +1,30 @@
 <app-container>
-  <app-inline-toggle title="Datum" [icon]="dateToggleIcon"
-                     [(status)]="showDateSelector"></app-inline-toggle>
-  @if (showDateSelector) {
-    <input type="date" [(ngModel)]="date">
-  }
-
-  <app-inline-toggle title="Uhrzeit" [icon]="timeToggleIcon"
-                     [(status)]="showTimeSelector"></app-inline-toggle>
-  @if (showTimeSelector) {
-    <input type="time" [(ngModel)]="time">
-  }
+  <ul>
+    <li>
+      <app-inline-toggle title="Datum" [icon]="dateToggleIcon"
+                         [(status)]="showDateSelector"></app-inline-toggle>
+    </li>
+    @if (showDateSelector) {
+      <li>
+        <div class="inline-item">
+          <div class="wrapper">
+            <input type="date" [(ngModel)]="date">
+          </div>
+        </div>
+      </li>
+    }
+    <li>
+      <app-inline-toggle title="Uhrzeit" [icon]="timeToggleIcon"
+                         [(status)]="showTimeSelector"></app-inline-toggle>
+    </li>
+    @if (showTimeSelector) {
+      <li>
+        <div class="inline-item">
+          <div class="wrapper">
+            <input type="time" [(ngModel)]="time">
+          </div>
+        </div>
+      </li>
+    }
+  </ul>
 </app-container>

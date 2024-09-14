@@ -1,0 +1,13 @@
+:host {
+  input {
+    margin: 0;
+  }
+
+  .wrapper {
+    justify-content: center;
+  }
+
+  li:not(:last-child) ::ng-deep .wrapper {
+    border-bottom: 1px solid var(--color-interaction);
+  }
+}

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {
   InlineToggleComponent
 } from '../aggregate-items/inline-toggle/inline-toggle.component';
-import { IconType } from '../icon/icon.component';
+import { IconComponent, IconType } from '../icon/icon.component';
 import { Colors } from '../../enums/colors';
 import { transformToDate, transformToStrings } from '../../utils/date';
 
@@ -14,7 +14,8 @@ import { transformToDate, transformToStrings } from '../../utils/date';
   imports: [
     ContainerComponent,
     FormsModule,
-    InlineToggleComponent
+    InlineToggleComponent,
+    IconComponent
   ],
   templateUrl: './date-selector.component.html',
   styleUrl: './date-selector.component.scss'

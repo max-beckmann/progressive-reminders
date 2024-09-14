@@ -12,6 +12,19 @@
               rightButtonText="Fertig"
               (onRightButton)="applyChanges()"></app-header>
 }
+@if(!isNewReminder()) {
+  <app-container>
+    <ul>
+      <li>
+        <input type="text" [(ngModel)]="reminder.title" placeholder="Titel">
+      </li>
+      <li>
+        <textarea [(ngModel)]="reminder.notes" placeholder="Notizen"
+                  rows="4"></textarea>
+      </li>
+    </ul>
+  </app-container>
+}
 <app-date-selector [(selectedDate)]="reminder.date"></app-date-selector>
 <app-container>
   <app-inline-toggle title="Markieren"
