@@ -21,8 +21,8 @@ import { Icon } from '../../../../model';
   styleUrl: './bottom-navigation.component.scss'
 })
 export class BottomNavigationComponent {
-  hasNewListButton = input<boolean>(true);
   color = input<string | undefined>(undefined);
+  currentList = input<number | null>(null);
   addIcon = viewChild<ElementRef<HTMLElement>>('add_icon');
 
   @HostBinding('style.color') get fontColor(): string {

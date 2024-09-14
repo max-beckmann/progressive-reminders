@@ -11,8 +11,8 @@
                        (onDone)="removeFromList($event)"></app-inline-reminder>
 }
 
-<app-bottom-navigation [hasNewListButton]="false"
-                       [color]="list()?.color"></app-bottom-navigation>
+<app-bottom-navigation [color]="list()?.color"
+                       [currentList]="list()?.id!"></app-bottom-navigation>
 <app-options-overlay>
   <li class="delete-list-button" (click)="deleteList()">Liste löschen</li>
 </app-options-overlay>

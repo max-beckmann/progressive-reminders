@@ -1,4 +1,4 @@
-<a routerLink="/new-reminder" class="new-reminder">
+<a routerLink="/new-reminder" [state]="{ associatedList: currentList() }" class="new-reminder">
   <span #add_icon class="add-icon">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13.3594" height="12.8262">
      <g>
@@ -9,7 +9,7 @@
   </span>
   Neue Erinnerung
 </a>
-@if (hasNewListButton()) {
+@if (!currentList()) {
   <a routerLink="/new-list">Neue Liste</a>
 }
 
