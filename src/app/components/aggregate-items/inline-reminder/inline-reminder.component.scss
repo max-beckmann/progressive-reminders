@@ -1,4 +1,13 @@
 :host {
+  .inline-item {
+    align-items: start;
+    margin-top: 14px;
+
+    .wrapper {
+      padding-top: 2px;
+    }
+  }
+
   input {
     margin: 0;
   }
