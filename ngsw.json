@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1726310916353,
+  "timestamp": 1726311240907,
   "index": "/progressive-reminders/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "/progressive-reminders/main-QX2IURIV.js",
         "/progressive-reminders/manifest.webmanifest",
         "/progressive-reminders/polyfills-DXJ4KTXW.js",
-        "/progressive-reminders/styles-HPWGPGKA.css"
+        "/progressive-reminders/styles-OQCY4RU6.css"
       ],
       "patterns": []
     },
@@ -42,7 +42,14 @@
         "/progressive-reminders/icons/icon-384x384.png",
         "/progressive-reminders/icons/icon-512x512.png",
         "/progressive-reminders/icons/icon-72x72.png",
-        "/progressive-reminders/icons/icon-96x96.png"
+        "/progressive-reminders/icons/icon-96x96.png",
+        "/progressive-reminders/media/SF-Pro-CASQA5NI.woff2",
+        "/progressive-reminders/media/SF-Pro-Rounded-Bold-JR6L2326.woff2",
+        "/progressive-reminders/media/SF-Pro-Rounded-Light-ODIYOUHN.woff2",
+        "/progressive-reminders/media/SF-Pro-Rounded-Medium-IHANCSKF.woff2",
+        "/progressive-reminders/media/SF-Pro-Rounded-Regular-ZQBBR7CD.woff2",
+        "/progressive-reminders/media/SF-Pro-Rounded-Semibold-V4FZIGNT.woff2",
+        "/progressive-reminders/media/SF-Pro-XJNZOMWZ.woff"
       ],
       "patterns": []
     }
@@ -65,11 +72,18 @@
     "/progressive-reminders/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "/progressive-reminders/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "/progressive-reminders/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/progressive-reminders/index.html": "14e71fb10ef4fd397fd0327640c93c5154ff022f",
+    "/progressive-reminders/index.html": "0baff5568edb73d69d7932fcc3d1c8ae21a0870d",
     "/progressive-reminders/main-QX2IURIV.js": "6ee848923c5eddab6d4d0be085d91da8a5471b45",
     "/progressive-reminders/manifest.webmanifest": "166aac2455559b2b8e4d5900c992a20484326a5b",
+    "/progressive-reminders/media/SF-Pro-CASQA5NI.woff2": "3397e812f2f85ed6bf727c2879ef829deecd307f",
+    "/progressive-reminders/media/SF-Pro-Rounded-Bold-JR6L2326.woff2": "89d1c608f2e6bb8ed3570670611d71442a33e435",
+    "/progressive-reminders/media/SF-Pro-Rounded-Light-ODIYOUHN.woff2": "7e2e2acf1713c157b55560223bf6e646f1f0c7a5",
+    "/progressive-reminders/media/SF-Pro-Rounded-Medium-IHANCSKF.woff2": "0a4cd060598ef5d4cbbd192a0c19f32dfacb97b5",
+    "/progressive-reminders/media/SF-Pro-Rounded-Regular-ZQBBR7CD.woff2": "71d5936a00e6c400b0129da6ee6b3d7a056f7c73",
+    "/progressive-reminders/media/SF-Pro-Rounded-Semibold-V4FZIGNT.woff2": "77023e8dee71572e300f0c755e60c2cc7c78adee",
+    "/progressive-reminders/media/SF-Pro-XJNZOMWZ.woff": "4d66ea6640e44c068ad2d2381bdc6b20cc874b19",
     "/progressive-reminders/polyfills-DXJ4KTXW.js": "d45c76c5960bab3ace7fd6d211b9579456241f8a",
-    "/progressive-reminders/styles-HPWGPGKA.css": "077204282bd7084f75db8b36cafb87b7b8bb7cda"
+    "/progressive-reminders/styles-OQCY4RU6.css": "d29cddefe0c0b0100fb5724d7eaa2a7fcf85c3f1"
   },
   "navigationUrls": [
     {
