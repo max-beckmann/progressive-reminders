@@ -1,4 +1,4 @@
-import { Component, effect, model } from '@angular/core';
+import { Component, effect, model, signal } from '@angular/core';
 import { ContainerComponent } from '../container/container.component';
 import { FormsModule } from '@angular/forms';
 import {
@@ -26,8 +26,8 @@ export class DateSelectorComponent {
   date = model<string>('');
   time = model<string>('');
 
-  protected showDateSelector = false;
-  protected showTimeSelector = false;
+  showDateSelector = signal<boolean>(false);
+  protected showTimeSelector = signal<boolean>(false);
   private isInitialized = false
 
   constructor() {
@@ -36,9 +36,35 @@ export class DateSelectorComponent {
 
       if (!this.isInitialized && previousDate) {
         this.init(previousDate);
-        this.showDateSelector = true;
-        this.showTimeSelector = true;
+        this.showDateSelector.set(true);
+        this.showTimeSelector.set(true);
         this.isInitialized = true;
+      }
+    }, { allowSignalWrites: true });
+
+    effect(() => {
+      const showDateSelector = this.showDateSelector();
+
+      if(showDateSelector) {
+        if(this.date() === '') {
+          const { date } = transformToStrings(new Date());
+          this.date.set(date);
+        }
+      } else {
+        this.date.set('');
+      }
+    }, { allowSignalWrites: true });
+
+    effect(() => {
+      const showTimeSelector = this.showTimeSelector();
+
+      if(showTimeSelector) {
+        if(this.time() === '') {
+          const { time } = transformToStrings(new Date());
+          this.time.set(time);
+        }
+      } else {
+        this.time.set('');
       }
     }, { allowSignalWrites: true });
 
