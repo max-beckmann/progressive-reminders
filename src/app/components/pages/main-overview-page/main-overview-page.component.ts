@@ -12,6 +12,7 @@ import { Aggregate, AggregateType } from '../../../../../model';
 import { database } from '../../../../../database';
 import { isTodayOrDue } from '../../../utils/date';
 import { HeaderComponent } from '../../header/header.component';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-main-overview-page',
@@ -34,8 +35,16 @@ export class MainOverviewPageComponent {
   plannedCount = signal<number>(0);
   highlightedCount = signal<number>(0);
 
-  constructor() {
+  constructor(
+    private readonly notificationService: NotificationService
+  ) {
     void this.init();
+  }
+
+  protected showTestNotification() {
+    this.notificationService.schedule({
+      title: 'Test-Benachrichtigung (getimed)',
+    }, new Date(Date.now() + 10000));
   }
 
   private async init(): Promise<void> {
