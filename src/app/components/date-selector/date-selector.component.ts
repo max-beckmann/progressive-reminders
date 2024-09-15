@@ -22,30 +22,19 @@ import { transformToDate, transformToStrings } from '../../utils/date';
 })
 export class DateSelectorComponent {
   selectedDate = model.required<Date | undefined>();
+  private readonly init;
 
   date = model<string>('');
   time = model<string>('');
 
-  showDateSelector = signal<boolean>(false);
-  protected showTimeSelector = signal<boolean>(false);
-  private isInitialized = false
+  dateToggle = signal<boolean>(false);
+  timeToggle = signal<boolean>(false);
 
   constructor() {
-    effect(() => {
-      const previousDate = this.selectedDate();
-
-      if (!this.isInitialized && previousDate) {
-        this.init(previousDate);
-        this.showDateSelector.set(true);
-        this.showTimeSelector.set(true);
-        this.isInitialized = true;
-      } else {
-        this.isInitialized = true;
-      }
-    }, { allowSignalWrites: true });
+    this.init = effect(() => this.initialize(this.selectedDate()), { allowSignalWrites: true });
 
     effect(() => {
-      const showDateSelector = this.showDateSelector();
+      const showDateSelector = this.dateToggle();
 
       if(showDateSelector) {
         if(this.date() === '') {
@@ -53,16 +42,16 @@ export class DateSelectorComponent {
           this.date.set(date);
         }
       } else {
-        this.showTimeSelector.set(false);
+        this.timeToggle.set(false);
         this.date.set('');
       }
     }, { allowSignalWrites: true });
 
     effect(() => {
-      const showTimeSelector = this.showTimeSelector();
+      const showTimeSelector = this.timeToggle();
 
       if(showTimeSelector) {
-        this.showDateSelector.set(true);
+        this.dateToggle.set(true);
 
         if(this.time() === '') {
           const { time } = transformToStrings(new Date());
@@ -73,24 +62,41 @@ export class DateSelectorComponent {
       }
     }, { allowSignalWrites: true });
 
-    effect(() => {
-      const date = this.date();
-      const time = this.time();
-
-      if (date) {
-        this.updateSelected(date, time);
-      }
-    }, { allowSignalWrites: true });
+    effect(() => this.updateSelected(this.dateToggle(), this.timeToggle()), { allowSignalWrites: true });
   }
 
-  private init(d: Date): void {
-    const { date, time } = transformToStrings(d);
+  private initialize(input?: Date): void {
+    this.init.destroy();
+
+    if(!input) {
+      const { date, time } = transformToStrings(new Date());
+
+      this.date.set(date);
+      this.time.set(time);
+      return;
+    }
+
+    const { date, time } = transformToStrings(input);
+
+    this.dateToggle.set(true);
     this.date.set(date);
+
+    this.timeToggle.set(true);
     this.time.set(time);
   }
 
-  private updateSelected(date: string, time?: string): void {
-    this.selectedDate.set(transformToDate(date, time));
+  private updateSelected(stateDateToggle: boolean, stateTimeToggle: boolean): void {
+    if(!stateDateToggle) {
+      this.selectedDate.set(undefined);
+      return;
+    }
+
+    if(!stateTimeToggle) {
+      this.selectedDate.set(transformToDate(this.date()));
+      return;
+    }
+
+    this.selectedDate.set(transformToDate(this.date(), this.time()));
   }
 
   protected readonly dateToggleIcon = {

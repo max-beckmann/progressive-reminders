@@ -2,9 +2,9 @@
   <ul>
     <li>
       <app-inline-toggle title="Datum" [icon]="dateToggleIcon"
-                         [(status)]="showDateSelector"></app-inline-toggle>
+                         [(status)]="dateToggle"></app-inline-toggle>
     </li>
-    @if (showDateSelector()) {
+    @if (dateToggle()) {
       <li>
         <div class="inline-item">
           <div class="wrapper">
@@ -15,9 +15,9 @@
     }
     <li>
       <app-inline-toggle title="Uhrzeit" [icon]="timeToggleIcon"
-                         [(status)]="showTimeSelector"></app-inline-toggle>
+                         [(status)]="timeToggle"></app-inline-toggle>
     </li>
-    @if (showTimeSelector()) {
+    @if (timeToggle()) {
       <li>
         <div class="inline-item">
           <div class="wrapper">
