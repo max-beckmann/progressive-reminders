@@ -1,7 +1,6 @@
 import Dexie, { Table } from 'dexie';
 import { List, Reminder } from './model';
 import { IconType } from './src/app/components/icon/icon.component';
-import { Colors } from './src/app/enums/colors';
 
 export class AppDB extends Dexie {
   lists!: Table<List, number>;
@@ -13,28 +12,18 @@ export class AppDB extends Dexie {
       lists: '++id',
       reminders: '++id, associatedList',
     });
-    this.on('populate', () => this.populateWithDefaultLists());
+    this.on('populate', () => this.populateWithDefaultList());
   }
 
-  async populateWithDefaultLists() {
-    await database.lists.bulkAdd([
-      {
-        title: 'Custom List 1',
-        icon: {
-          type: IconType.FLAG,
-          backgroundColor: Colors.BLUE
-        },
-        color: Colors.BLUE
+  async populateWithDefaultList() {
+    await database.lists.add({
+      title: 'Meine Liste',
+      icon: {
+        type: IconType.LIST,
+        backgroundColor: '#9D8563'
       },
-      {
-        title: 'Custom List 2',
-        icon: {
-          type: IconType.FLAG,
-          backgroundColor: Colors.RED
-        },
-        color: Colors.RED
-      }
-    ]);
+      color: '#9D8563'
+    });
   }
 }
 
