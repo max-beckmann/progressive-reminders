@@ -36,9 +36,11 @@ export class NotificationService {
     }
   }
 
-  async schedule({ id, timing, title, options }: Notification) {
+  async schedule({ id, timing, title, options }: Notification): Promise<number | undefined> {
+    let newId = undefined;
+
     if(!id) {
-      id = await database.notifications.add({
+      newId = await database.notifications.add({
         title,
         options,
         timing,
@@ -48,9 +50,11 @@ export class NotificationService {
     const delay = timing.getTime() - Date.now();
     if(delay > 0) {
       setTimeout(() => {
-        this.show(id, title, options);
+        this.show(id ?? newId!, title, options);
       }, delay);
     }
+
+    return newId;
   }
 
   async show(id: number, title: string, options?: NotificationOptions) {

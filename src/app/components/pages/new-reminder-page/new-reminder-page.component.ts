@@ -76,6 +76,23 @@ export class NewReminderPageComponent {
   }
 
   async add(): Promise<void> {
+    if(this.reminder.date) {
+      const notificationId = await this.notificationService.schedule({
+        title: this.reminder.title,
+        options: {
+          body: this.reminder.date?.toLocaleDateString([], {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+          })
+        },
+        timing: this.reminder.date
+      });
+      this.reminder.associatedNotification = notificationId;
+    }
+
     await database.reminders.add(this.reminder);
 
     await this.router.navigateByUrl('/');
