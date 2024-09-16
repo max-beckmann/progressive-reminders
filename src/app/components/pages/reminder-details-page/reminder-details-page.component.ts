@@ -62,48 +62,27 @@ export class ReminderDetailsPageComponent {
   }
 
   async applyChanges(): Promise<void> {
+    const { associatedNotification: previousNotificationId } = await database.reminders.get(this.reminder.id!) as Reminder;
+
+    if(previousNotificationId) {
+      await database.notifications.delete(previousNotificationId);
+    }
+
     let notificationId = undefined;
-    const { date: previousDate, associatedNotification: previousNotificationId } = await database.reminders.get(this.reminder.id!) as Reminder;
-    if(previousDate) {
-      if(this.reminder.date) {
-        if(previousDate.getTime() === this.reminder.date.getTime()) {
-          notificationId = previousNotificationId;
-        } else {
-          await database.notifications.delete(previousNotificationId!);
-          notificationId = await this.notificationService.schedule({
-            title: this.reminder.title,
-            options: {
-              body: this.reminder.date?.toLocaleDateString([], {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit'
-              })
-            },
-            timing: this.reminder.date
+    if(this.reminder.date) {
+      notificationId = await this.notificationService.schedule({
+        title: this.reminder.title,
+        options: {
+          body: this.reminder.date?.toLocaleDateString([], {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
           })
-        }
-      } else {
-        notificationId = undefined;
-        await database.notifications.delete(previousNotificationId!);
-      }
-    } else {
-      if(this.reminder.date) {
-        notificationId = await this.notificationService.schedule({
-          title: this.reminder.title,
-          options: {
-            body: this.reminder.date?.toLocaleDateString([], {
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
-              hour: '2-digit',
-              minute: '2-digit'
-            })
-          },
-          timing: this.reminder.date
-        })
-      }
+        },
+        timing: this.reminder.date
+      });
     }
 
     database.reminders.update(this.reminder.id!, {
