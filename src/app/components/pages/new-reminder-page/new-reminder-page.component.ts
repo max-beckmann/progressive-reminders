@@ -27,6 +27,7 @@ import {
 import {
   ReminderDetailsPageComponent
 } from '../reminder-details-page/reminder-details-page.component';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-new-reminder-page',
@@ -60,7 +61,8 @@ export class NewReminderPageComponent {
   }
 
   constructor(
-    protected readonly router: Router
+    protected readonly router: Router,
+    private readonly notificationService: NotificationService
   ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
@@ -70,6 +72,7 @@ export class NewReminderPageComponent {
     }
 
     void this.initSelectedList(this.reminder.associatedList);
+    if(!this.notificationService.hasPermission) this.notificationService.requestPermission();
   }
 
   async add(): Promise<void> {

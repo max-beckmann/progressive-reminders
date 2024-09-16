@@ -35,11 +35,8 @@ export class MainOverviewPageComponent {
   plannedCount = signal<number>(0);
   highlightedCount = signal<number>(0);
 
-  constructor(
-    private readonly notificationService: NotificationService
-  ) {
+  constructor() {
     void this.init();
-    if(!this.notificationService.hasPermission) this.notificationService.requestPermission();
   }
 
   private async init(): Promise<void> {
