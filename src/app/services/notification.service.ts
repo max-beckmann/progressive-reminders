@@ -14,6 +14,10 @@ export class NotificationService {
     private readonly swPush: SwPush
   ) {}
 
+  get hasPermission(): boolean {
+    return Notification.permission === 'granted';
+  }
+
   requestPermission() {
     if(this.swPush.isEnabled) {
       void Notification.requestPermission();

@@ -39,12 +39,7 @@ export class MainOverviewPageComponent {
     private readonly notificationService: NotificationService
   ) {
     void this.init();
-  }
-
-  protected showTestNotification() {
-    this.notificationService.schedule({
-      title: 'Test-Benachrichtigung (getimed)',
-    }, new Date(Date.now() + 10000));
+    if(!this.notificationService.hasPermission) this.notificationService.requestPermission();
   }
 
   private async init(): Promise<void> {
