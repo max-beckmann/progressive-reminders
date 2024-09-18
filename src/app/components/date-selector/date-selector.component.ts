@@ -7,6 +7,7 @@ import {
 import { IconComponent, IconType } from '../icon/icon.component';
 import { Colors } from '../../enums/colors';
 import { transformToDate, transformToStrings } from '../../utils/date';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-date-selector',
@@ -30,13 +31,17 @@ export class DateSelectorComponent {
   dateToggle = signal<boolean>(false);
   timeToggle = signal<boolean>(false);
 
-  constructor() {
+  constructor(
+    private readonly notificationService: NotificationService
+  ) {
     this.init = effect(() => this.initialize(this.selectedDate()), { allowSignalWrites: true });
 
     effect(() => {
       const showDateSelector = this.dateToggle();
 
       if(showDateSelector) {
+        if(!this.notificationService.hasPermission) this.notificationService.requestPermission();
+
         if(this.date() === '') {
           const { date } = transformToStrings(new Date());
           this.date.set(date);

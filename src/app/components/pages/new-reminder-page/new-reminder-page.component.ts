@@ -72,7 +72,6 @@ export class NewReminderPageComponent {
     }
 
     void this.initSelectedList(this.reminder.associatedList);
-    if(!this.notificationService.hasPermission) this.notificationService.requestPermission();
   }
 
   async add(): Promise<void> {
